@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 400);
   });
 
-  // Fallback if load event already triggered or delayed
+  /* Fallback if load event already triggered or delayed */
   setTimeout(() => {
     if (preloader && !preloader.classList.contains('fade-out')) {
       preloader.classList.add('fade-out');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('theme-toggle');
   const htmlRoot = document.documentElement;
 
-  // Retrieve saved preference or default to dark
+  /* Retrieve saved preference or default to dark */
   const savedTheme = localStorage.getItem('acs_theme') || 'dark';
   htmlRoot.setAttribute('data-theme', savedTheme);
 
@@ -64,14 +64,14 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
 
-    // Header background blur on scroll
+    /* Header background blur on scroll */
     if (scrollY > 40) {
       siteHeader.classList.add('scrolled');
     } else {
       siteHeader.classList.remove('scrolled');
     }
 
-    // Back to top button visibility
+    /* Back to top button visibility */
     const backToTopBtn = document.getElementById('back-to-top');
     if (backToTopBtn) {
       if (scrollY > 450) {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Scroll spy for active nav link
+    /* Scroll spy for active nav link */
     let currentSectionId = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 120;
@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     link.addEventListener('click', closeMobileMenu);
   });
 
-  // Close mobile drawer when pressing Escape
+  /* Close mobile drawer when pressing Escape */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
       closeMobileMenu();
@@ -197,7 +197,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateParticles = () => {
       ctx.clearRect(0, 0, width, height);
 
-      // Connect near particles with delicate gold filament lines
+      /* Connect near particles with delicate gold filament lines */
       for (let i = 0; i < particles.length; i++) {
         particles[i].update();
         particles[i].draw();
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const animateCounter = (el) => {
     const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1800; // ms
+    const duration = 1800; /* ms */
     const stepTime = 20;
     const steps = duration / stepTime;
     const increment = target / steps;
@@ -317,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightboxCategory.textContent = category;
     lightboxDesc.textContent = desc;
 
-    // Create tailored WhatsApp inquiry button
+    /* Create tailored WhatsApp inquiry button */
     const waText = encodeURIComponent(`Hello David, I saw "${title}" (${category}) on your website portfolio and would like to order a similar design.`);
     lightboxHireBtn.href = `https://wa.me/233539554952?text=${waText}`;
     lightboxHireBtn.target = '_blank';
@@ -374,13 +374,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const parentItem = btn.parentElement;
       const isOpen = parentItem.classList.contains('active');
 
-      // Close all other items
+      /* Close all other items */
       document.querySelectorAll('.faq-item').forEach(item => {
         item.classList.remove('active');
         item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
       });
 
-      // Toggle clicked item
+      /* Toggle clicked item */
       if (!isOpen) {
         parentItem.classList.add('active');
         btn.setAttribute('aria-expanded', 'true');
@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       let isValid = true;
 
-      // Inputs
+      /* Inputs */
       const nameInput = document.getElementById('client-name');
       const emailInput = document.getElementById('client-email');
       const phoneInput = document.getElementById('client-phone');
@@ -410,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const deadlineSelect = document.getElementById('project-deadline');
       const messageInput = document.getElementById('project-message');
 
-      // Helper function to validate
+      /* Helper function to validate */
       const validateField = (input, condition) => {
         const parent = input.closest('.form-group');
         if (!condition) {
@@ -421,7 +421,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       };
 
-      // Email regex
+      /* Email regex */
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
       validateField(nameInput, nameInput.value.trim().length >= 2);
@@ -431,21 +431,21 @@ document.addEventListener('DOMContentLoaded', () => {
       validateField(messageInput, messageInput.value.trim().length >= 8);
 
       if (isValid) {
-        // Anti-Spam Honeypot Detection
+        /* Anti-Spam Honeypot Detection */
         const honeypot = contactForm.querySelector('input[name="_honey"]');
         if (honeypot && honeypot.value.trim() !== '') {
-          // Silently discard bot submission
+          /* Silently discard bot submission */
           submitBtn.classList.remove('loading');
           contactForm.style.display = 'none';
           formSuccess.classList.add('show');
           return;
         }
 
-        // Show loading state
+        /* Show loading state */
         submitBtn.classList.add('loading');
         submitBtn.disabled = true;
 
-        // Input Sanitization to prevent XSS
+        /* Input Sanitization to prevent XSS */
         const sanitizeInput = (str) => {
           const div = document.createElement('div');
           div.textContent = str;
@@ -464,7 +464,7 @@ document.addEventListener('DOMContentLoaded', () => {
           contactForm.style.display = 'none';
           formSuccess.classList.add('show');
 
-          // Construct tailored pre-filled WhatsApp link with sanitized data
+          /* Construct tailored pre-filled WhatsApp link with sanitized data */
           const waMessage = encodeURIComponent(
             `Hello David, my name is ${safeName}.\n` +
             `*Project Service:* ${safeService}\n` +
@@ -478,13 +478,13 @@ document.addEventListener('DOMContentLoaded', () => {
             waQuickLink.href = `https://wa.me/233539554952?text=${waMessage}`;
           }
 
-          // Reset form fields
+          /* Reset form fields */
           contactForm.reset();
         }, 800);
       }
     });
 
-    // Clear error on input
+    /* Clear error on input */
     const inputs = contactForm.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
       input.addEventListener('input', () => {
@@ -556,7 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Close modals on Escape key
+  /* Close modals on Escape key */
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       legalModals.forEach(modal => {
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 2800);
   }
 
-  // Deter right-click image downloading on portfolio and lightbox
+  /* Deter right-click image downloading on portfolio and lightbox */
   const protectedZones = document.querySelectorAll('.portfolio-grid, #lightbox-modal');
   protectedZones.forEach(zone => {
     zone.addEventListener('contextmenu', (e) => {
