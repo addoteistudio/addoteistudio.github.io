@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Create tailored WhatsApp inquiry button
     const waText = encodeURIComponent(`Hello David, I saw "${title}" (${category}) on your website portfolio and would like to order a similar design.`);
-    lightboxHireBtn.href = `https://wa.me/233240000000?text=${waText}`;
+    lightboxHireBtn.href = `https://wa.me/233539554952?text=${waText}`;
     lightboxHireBtn.target = '_blank';
     lightboxHireBtn.rel = 'noopener noreferrer';
 
@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
           );
 
           if (waQuickLink) {
-            waQuickLink.href = `https://wa.me/233240000000?text=${waMessage}`;
+            waQuickLink.href = `https://wa.me/233539554952?text=${waMessage}`;
           }
 
           // Reset form fields
