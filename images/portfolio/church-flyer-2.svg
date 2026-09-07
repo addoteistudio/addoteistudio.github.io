@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <linearGradient id="deepCrimson" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2D0B13"/>
+      <stop offset="50%" stop-color="#180509"/>
+      <stop offset="100%" stop-color="#080204"/>
+    </linearGradient>
+    <linearGradient id="warmGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE8A3"/>
+      <stop offset="50%" stop-color="#E5B842"/>
+      <stop offset="100%" stop-color="#997010"/>
+    </linearGradient>
+    <radialGradient id="fireGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#E23E57" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#D4AF37" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#080204" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="600" height="750" rx="16" fill="url(#deepCrimson)"/>
+  <circle cx="300" cy="270" r="260" fill="url(#fireGlow)"/>
+
+  <!-- Geometric Accent Pattern -->
+  <polygon points="300,80 340,160 260,160" fill="none" stroke="url(#warmGold)" stroke-width="1.5" opacity="0.6"/>
+  <circle cx="300" cy="135" r="5" fill="url(#warmGold)"/>
+
+  <!-- Top Church Name -->
+  <text x="300" y="200" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" letter-spacing="5" text-anchor="middle">REVIVAL FIRE MINISTRIES INTERNATIONAL</text>
+
+  <!-- Big Title -->
+  <text x="300" y="270" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="20" font-weight="800" letter-spacing="8" text-anchor="middle">AN ALL-NIGHT PROPHETIC</text>
+  <text x="300" y="345" fill="url(#warmGold)" font-family="'Playfair Display', serif" font-size="54" font-weight="900" letter-spacing="2" text-anchor="middle">ENCOUNTER</text>
+  <text x="300" y="390" fill="#FFFFFF" font-family="'Playfair Display', serif" font-size="28" font-style="italic" letter-spacing="3" text-anchor="middle">&amp; NIGHT OF PRAISE</text>
+
+  <rect x="150" y="420" width="300" height="2" fill="url(#warmGold)"/>
+  <text x="300" y="450" fill="#CBD5E1" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="2" text-anchor="middle">SALVATION • HEALING • MIRACLES • DELIVERANCE</text>
+
+  <!-- Guest Speaker Card -->
+  <rect x="80" y="480" width="440" height="90" rx="10" fill="#15060A" stroke="url(#warmGold)" stroke-width="1.2" opacity="0.9"/>
+  <text x="300" y="510" fill="url(#warmGold)" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="800" letter-spacing="3" text-anchor="middle">MINISTERING</text>
+  <text x="300" y="535" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="18" font-weight="700" letter-spacing="1" text-anchor="middle">PROPHET DR. EMMANUEL KOFI</text>
+  <text x="300" y="555" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" letter-spacing="1" text-anchor="middle">HOST PASTOR &amp; GENERAL OVERSEER</text>
+
+  <!-- Event Timings -->
+  <rect x="100" y="590" width="400" height="60" rx="30" fill="#200A10" stroke="#47141C" stroke-width="1"/>
+  <text x="300" y="620" fill="url(#warmGold)" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" letter-spacing="2" text-anchor="middle">LAST FRIDAY OF THE MONTH • 10:00 PM TILL DAWN</text>
+  <text x="300" y="638" fill="#E2E8F0" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" letter-spacing="1" text-anchor="middle">THE TABERNACLE AUDITORIUM, MAIN HIGHWAY</text>
+
+  <text x="300" y="690" fill="#94A3B8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" letter-spacing="2" text-anchor="middle">FREE TRANSPORTATION PROVIDED FROM DESIGNATED PICKUP POINTS</text>
+</svg>

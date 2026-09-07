@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E1E1E"/>
+      <stop offset="50%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#0A0A0A"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D77F"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="suitGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2C2C2E"/>
+      <stop offset="100%" stop-color="#18181A"/>
+    </linearGradient>
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#795548"/>
+      <stop offset="100%" stop-color="#4E342E"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="600" rx="24" fill="url(#bgGrad)"/>
+  <circle cx="250" cy="240" r="200" fill="url(#glow)"/>
+  
+  <!-- Subtle geometric luxury frame -->
+  <rect x="25" y="25" width="450" height="550" rx="16" fill="none" stroke="url(#gold)" stroke-width="1.5" opacity="0.4"/>
+  <rect x="35" y="35" width="430" height="530" rx="12" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.1"/>
+
+  <!-- Stylized Figure / Portrait of David Addotei -->
+  <g id="portrait">
+    <!-- Shoulders / Blazer -->
+    <path d="M120 540 C130 430 180 390 220 380 L250 430 L280 380 C320 390 370 430 380 540 Z" fill="url(#suitGrad)"/>
+    <!-- Gold Lapel Accent -->
+    <path d="M220 380 L250 480 L253 480 L235 385 Z" fill="url(#gold)" opacity="0.8"/>
+    <path d="M280 380 L250 480 L247 480 L265 385 Z" fill="url(#gold)" opacity="0.8"/>
+    <!-- Shirt -->
+    <path d="M235 380 L250 430 L265 380 Z" fill="#FFFFFF"/>
+    <path d="M248 400 L252 400 L250 430 Z" fill="url(#gold)"/>
+
+    <!-- Neck -->
+    <rect x="230" y="310" width="40" height="80" rx="10" fill="url(#skinGrad)"/>
+
+    <!-- Head -->
+    <ellipse cx="250" cy="250" rx="65" ry="80" fill="url(#skinGrad)"/>
+    
+    <!-- Hair / Clean Fade -->
+    <path d="M185 240 C185 170 210 160 250 160 C290 160 315 170 315 240 C305 210 290 190 250 190 C210 190 195 210 185 240 Z" fill="#1A1A1A"/>
+    <path d="M185 240 C182 195 215 165 250 165 C285 165 318 195 315 240 C310 180 280 170 250 170 C220 170 190 180 185 240 Z" fill="#111111"/>
+
+    <!-- Stylish Designer Glasses -->
+    <rect x="195" y="235" width="45" height="28" rx="8" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <rect x="260" y="235" width="45" height="28" rx="8" fill="none" stroke="url(#gold)" stroke-width="3"/>
+    <line x1="240" y1="247" x2="260" y2="247" stroke="url(#gold)" stroke-width="3"/>
+
+    <!-- Eyes (Subtle) -->
+    <circle cx="217" cy="249" r="4" fill="#FFFFFF"/>
+    <circle cx="282" cy="249" r="4" fill="#FFFFFF"/>
+
+    <!-- Beard / Goatee -->
+    <path d="M225 295 C235 325 265 325 275 295 C265 305 235 305 225 295 Z" fill="#1F1A17"/>
+    <!-- Confident Smile -->
+    <path d="M235 285 Q250 295 265 285" fill="none" stroke="#2B1D16" stroke-width="2.5" stroke-linecap="round"/>
+  </g>
+
+  <!-- Studio Emblem Ribbon / Badge at bottom -->
+  <rect x="80" y="490" width="340" height="55" rx="27.5" fill="#111111" stroke="url(#gold)" stroke-width="1.5"/>
+  <text x="250" y="515" fill="url(#gold)" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" letter-spacing="3" text-anchor="middle">DAVID ADDOTEI</text>
+  <text x="250" y="533" fill="#D1D1D6" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="400" letter-spacing="2" text-anchor="middle">CREATIVE DIRECTOR &amp; LEAD DESIGNER</text>
+</svg>

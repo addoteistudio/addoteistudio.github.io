@@ -1,0 +1,494 @@
+/**
+ * ADDOTEI CREATIVE STUDIO - MAIN JAVASCRIPT
+ * Handles: Preloader, Theme Switching, Mobile Navigation, Hero Canvas Particles,
+ * Portfolio Filtering, Lightbox Modal, Animated Counters, FAQ Accordion,
+ * Form Validation, and Smooth Scrolling.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  'use strict';
+
+  /* ==========================================================================
+     1. Preloader Screen
+     ========================================================================== */
+  const preloader = document.getElementById('preloader');
+  
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      if (preloader) {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 600);
+      }
+    }, 400);
+  });
+
+  // Fallback if load event already triggered or delayed
+  setTimeout(() => {
+    if (preloader && !preloader.classList.contains('fade-out')) {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 600);
+    }
+  }, 2000);
+
+  /* ==========================================================================
+     2. Theme Switcher (Dark / Light Mode)
+     ========================================================================== */
+  const themeToggleBtn = document.getElementById('theme-toggle');
+  const htmlRoot = document.documentElement;
+
+  // Retrieve saved preference or default to dark
+  const savedTheme = localStorage.getItem('acs_theme') || 'dark';
+  htmlRoot.setAttribute('data-theme', savedTheme);
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = htmlRoot.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlRoot.setAttribute('data-theme', newTheme);
+      localStorage.setItem('acs_theme', newTheme);
+    });
+  }
+
+  /* ==========================================================================
+     3. Sticky Navigation & Scroll Spy
+     ========================================================================== */
+  const siteHeader = document.getElementById('site-header');
+  const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
+  const sections = document.querySelectorAll('section[id]');
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    // Header background blur on scroll
+    if (scrollY > 40) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+
+    // Back to top button visibility
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+      if (scrollY > 450) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    }
+
+    // Scroll spy for active nav link
+    let currentSectionId = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop - 120;
+      const sectionHeight = section.offsetHeight;
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentSectionId = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${currentSectionId}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+
+  /* ==========================================================================
+     4. Mobile Navigation Drawer
+     ========================================================================== */
+  const menuToggleBtn = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+  const toggleMobileMenu = () => {
+    const isOpen = menuToggleBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    menuToggleBtn.setAttribute('aria-expanded', isOpen);
+    mobileMenu.setAttribute('aria-hidden', !isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  };
+
+  const closeMobileMenu = () => {
+    menuToggleBtn.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    menuToggleBtn.setAttribute('aria-expanded', 'false');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  if (menuToggleBtn) {
+    menuToggleBtn.addEventListener('click', toggleMobileMenu);
+  }
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close mobile drawer when pressing Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
+
+  /* ==========================================================================
+     5. Hero Ambient Particle Canvas
+     ========================================================================== */
+  const canvas = document.getElementById('hero-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    const particleCount = Math.min(Math.floor(window.innerWidth / 30), 45);
+
+    class Particle {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 2 + 0.6;
+        this.speedX = (Math.random() - 0.5) * 0.4;
+        this.speedY = (Math.random() - 0.5) * 0.4;
+        this.alpha = Math.random() * 0.5 + 0.2;
+        this.goldColor = Math.random() > 0.3;
+      }
+
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+
+        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
+          this.reset();
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        if (this.goldColor) {
+          ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
+        } else {
+          ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.6})`;
+        }
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    const animateParticles = () => {
+      ctx.clearRect(0, 0, width, height);
+
+      // Connect near particles with delicate gold filament lines
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 110) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(212, 175, 55, ${0.12 * (1 - dist / 110)})`;
+            ctx.lineWidth = 0.6;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(animateParticles);
+    };
+
+    animateParticles();
+  }
+
+  /* ==========================================================================
+     6. Animated Statistics Counters
+     ========================================================================== */
+  const statNumbers = document.querySelectorAll('.stat-number');
+  let animatedStats = false;
+
+  const animateCounter = (el) => {
+    const target = parseInt(el.getAttribute('data-target'), 10);
+    const duration = 1800; // ms
+    const stepTime = 20;
+    const steps = duration / stepTime;
+    const increment = target / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        el.textContent = target;
+        clearInterval(timer);
+      } else {
+        el.textContent = Math.floor(current);
+      }
+    }, stepTime);
+  };
+
+  const statsSection = document.getElementById('stats-counter');
+  if (statsSection) {
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !animatedStats) {
+          animatedStats = true;
+          statNumbers.forEach(num => animateCounter(num));
+        }
+      });
+    }, { threshold: 0.3 });
+
+    statsObserver.observe(statsSection);
+  }
+
+  /* ==========================================================================
+     7. Portfolio Category Filtering
+     ========================================================================== */
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      portfolioItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        if (filterValue === 'all' || itemCategory === filterValue) {
+          item.classList.remove('hide');
+          item.style.opacity = '0';
+          item.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 30);
+        } else {
+          item.classList.add('hide');
+        }
+      });
+    });
+  });
+
+  /* ==========================================================================
+     8. Portfolio Lightbox Modal
+     ========================================================================== */
+  const lightboxModal = document.getElementById('lightbox-modal');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCategory = document.getElementById('lightbox-category');
+  const lightboxDesc = document.getElementById('lightbox-desc');
+  const lightboxCloseBtn = document.getElementById('lightbox-close');
+  const lightboxHireBtn = document.getElementById('lightbox-hire-btn');
+  const previewBtns = document.querySelectorAll('.preview-btn');
+
+  const openLightbox = (src, title, category, desc) => {
+    if (!lightboxModal) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = title;
+    lightboxTitle.textContent = title;
+    lightboxCategory.textContent = category;
+    lightboxDesc.textContent = desc;
+
+    // Create tailored WhatsApp inquiry button
+    const waText = encodeURIComponent(`Hello David, I saw "${title}" (${category}) on your website portfolio and would like to order a similar design.`);
+    lightboxHireBtn.href = `https://wa.me/233240000000?text=${waText}`;
+    lightboxHireBtn.target = '_blank';
+    lightboxHireBtn.rel = 'noopener noreferrer';
+
+    lightboxModal.classList.add('open');
+    lightboxModal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    if (!lightboxModal) return;
+    lightboxModal.classList.remove('open');
+    lightboxModal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  previewBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const src = btn.getAttribute('data-src');
+      const title = btn.getAttribute('data-title');
+      const cat = btn.getAttribute('data-category');
+      const desc = btn.getAttribute('data-desc');
+      openLightbox(src, title, cat, desc);
+    });
+  });
+
+  if (lightboxCloseBtn) {
+    lightboxCloseBtn.addEventListener('click', closeLightbox);
+  }
+
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target.classList.contains('lightbox-backdrop')) {
+        closeLightbox();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('open')) {
+      closeLightbox();
+    }
+  });
+
+  /* ==========================================================================
+     9. FAQ Accordion
+     ========================================================================== */
+  const faqQuestions = document.querySelectorAll('.faq-question');
+
+  faqQuestions.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parentItem = btn.parentElement;
+      const isOpen = parentItem.classList.contains('active');
+
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle clicked item
+      if (!isOpen) {
+        parentItem.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  /* ==========================================================================
+     10. Contact Form Validation & WhatsApp Handshake
+     ========================================================================== */
+  const contactForm = document.getElementById('contact-form');
+  const submitBtn = document.getElementById('form-submit-btn');
+  const formSuccess = document.getElementById('form-success');
+  const waQuickLink = document.getElementById('whatsapp-quick-link');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      let isValid = true;
+
+      // Inputs
+      const nameInput = document.getElementById('client-name');
+      const emailInput = document.getElementById('client-email');
+      const phoneInput = document.getElementById('client-phone');
+      const serviceSelect = document.getElementById('service-select');
+      const deadlineSelect = document.getElementById('project-deadline');
+      const messageInput = document.getElementById('project-message');
+
+      // Helper function to validate
+      const validateField = (input, condition) => {
+        const parent = input.closest('.form-group');
+        if (!condition) {
+          parent.classList.add('has-error');
+          isValid = false;
+        } else {
+          parent.classList.remove('has-error');
+        }
+      };
+
+      // Email regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      validateField(nameInput, nameInput.value.trim().length >= 2);
+      validateField(emailInput, emailRegex.test(emailInput.value.trim()));
+      validateField(phoneInput, phoneInput.value.trim().length >= 7);
+      validateField(serviceSelect, serviceSelect.value !== '');
+      validateField(messageInput, messageInput.value.trim().length >= 8);
+
+      if (isValid) {
+        // Show loading state
+        submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.classList.remove('loading');
+          contactForm.style.display = 'none';
+          formSuccess.classList.add('show');
+
+          // Construct tailored pre-filled WhatsApp link
+          const waMessage = encodeURIComponent(
+            `Hello David, my name is ${nameInput.value.trim()}.\n` +
+            `*Project Service:* ${serviceSelect.value}\n` +
+            `*Target Deadline:* ${deadlineSelect.value}\n` +
+            `*Brief:* ${messageInput.value.trim()}\n` +
+            `*Contact Email:* ${emailInput.value.trim()}`
+          );
+
+          if (waQuickLink) {
+            waQuickLink.href = `https://wa.me/233240000000?text=${waMessage}`;
+          }
+
+          // Reset form fields
+          contactForm.reset();
+        }, 1000);
+      }
+    });
+
+    // Clear error on input
+    const inputs = contactForm.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+      input.addEventListener('input', () => {
+        const parent = input.closest('.form-group');
+        if (parent && parent.classList.contains('has-error')) {
+          parent.classList.remove('has-error');
+        }
+      });
+    });
+  }
+
+  /* ==========================================================================
+     11. Back to Top Button Smooth Scroll
+     ========================================================================== */
+  const backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  /* ==========================================================================
+     12. Current Year in Footer
+     ========================================================================== */
+  const currentYearEl = document.getElementById('current-year');
+  if (currentYearEl) {
+    currentYearEl.textContent = new Date().getFullYear();
+  }
+});

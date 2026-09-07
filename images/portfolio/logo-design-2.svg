@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="vanguardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="50%" stop-color="#020617"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <linearGradient id="modernGold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FCE79D"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#B8860B"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="600" rx="16" fill="url(#vanguardBg)"/>
+
+  <!-- Geometric Modernist Vanguard V -->
+  <g transform="translate(300, 240)">
+    <!-- Outer Hexagon ring -->
+    <polygon points="0,-95 82,-47 82,47 0,95 -82,47 -82,-47" fill="none" stroke="url(#modernGold)" stroke-width="2" opacity="0.3"/>
+    
+    <!-- Dynamic Chevron Wings -->
+    <path d="M-60 -40 L0 55 L60 -40 L40 -40 L0 25 L-40 -40 Z" fill="url(#modernGold)"/>
+    <path d="M-40 -70 L0 0 L40 -70 L25 -70 L0 -25 L-25 -70 Z" fill="#38BDF8"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="300" y="415" fill="#FFFFFF" font-family="'Plus Jakarta Sans', sans-serif" font-size="36" font-weight="900" letter-spacing="6" text-anchor="middle">VANGUARD</text>
+  <text x="300" y="445" fill="url(#modernGold)" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" letter-spacing="8" text-anchor="middle">CAPITAL VENTURES</text>
+  <text x="300" y="485" fill="#64748B" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" letter-spacing="3" text-anchor="middle">FINANCIAL ARCHITECTURE &amp; EQUITY</text>
+</svg>
