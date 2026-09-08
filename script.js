@@ -1,4 +1,4 @@
- /**
+/**
  * ADDOTEI CREATIVE STUDIO - MAIN JAVASCRIPT
  * Handles: Preloader, Theme Switching, Mobile Navigation, Hero Canvas Particles,
  * Portfolio Filtering, Lightbox Modal, Animated Counters, FAQ Accordion,
