@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=2.1">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -86,6 +86,25 @@
       </div>
       <h2 class="preloader-text">ADDOTEI CREATIVE STUDIO</h2>
       <div class="preloader-bar"><div class="preloader-progress"></div></div>
+  <script>
+    /* Bulletproof preloader dismiss (prevents getting stuck) */
+    (function() {
+      function dismissPreloader() {
+        var p = document.getElementById('preloader');
+        if (p && !p.classList.contains('fade-out')) {
+          p.classList.add('fade-out');
+          setTimeout(function() { p.style.display = 'none'; }, 600);
+        }
+      }
+      if (document.readyState === 'complete') {
+        dismissPreloader();
+      } else {
+        window.addEventListener('load', dismissPreloader);
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 800); });
+        setTimeout(dismissPreloader, 1500);
+      }
+    })();
+  </script>
     </div>
   </div>
 
@@ -2545,6 +2564,6 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <script src="script.js"></script>
+  <script src="script.js?v=2.1"></script>
 </body>
 </html>
