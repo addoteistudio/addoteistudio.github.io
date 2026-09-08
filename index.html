@@ -293,7 +293,9 @@
 
             <div class="about-cta">
               <a href="#contact" class="btn btn-gold">Let's Discuss Your Project</a>
-              <a href="#portfolio" class="btn btn-outline">Explore Gallery</a>
+              <button type="button" class="btn btn-outline" data-modal-open="business-profile-modal">
+                <span>📑 View Business Profile</span>
+              </button>
             </div>
           </div>
         </div>
@@ -1033,7 +1035,19 @@
           <div class="title-divider"></div>
         </div>
 
-        <div class="testimonials-grid">
+        <!-- Testimonials Action Bar with Leave a Review Trigger -->
+        <div class="testimonials-action-bar">
+          <div class="review-stat-pill">
+            <span class="review-stars-gold">★★★★★</span>
+            <span class="review-score"><strong>4.9 / 5.0</strong> Client Rating</span>
+            <span class="review-badge-count">(50+ Commissions)</span>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold" data-modal-open="review-modal">
+            <span>✍️ Leave a Client Review</span>
+          </button>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
           
           <div class="testimonial-card">
             <div class="rating-stars">★★★★★</div>
@@ -1119,6 +1133,13 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="testimonials-footer-cta text-center">
+          <p class="testimonials-cta-text">Have you worked with David on a flyer or branding project?</p>
+          <button type="button" class="btn btn-sm btn-outline" data-modal-open="review-modal">
+            <span>Share Your Experience &amp; Rating ➔</span>
+          </button>
         </div>
       </div>
     </section>
@@ -1756,6 +1777,216 @@
 
       <div class="legal-modal-footer">
         <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       INTERACTIVE CLIENT REVIEW MODAL
+       ========================================================================= -->
+  <div id="review-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="review-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card review-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">CLIENT ENDORSEMENT</span>
+          <h3 id="review-modal-title" class="legal-modal-title">Leave a Client Review</h3>
+          <p class="legal-modal-subtitle">Share your experience working with David Addotei</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Review Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <form id="client-review-form" class="client-review-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-client-name" class="form-label">Your Name <span class="req">*</span></label>
+              <input type="text" id="review-client-name" name="client_name" class="form-input" placeholder="e.g. Pastor Michael Mensah" required>
+            </div>
+            <div class="form-group">
+              <label for="review-client-role" class="form-label">Title / Church / Business <span class="req">*</span></label>
+              <input type="text" id="review-client-role" name="client_role" class="form-input" placeholder="e.g. Lead Pastor, Grace Church" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-client-email" class="form-label">Your Email <span class="req">*</span></label>
+              <input type="email" id="review-client-email" name="client_email" class="form-input" placeholder="e.g. client@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="review-service-type" class="form-label">Service Received <span class="req">*</span></label>
+              <select id="review-service-type" name="service_type" class="form-select" required>
+                <option value="Event Flyer">Event &amp; Club Flyer</option>
+                <option value="Church Flyer" selected>Church &amp; Ministry Flyer</option>
+                <option value="Business Flyer">Corporate Business Flyer</option>
+                <option value="Logo Design">Logo &amp; Brand Identity</option>
+                <option value="Social Media">Social Media Graphics</option>
+                <option value="Poster / Banner">Poster or Rollup Banner</option>
+                <option value="Other">Other Creative Work</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Interactive Star Rating Selector -->
+          <div class="form-group rating-selector-group">
+            <label class="form-label">Your Overall Rating <span class="req">*</span></label>
+            <div class="star-rating-widget" id="star-rating-widget">
+              <button type="button" class="star-btn active" data-value="1" aria-label="1 star">★</button>
+              <button type="button" class="star-btn active" data-value="2" aria-label="2 stars">★</button>
+              <button type="button" class="star-btn active" data-value="3" aria-label="3 stars">★</button>
+              <button type="button" class="star-btn active" data-value="4" aria-label="4 stars">★</button>
+              <button type="button" class="star-btn active" data-value="5" aria-label="5 stars">★</button>
+              <span class="rating-label-text" id="rating-label-text">5.0 - Exceptional Quality!</span>
+            </div>
+            <input type="hidden" id="review-rating-value" name="rating" value="5">
+          </div>
+
+          <div class="form-group">
+            <label for="review-message" class="form-label">Your Review / Testimonial <span class="req">*</span></label>
+            <textarea id="review-message" name="review_text" class="form-textarea" rows="3" placeholder="Tell us about the design quality, speed, communication, and impact of the artwork..." required></textarea>
+          </div>
+
+          <button type="submit" id="review-submit-btn" class="btn btn-gold btn-block btn-submit">
+            <span class="submit-text">Submit Verified Review</span>
+            <span class="submit-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <!-- Review Success Feedback Banner -->
+        <div id="review-success-banner" class="form-success-banner" aria-live="polite">
+          <div class="success-icon">✓</div>
+          <h4 class="success-title">Review Submitted!</h4>
+          <p class="success-desc">Thank you for your endorsement. Your review has been recorded and delivered directly to David Addotei.</p>
+          <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       OFFICIAL STUDIO BUSINESS PROFILE DOSSIER MODAL
+       ========================================================================= -->
+  <div id="business-profile-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="profile-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card business-dossier-card">
+      <div class="legal-modal-header dossier-header">
+        <div class="dossier-header-branding">
+          <span class="dossier-emblem">AD</span>
+          <div>
+            <span class="legal-badge">OFFICIAL CAPABILITY DOSSIER</span>
+            <h3 id="profile-modal-title" class="legal-modal-title">Addotei Creative Studio</h3>
+            <p class="legal-modal-subtitle">Bespoke Visual Architecture • Accra, Ghana • Serving Global Clients</p>
+          </div>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Business Profile Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body dossier-body">
+        
+        <!-- Section 1: Executive Summary -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">1. Executive Overview &amp; Studio Direction</h4>
+          <p>
+            <strong>Addotei Creative Studio</strong> is an independent luxury minimalist graphic design practice founded and directed by <strong>David Addotei</strong>. Operating from Accra, Ghana, the studio engineers high-impact event publicity, reverent church visuals, corporate branding, and modern vector identities for clients worldwide.
+          </p>
+          <div class="dossier-key-stats">
+            <div class="dossier-stat-box">
+              <strong>500+</strong>
+              <small>Artworks Delivered</small>
+            </div>
+            <div class="dossier-stat-box">
+              <strong>24-48h</strong>
+              <small>Turnaround SLA</small>
+            </div>
+            <div class="dossier-stat-box">
+              <strong>100%</strong>
+              <small>Commercial IP Transfer</small>
+            </div>
+            <div class="dossier-stat-box">
+              <strong>Global</strong>
+              <small>Ghana, UK, US, Diaspora</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Core Competencies Matrix -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">2. Core Competency Disciplines</h4>
+          <div class="dossier-competencies-grid">
+            <div class="competency-card">
+              <h5>✨ Event &amp; Nightlife Flyers</h5>
+              <p>High-energy VIP galas, music concerts, nightlife publicity, anniversary celebrations, and ticketing promotional artwork.</p>
+            </div>
+            <div class="competency-card">
+              <h5>⛪ Church &amp; Ministry Graphics</h5>
+              <p>Reverent spiritual posters, prophetic revivals, worship nights, national conventions, sermon series, and social broadcasts.</p>
+            </div>
+            <div class="competency-card">
+              <h5>💼 Corporate &amp; Business Flyers</h5>
+              <p>Executive summits, product launches, corporate capability profiles, financial conferences, and institutional publications.</p>
+            </div>
+            <div class="competency-card">
+              <h5>🎨 Brand Identity &amp; Logo Suites</h5>
+              <p>Bespoke monograms, modern minimal vector trademarks, color typography palettes, and commercial brand guidelines.</p>
+            </div>
+            <div class="competency-card">
+              <h5>🖼️ Posters &amp; Rollup Banners</h5>
+              <p>Large-format 300 DPI exhibition graphics, pull-up banners, stage backdrops, and billboard-grade vector outputs.</p>
+            </div>
+            <div class="competency-card">
+              <h5>📱 Social Media Campaign Kits</h5>
+              <p>Instagram carousels, TikTok vertical covers, WhatsApp status announcements, and high-conversion ad creatives.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Technical Capabilities & Standards -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">3. Technical Software Stack &amp; Deliverables</h4>
+          <div class="dossier-pills-wrap">
+            <span class="dossier-pill">Adobe Photoshop CC</span>
+            <span class="dossier-pill">Adobe Illustrator CC</span>
+            <span class="dossier-pill">Apple iPad Pro &amp; Pencil</span>
+            <span class="dossier-pill">Procreate Digital Canvas</span>
+            <span class="dossier-pill">CMYK 300 DPI Print Standards</span>
+            <span class="dossier-pill">RGB Screen Optimized</span>
+            <span class="dossier-pill">Vector SVG / EPS</span>
+            <span class="dossier-pill">Ultra-HD 4K Previews</span>
+          </div>
+        </div>
+
+        <!-- Section 4: Operational Terms & Guarantees -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">4. Studio Guarantees &amp; Commercial Terms</h4>
+          <ul class="dossier-guarantees-list">
+            <li><strong>Production Turnaround:</strong> Standard delivery within 24 to 48 hours; express rush delivery available upon brief clearance.</li>
+            <li><strong>Revision Commitment:</strong> Up to 2 to 3 revision rounds per commission for perfection and text accuracy.</li>
+            <li><strong>Intellectual Property:</strong> 100% full commercial rights transfer to client upon final invoice settlement.</li>
+            <li><strong>Confidentiality:</strong> Non-disclosure guaranteed for pre-launch event announcements and corporate initiatives.</li>
+          </ul>
+        </div>
+
+        <!-- Section 5: Direct Studio Contact -->
+        <div class="dossier-contact-box">
+          <div class="dossier-contact-info">
+            <strong>Ready to commission Addotei Creative Studio?</strong>
+            <span>Lead Creative Director: <strong>David Addotei</strong> • Accra, Ghana</span>
+          </div>
+          <div class="dossier-cta-btns">
+            <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20have%20reviewed%20your%20Business%20Profile%20and%20would%20like%20to%20commission%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+              💬 Instant WhatsApp Booking
+            </a>
+            <a href="mailto:d8222815@gmail.com?subject=Project%20Inquiry%20-%20Addotei%20Creative%20Studio" class="btn btn-outline btn-sm">
+              ✉️ Email Project Brief
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close Profile</button>
       </div>
     </div>
   </div>
