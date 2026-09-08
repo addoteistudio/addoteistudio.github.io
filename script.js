@@ -1,494 +1,2550 @@
-/**
- * ADDOTEI CREATIVE STUDIO - MAIN JAVASCRIPT
- * Handles: Preloader, Theme Switching, Mobile Navigation, Hero Canvas Particles,
- * Portfolio Filtering, Lightbox Modal, Animated Counters, FAQ Accordion,
- * Form Validation, and Smooth Scrolling.
- */
-
-document.addEventListener('DOMContentLoaded', () => {
-  'use strict';
-
-  /* ==========================================================================
-     1. Preloader Screen
-     ========================================================================== */
-  const preloader = document.getElementById('preloader');
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (preloader) {
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 600);
-      }
-    }, 400);
-  });
+  <!-- Primary Meta Tags -->
+  <title>Addotei Creative Studio | Premium Graphic Design, Branding &amp; Flyers by David Addotei</title>
+  <meta name="title" content="Addotei Creative Studio | Premium Graphic Design, Branding &amp; Flyers by David Addotei">
+  <meta name="description" content="Elevate your brand with Addotei Creative Studio. Led by David Addotei, we specialize in luxury flyers, church posters, corporate business graphics, brand identity, and modern logos. Fast turnaround, world-class quality.">
+  <meta name="keywords" content="Graphic Designer, Flyer Design, Church Flyers, Event Flyers, Business Flyers, Logo Design, Brand Identity, Social Media Graphics, Posters, David Addotei, Addotei Creative Studio, Luxury Design">
+  <meta name="author" content="David Addotei">
+  <meta name="robots" content="index, follow">
 
-  // Fallback if load event already triggered or delayed
-  setTimeout(() => {
-    if (preloader && !preloader.classList.contains('fade-out')) {
-      preloader.classList.add('fade-out');
-      setTimeout(() => {
-        preloader.style.display = 'none';
-      }, 600);
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://addoteicreative.com/">
+  <meta property="og:title" content="Addotei Creative Studio | Premium Graphic Design &amp; Visual Branding">
+  <meta property="og:description" content="Award-winning flyer design, brand identity, and visual marketing for businesses, churches, events, and entrepreneurs.">
+  <meta property="og:image" content="images/portfolio/event-flyer-1.svg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://addoteicreative.com/">
+  <meta property="twitter:title" content="Addotei Creative Studio | David Addotei">
+  <meta property="twitter:description" content="Transforming brands through iconic flyers, timeless logos, and luxury visual design.">
+  <meta property="twitter:image" content="images/portfolio/event-flyer-1.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Addotei Creative Studio",
+    "founder": {
+      "@type": "Person",
+      "name": "David Addotei",
+      "jobTitle": "Creative Director & Lead Graphic Designer"
+    },
+    "description": "Premium graphic design studio specializing in event flyers, church flyers, corporate identity, logo design, and social media branding.",
+    "priceRange": "$$",
+    "serviceArea": {
+      "@type": "AdministrativeArea",
+      "name": "Global & International"
+    },
+    "sameAs": [
+      "https://www.instagram.com/addoteicreative_studio/",
+      "https://www.tiktok.com/@addoteicreative_studio",
+      "https://t.me/addoteicreative_studio",
+      "https://wa.me/233539554952"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Graphic Design Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flyer Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Church Flyer Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo & Brand Identity" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Graphics" } }
+      ]
     }
-  }, 2000);
+  }
+  </script>
+</head>
+<body>
 
-  /* ==========================================================================
-     2. Theme Switcher (Dark / Light Mode)
-     ========================================================================== */
-  const themeToggleBtn = document.getElementById('theme-toggle');
-  const htmlRoot = document.documentElement;
+  <!-- Preloader Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-monogram">
+        <svg viewBox="0 0 100 100" class="preloader-logo">
+          <circle cx="50" cy="50" r="44" fill="none" stroke="#D4AF37" stroke-width="2" stroke-dasharray="140" stroke-dashoffset="140" class="circle-spin"/>
+          <path d="M50 24 L74 76 L62 76 L56 62 L44 62 L38 76 L26 76 Z M50 38 L46 54 L54 54 Z" fill="#D4AF37"/>
+        </svg>
+      </div>
+      <h2 class="preloader-text">ADDOTEI CREATIVE STUDIO</h2>
+      <div class="preloader-bar"><div class="preloader-progress"></div></div>
+    </div>
+  </div>
 
-  // Retrieve saved preference or default to dark
-  const savedTheme = localStorage.getItem('acs_theme') || 'dark';
-  htmlRoot.setAttribute('data-theme', savedTheme);
+  <!-- Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="Addotei Creative Studio Home">
+        <span class="logo-mark">
+          <svg viewBox="0 0 40 40" width="34" height="34">
+            <rect width="40" height="40" rx="8" fill="#1A1A1A" stroke="#D4AF37" stroke-width="1.5"/>
+            <path d="M20 9 L30 31 L25 31 L22.5 25 L17.5 25 L15 31 L10 31 Z M20 15 L18.5 21 L21.5 21 Z" fill="#D4AF37"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong class="brand-name">ADDOTEI</strong>
+          <small class="brand-sub">CREATIVE STUDIO</small>
+        </span>
+      </a>
 
-  if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = htmlRoot.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#process" class="nav-link">Process</a></li>
+          <li><a href="#why-me" class="nav-link">Why Choose Me</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Items: Theme Switcher & Hire Button -->
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Switch Theme">
+          <span class="theme-icon sun-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon moon-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <a href="#contact" class="btn btn-gold btn-sm hide-mobile">Hire Me</a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="menu-toggle" class="menu-toggle-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="mobile-drawer" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="#home" class="mobile-nav-link">Home</a></li>
+        <li><a href="#about" class="mobile-nav-link">About</a></li>
+        <li><a href="#portfolio" class="mobile-nav-link">Portfolio</a></li>
+        <li><a href="#services" class="mobile-nav-link">Services</a></li>
+        <li><a href="#process" class="mobile-nav-link">Process</a></li>
+        <li><a href="#why-me" class="mobile-nav-link">Why Choose Me</a></li>
+        <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
+        <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="#contact" class="btn btn-gold btn-block mobile-nav-link">Hire Me Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Section 1: Home / Hero -->
+    <section id="home" class="hero-section">
+      <!-- Animated Canvas Background -->
+      <canvas id="hero-canvas" class="hero-canvas"></canvas>
       
-      htmlRoot.setAttribute('data-theme', newTheme);
-      localStorage.setItem('acs_theme', newTheme);
-    });
-  }
-
-  /* ==========================================================================
-     3. Sticky Navigation & Scroll Spy
-     ========================================================================== */
-  const siteHeader = document.getElementById('site-header');
-  const navLinks = document.querySelectorAll('.desktop-nav .nav-link');
-  const sections = document.querySelectorAll('section[id]');
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-
-    // Header background blur on scroll
-    if (scrollY > 40) {
-      siteHeader.classList.add('scrolled');
-    } else {
-      siteHeader.classList.remove('scrolled');
-    }
-
-    // Back to top button visibility
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-      if (scrollY > 450) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    }
-
-    // Scroll spy for active nav link
-    let currentSectionId = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 120;
-      const sectionHeight = section.offsetHeight;
-      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-        currentSectionId = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSectionId}`) {
-        link.classList.add('active');
-      }
-    });
-  });
-
-  /* ==========================================================================
-     4. Mobile Navigation Drawer
-     ========================================================================== */
-  const menuToggleBtn = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-  const toggleMobileMenu = () => {
-    const isOpen = menuToggleBtn.classList.toggle('open');
-    mobileMenu.classList.toggle('open');
-    menuToggleBtn.setAttribute('aria-expanded', isOpen);
-    mobileMenu.setAttribute('aria-hidden', !isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  };
-
-  const closeMobileMenu = () => {
-    menuToggleBtn.classList.remove('open');
-    mobileMenu.classList.remove('open');
-    menuToggleBtn.setAttribute('aria-expanded', 'false');
-    mobileMenu.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  if (menuToggleBtn) {
-    menuToggleBtn.addEventListener('click', toggleMobileMenu);
-  }
-
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
-  });
-
-  // Close mobile drawer when pressing Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && mobileMenu && mobileMenu.classList.contains('open')) {
-      closeMobileMenu();
-    }
-  });
-
-  /* ==========================================================================
-     5. Hero Ambient Particle Canvas
-     ========================================================================== */
-  const canvas = document.getElementById('hero-canvas');
-  if (canvas) {
-    const ctx = canvas.getContext('2d');
-    let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
-
-    window.addEventListener('resize', () => {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-    });
-
-    const particles = [];
-    const particleCount = Math.min(Math.floor(window.innerWidth / 30), 45);
-
-    class Particle {
-      constructor() {
-        this.reset();
-      }
-
-      reset() {
-        this.x = Math.random() * width;
-        this.y = Math.random() * height;
-        this.size = Math.random() * 2 + 0.6;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.alpha = Math.random() * 0.5 + 0.2;
-        this.goldColor = Math.random() > 0.3;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x < 0 || this.x > width || this.y < 0 || this.y > height) {
-          this.reset();
-        }
-      }
-
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        if (this.goldColor) {
-          ctx.fillStyle = `rgba(212, 175, 55, ${this.alpha})`;
-        } else {
-          ctx.fillStyle = `rgba(255, 255, 255, ${this.alpha * 0.6})`;
-        }
-        ctx.fill();
-      }
-    }
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-
-    const animateParticles = () => {
-      ctx.clearRect(0, 0, width, height);
-
-      // Connect near particles with delicate gold filament lines
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-
-          if (dist < 110) {
-            ctx.beginPath();
-            ctx.strokeStyle = `rgba(212, 175, 55, ${0.12 * (1 - dist / 110)})`;
-            ctx.lineWidth = 0.6;
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.stroke();
-          }
-        }
-      }
-
-      requestAnimationFrame(animateParticles);
-    };
-
-    animateParticles();
-  }
-
-  /* ==========================================================================
-     6. Animated Statistics Counters
-     ========================================================================== */
-  const statNumbers = document.querySelectorAll('.stat-number');
-  let animatedStats = false;
-
-  const animateCounter = (el) => {
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1800; // ms
-    const stepTime = 20;
-    const steps = duration / stepTime;
-    const increment = target / steps;
-    let current = 0;
-
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        el.textContent = target;
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(current);
-      }
-    }, stepTime);
-  };
-
-  const statsSection = document.getElementById('stats-counter');
-  if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animatedStats) {
-          animatedStats = true;
-          statNumbers.forEach(num => animateCounter(num));
-        }
-      });
-    }, { threshold: 0.3 });
-
-    statsObserver.observe(statsSection);
-  }
-
-  /* ==========================================================================
-     7. Portfolio Category Filtering
-     ========================================================================== */
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      const filterValue = btn.getAttribute('data-filter');
-
-      portfolioItems.forEach(item => {
-        const itemCategory = item.getAttribute('data-category');
-        if (filterValue === 'all' || itemCategory === filterValue) {
-          item.classList.remove('hide');
-          item.style.opacity = '0';
-          item.style.transform = 'translateY(12px)';
-          setTimeout(() => {
-            item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-          }, 30);
-        } else {
-          item.classList.add('hide');
-        }
-      });
-    });
-  });
-
-  /* ==========================================================================
-     8. Portfolio Lightbox Modal
-     ========================================================================== */
-  const lightboxModal = document.getElementById('lightbox-modal');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lightboxTitle = document.getElementById('lightbox-title');
-  const lightboxCategory = document.getElementById('lightbox-category');
-  const lightboxDesc = document.getElementById('lightbox-desc');
-  const lightboxCloseBtn = document.getElementById('lightbox-close');
-  const lightboxHireBtn = document.getElementById('lightbox-hire-btn');
-  const previewBtns = document.querySelectorAll('.preview-btn');
-
-  const openLightbox = (src, title, category, desc) => {
-    if (!lightboxModal) return;
-    lightboxImg.src = src;
-    lightboxImg.alt = title;
-    lightboxTitle.textContent = title;
-    lightboxCategory.textContent = category;
-    lightboxDesc.textContent = desc;
-
-    // Create tailored WhatsApp inquiry button
-    const waText = encodeURIComponent(`Hello David, I saw "${title}" (${category}) on your website portfolio and would like to order a similar design.`);
-    lightboxHireBtn.href = `https://wa.me/233539554952?text=${waText}`;
-    lightboxHireBtn.target = '_blank';
-    lightboxHireBtn.rel = 'noopener noreferrer';
-
-    lightboxModal.classList.add('open');
-    lightboxModal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeLightbox = () => {
-    if (!lightboxModal) return;
-    lightboxModal.classList.remove('open');
-    lightboxModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  };
-
-  previewBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const src = btn.getAttribute('data-src');
-      const title = btn.getAttribute('data-title');
-      const cat = btn.getAttribute('data-category');
-      const desc = btn.getAttribute('data-desc');
-      openLightbox(src, title, cat, desc);
-    });
-  });
-
-  if (lightboxCloseBtn) {
-    lightboxCloseBtn.addEventListener('click', closeLightbox);
-  }
-
-  if (lightboxModal) {
-    lightboxModal.addEventListener('click', (e) => {
-      if (e.target.classList.contains('lightbox-backdrop')) {
-        closeLightbox();
-      }
-    });
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal && lightboxModal.classList.contains('open')) {
-      closeLightbox();
-    }
-  });
-
-  /* ==========================================================================
-     9. FAQ Accordion
-     ========================================================================== */
-  const faqQuestions = document.querySelectorAll('.faq-question');
-
-  faqQuestions.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const parentItem = btn.parentElement;
-      const isOpen = parentItem.classList.contains('active');
-
-      // Close all other items
-      document.querySelectorAll('.faq-item').forEach(item => {
-        item.classList.remove('active');
-        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-      });
-
-      // Toggle clicked item
-      if (!isOpen) {
-        parentItem.classList.add('active');
-        btn.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-
-  /* ==========================================================================
-     10. Contact Form Validation & WhatsApp Handshake
-     ========================================================================== */
-  const contactForm = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('form-submit-btn');
-  const formSuccess = document.getElementById('form-success');
-  const waQuickLink = document.getElementById('whatsapp-quick-link');
-
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-
-      let isValid = true;
-
-      // Inputs
-      const nameInput = document.getElementById('client-name');
-      const emailInput = document.getElementById('client-email');
-      const phoneInput = document.getElementById('client-phone');
-      const serviceSelect = document.getElementById('service-select');
-      const deadlineSelect = document.getElementById('project-deadline');
-      const messageInput = document.getElementById('project-message');
-
-      // Helper function to validate
-      const validateField = (input, condition) => {
-        const parent = input.closest('.form-group');
-        if (!condition) {
-          parent.classList.add('has-error');
-          isValid = false;
-        } else {
-          parent.classList.remove('has-error');
-        }
-      };
-
-      // Email regex
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-      validateField(nameInput, nameInput.value.trim().length >= 2);
-      validateField(emailInput, emailRegex.test(emailInput.value.trim()));
-      validateField(phoneInput, phoneInput.value.trim().length >= 7);
-      validateField(serviceSelect, serviceSelect.value !== '');
-      validateField(messageInput, messageInput.value.trim().length >= 8);
-
-      if (isValid) {
-        // Show loading state
-        submitBtn.classList.add('loading');
-        submitBtn.disabled = true;
-
-        setTimeout(() => {
-          submitBtn.classList.remove('loading');
-          contactForm.style.display = 'none';
-          formSuccess.classList.add('show');
-
-          // Construct tailored pre-filled WhatsApp link
-          const waMessage = encodeURIComponent(
-            `Hello David, my name is ${nameInput.value.trim()}.\n` +
-            `*Project Service:* ${serviceSelect.value}\n` +
-            `*Target Deadline:* ${deadlineSelect.value}\n` +
-            `*Brief:* ${messageInput.value.trim()}\n` +
-            `*Contact Email:* ${emailInput.value.trim()}`
-          );
-
-          if (waQuickLink) {
-            waQuickLink.href = `https://wa.me/233539554952?text=${waMessage}`;
-          }
-
-          // Reset form fields
-          contactForm.reset();
-        }, 1000);
-      }
-    });
-
-    // Clear error on input
-    const inputs = contactForm.querySelectorAll('input, select, textarea');
-    inputs.forEach(input => {
-      input.addEventListener('input', () => {
-        const parent = input.closest('.form-group');
-        if (parent && parent.classList.contains('has-error')) {
-          parent.classList.remove('has-error');
-        }
-      });
-    });
-  }
-
-  /* ==========================================================================
-     11. Back to Top Button Smooth Scroll
-     ========================================================================== */
-  const backToTopBtn = document.getElementById('back-to-top');
-  if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    });
-  }
-
-  /* ==========================================================================
-     12. Current Year in Footer
-     ========================================================================== */
-  const currentYearEl = document.getElementById('current-year');
-  if (currentYearEl) {
-    currentYearEl.textContent = new Date().getFullYear();
-  }
-});
+      <!-- Ambient Glow Orbs -->
+      <div class="ambient-glow glow-top" aria-hidden="true"></div>
+      <div class="ambient-glow glow-bottom" aria-hidden="true"></div>
+
+      <div class="container hero-content text-center">
+        <div class="hero-badge animate-fade-in">
+          <span class="badge-dot"></span>
+          <span class="badge-text">Available for New Projects &amp; Commissions</span>
+        </div>
+
+        <h1 class="hero-title animate-fade-up">
+          Crafting <span class="gold-gradient-text">Iconic Visuals</span> &amp; High-Impact Designs That Elevate Brands
+        </h1>
+
+        <p class="hero-subtitle animate-fade-up delay-1">
+          Welcome to Addotei Creative Studio. We design captivating flyers, bespoke logos, and unforgettable brand identities for businesses, churches, event organizers, and visionaries across the globe.
+        </p>
+
+        <div class="hero-cta-group animate-fade-up delay-2">
+          <a href="#portfolio" class="btn btn-gold btn-lg">
+            <span>View Portfolio</span>
+            <svg class="btn-arrow" viewBox="0 0 20 20" width="18" height="18" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/>
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-outline btn-lg">
+            <span>Hire David Addotei</span>
+          </a>
+        </div>
+
+        <!-- Featured Highlights Strip -->
+        <div class="hero-features-strip animate-fade-up delay-3">
+          <div class="strip-item">
+            <span class="strip-icon">✦</span>
+            <span>Premium Luxury Quality</span>
+          </div>
+          <div class="strip-item">
+            <span class="strip-icon">⚡</span>
+            <span>24 - 48 Hr Express Delivery</span>
+          </div>
+          <div class="strip-item">
+            <span class="strip-icon">★</span>
+            <span>100% Satisfaction Focused</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a href="#about" class="scroll-indicator" aria-label="Scroll down to About section">
+        <span class="scroll-text">SCROLL</span>
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+      </a>
+    </section>
+
+    <!-- Section 2: About -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">ABOUT THE DESIGNER</span>
+          <h2 class="section-title">The Creative Vision Behind <span class="gold-gradient-text">Every Masterpiece</span></h2>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="about-grid">
+          <!-- Profile Card / Illustration -->
+          <div class="about-media-col">
+            <div class="profile-card">
+              <div class="profile-img-wrapper">
+                <img src="images/david-profile.svg" alt="David Addotei - Creative Director" class="profile-img" loading="lazy">
+              </div>
+              <div class="profile-badge-float">
+                <span class="badge-years">5+</span>
+                <span class="badge-label">Years of Design Excellence</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bio & Core Philosophy -->
+          <div class="about-text-col">
+            <h3 class="about-greeting">Hello, I'm <span class="gold-text">David Addotei</span></h3>
+            <h4 class="about-role">Lead Visual Designer &amp; Creative Strategist</h4>
+            
+            <p class="about-lead">
+              Design is not merely decoration—it is visual persuasion, authority, and identity. My passion is taking your message, whether a transformative church conference, a high-stakes business summit, or a bold commercial brand, and forging it into graphics that command immediate respect.
+            </p>
+            
+            <p class="about-body">
+              At <strong>Addotei Creative Studio</strong>, every flyer, logo, and brand asset is meticulously sculpted with precision typography, intentional color theory, and modern luxury minimalism. Having partnered with entrepreneurs, ministries, institutions, and creators, I bridge the gap between creative art and real-world business results.
+            </p>
+
+            <div class="about-specialties">
+              <div class="specialty-item">
+                <span class="check-icon">✓</span>
+                <span>Church &amp; Conference Flyer Specialist</span>
+              </div>
+              <div class="specialty-item">
+                <span class="check-icon">✓</span>
+                <span>Bespoke Corporate Identity &amp; Logos</span>
+              </div>
+              <div class="specialty-item">
+                <span class="check-icon">✓</span>
+                <span>High-Engagement Social Media Campaigns</span>
+              </div>
+              <div class="specialty-item">
+                <span class="check-icon">✓</span>
+                <span>Print-Ready High-Definition Production</span>
+              </div>
+            </div>
+
+            <div class="about-cta">
+              <a href="#contact" class="btn btn-gold">Let's Discuss Your Project</a>
+              <button type="button" class="btn btn-outline" data-modal-open="business-profile-modal">
+                <span>📑 View Business Profile</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated Statistics Counters -->
+        <div class="stats-grid" id="stats-counter">
+          <div class="stat-card">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-target="500">0</span>
+              <span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Projects Completed</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-target="150">0</span>
+              <span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Satisfied Global Clients</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-target="5">0</span>
+              <span class="stat-plus">+</span>
+            </div>
+            <p class="stat-label">Years Experience</p>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-number-wrapper">
+              <span class="stat-number" data-target="100">0</span>
+              <span class="stat-plus">%</span>
+            </div>
+            <p class="stat-label">Dedication &amp; Quality</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Portfolio -->
+    <section id="portfolio" class="section portfolio-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CURATED PORTFOLIO</span>
+          <h2 class="section-title">Selected Works &amp; <span class="gold-gradient-text">Design Case Studies</span></h2>
+          <p class="section-subtitle">
+            Explore our diverse collection of high-converting flyers, modern identities, and editorial graphics crafted for clients worldwide.
+          </p>
+          <div class="title-divider"></div>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="portfolio-filter-container">
+          <div class="portfolio-filters" role="tablist" aria-label="Portfolio Categories">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Works</button>
+            <button class="filter-btn" data-filter="church" role="tab" aria-selected="false">Church Flyers</button>
+            <button class="filter-btn" data-filter="business" role="tab" aria-selected="false">Business Flyers</button>
+            <button class="filter-btn" data-filter="event" role="tab" aria-selected="false">Event Flyers</button>
+            <button class="filter-btn" data-filter="logos" role="tab" aria-selected="false">Logos</button>
+            <button class="filter-btn" data-filter="social" role="tab" aria-selected="false">Social Media</button>
+            <button class="filter-btn" data-filter="posters" role="tab" aria-selected="false">Posters</button>
+            <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+          </div>
+        </div>
+
+        <!-- Portfolio Gallery Grid -->
+                <!-- Portfolio Gallery Grid -->
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Work: The Weight of Glory &bull; Tongues of Fire '26 -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/weight-of-glory-flyer.jpg" alt="The Weight of Glory Church Conference Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/weight-of-glory-flyer.jpg" data-title="The Weight of Glory &bull; Tongues of Fire '26" data-category="Church Flyers" data-desc="Flagship church conference flyer engineered with deep obsidian contrast, 3D liquid gold typography, and guest minister gallery." aria-label="Open preview for The Weight of Glory Church Conference Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">The Weight of Glory &bull; Tongues of Fire '26</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Golgotha Night &bull; Tout Est Accompli -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/golgotha-night-flyer.jpg" alt="Golgotha Night Church Vigil Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/golgotha-night-flyer.jpg" data-title="Golgotha Night &bull; Tout Est Accompli" data-category="Church Flyers" data-desc="Ultra-luxury all-night prayer vigil flyer featuring glowing holy cross rays, 3D platinum typography, and fanned minister panels." aria-label="Open preview for Golgotha Night Church Vigil Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Golgotha Night &bull; Tout Est Accompli</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Phaneroo &bull; Sunday Worship Service -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/phaneroo-sunday-service.jpg" alt="Phaneroo Sunday Service Church Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/phaneroo-sunday-service.jpg" data-title="Phaneroo &bull; Sunday Worship Service" data-category="Church Flyers" data-desc="Futuristic Sunday worship service flyer with floating champagne gold glass panels and cinematic stage lighting." aria-label="Open preview for Phaneroo Sunday Service Church Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Phaneroo &bull; Sunday Worship Service</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Glory Night &bull; Arise and Shine -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/glory-night-flyer.jpg" alt="Glory Night Church Service with Addotei K. David" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/glory-night-flyer.jpg" data-title="Glory Night &bull; Arise and Shine" data-category="Church Flyers" data-desc="Dynamic ministry revival service flyer featuring Minister Addotei K. David, striking split composition, and radiant gold accents." aria-label="Open preview for Glory Night Church Service with Addotei K. David">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Glory Night &bull; Arise and Shine</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Anointed Gathering Church Convention -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/anointed-gathering-church.jpg" alt="Anointed Gathering Church Convention Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/anointed-gathering-church.jpg" data-title="Anointed Gathering Church Convention" data-category="Church Flyers" data-desc="Spiritual convention flyer designed with divine golden lighting, anointed typography, and minister portraits." aria-label="Open preview for Anointed Gathering Church Convention Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Anointed Gathering Church Convention</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Christ Apostolic Church International -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/christ-apostolic-church.jpg" alt="Christ Apostolic Church International Sunday Service" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/christ-apostolic-church.jpg" data-title="Christ Apostolic Church International" data-category="Church Flyers" data-desc="Vibrant Sunday praise and ministry worship flyer with clean ecclesiastical layout and striking spiritual hierarchy." aria-label="Open preview for Christ Apostolic Church International Sunday Service">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Christ Apostolic Church International</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Believers Church of Christ Fellowship -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/believers-church-of-christ.jpg" alt="Believers Church of Christ Fellowship Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/believers-church-of-christ.jpg" data-title="Believers Church of Christ Fellowship" data-category="Church Flyers" data-desc="Reverent fellowship gathering flyer designed with rich sacred imagery and elegant typography." aria-label="Open preview for Believers Church of Christ Fellowship Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Believers Church of Christ Fellowship</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: In The Midst Of The Storm &bull; Vigil -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/in-the-midst-of-the-storm.jpg" alt="In The Midst Of The Storm Praise Vigil Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/in-the-midst-of-the-storm.jpg" data-title="In The Midst Of The Storm &bull; Vigil" data-category="Church Flyers" data-desc="Dramatic prayer and deliverance vigil flyer capturing dynamic emotional depth and divine breakthrough." aria-label="Open preview for In The Midst Of The Storm Praise Vigil Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">In The Midst Of The Storm &bull; Vigil</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Midweek Miracle Revival Service -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/midweek-service-flyer.jpg" alt="Midweek Miracle Service Church Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/midweek-service-flyer.jpg" data-title="Midweek Miracle Revival Service" data-category="Church Flyers" data-desc="High-impact midweek revival service flyer with bold typography, gold flares, and guest speaker features." aria-label="Open preview for Midweek Miracle Service Church Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Midweek Miracle Revival Service</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Phaneroo 594 &bull; Milestone Celebration -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/phaneroo-594.jpg" alt="Phaneroo 594 Celebration Service Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/phaneroo-594.jpg" data-title="Phaneroo 594 &bull; Milestone Celebration" data-category="Church Flyers" data-desc="Dynamic milestone worship service flyer with bold modern branding and radiant visual presence." aria-label="Open preview for Phaneroo 594 Celebration Service Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Phaneroo 594 &bull; Milestone Celebration</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Grace &amp; Glory Church Assembly -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/grace-church-flyer.jpg" alt="Grace and Glory Church Assembly Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/grace-church-flyer.jpg" data-title="Grace &amp; Glory Church Assembly" data-category="Church Flyers" data-desc="Inspiring Sunday worship and praise service design crafted for maximum congregation engagement." aria-label="Open preview for Grace and Glory Church Assembly Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Grace &amp; Glory Church Assembly</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Becky's Plaza &bull; Commercial Retail -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/beckys-plaza-retail.jpg" alt="Becky's Plaza Commercial Retail Opening Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/beckys-plaza-retail.jpg" data-title="Becky's Plaza &bull; Commercial Retail" data-category="Business Flyers" data-desc="Modern high-visibility retail plaza announcement flyer designed to attract premium commercial tenants and shoppers." aria-label="Open preview for Becky's Plaza Commercial Retail Opening Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Becky's Plaza &bull; Commercial Retail</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: CCTV &amp; Climate Security Systems -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/cctv-air-conditioning.jpg" alt="CCTV and Air Conditioning Services Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/cctv-air-conditioning.jpg" data-title="CCTV &amp; Climate Security Systems" data-category="Business Flyers" data-desc="Technical and security installation service flyer showcasing corporate surveillance and HVAC climate expertise." aria-label="Open preview for CCTV and Air Conditioning Services Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">CCTV &amp; Climate Security Systems</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Ezra Marble &amp; Granite Works -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/ezra-marble-granite.jpg" alt="Ezra Marble and Granite Architectural Works" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/ezra-marble-granite.jpg" data-title="Ezra Marble &amp; Granite Works" data-category="Business Flyers" data-desc="Luxurious architectural stone masonry flyer highlighting premium marble, quartz, and granite interior finishes." aria-label="Open preview for Ezra Marble and Granite Architectural Works">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Ezra Marble &amp; Granite Works</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: A &amp; F Electricals &amp; Engineering -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/af-electricals.jpg" alt="A and F Electricals and Engineering Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/af-electricals.jpg" data-title="A &amp; F Electricals &amp; Engineering" data-category="Business Flyers" data-desc="High-voltage industrial electrical and commercial wiring solutions flyer with professional corporate appeal." aria-label="Open preview for A and F Electricals and Engineering Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">A &amp; F Electricals &amp; Engineering</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Onetime Media Institute Academy -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/onetime-media-institute.jpg" alt="Onetime Media Institute Academy Admission Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/onetime-media-institute.jpg" data-title="Onetime Media Institute Academy" data-category="Business Flyers" data-desc="Educational promotional flyer for creative media arts, videography, and digital broadcasting students." aria-label="Open preview for Onetime Media Institute Academy Admission Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Onetime Media Institute Academy</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Premier Academy School Admissions -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/school-academy-flyer.jpg" alt="Premier Academy School Admission Announcement" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/school-academy-flyer.jpg" data-title="Premier Academy School Admissions" data-category="Business Flyers" data-desc="Prestigious academic enrollment flyer designed with trust-building educational layouts and clear course pathways." aria-label="Open preview for Premier Academy School Admission Announcement">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Premier Academy School Admissions</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Addotei Studio Master Promo Flyer -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/addotei-studio-promo-flyer.jpg" alt="Addotei Creative Studio Official Promotional Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/addotei-studio-promo-flyer.jpg" data-title="Addotei Studio Master Promo Flyer" data-category="Event Flyers" data-desc="Official perspective business promotional flyer with iPad Pro workstation, fanning perspective rays, and scannable QR code." aria-label="Open preview for Addotei Creative Studio Official Promotional Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Addotei Studio Master Promo Flyer</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: New Feel's Bite &bull; Burger &amp; Pie -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/new-feels-bite.jpg" alt="New Feels Bite Food and Burger Lounge Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/new-feels-bite.jpg" data-title="New Feel's Bite &bull; Burger &amp; Pie" data-category="Event Flyers" data-desc="Vibrant culinary marketing flyer featuring fast delivery hotlines, promotional discount badges, and appetizing visuals." aria-label="Open preview for New Feels Bite Food and Burger Lounge Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">New Feel's Bite &bull; Burger &amp; Pie</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: The Golden Fork Fine Dining -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/the-golden-fork.jpg" alt="The Golden Fork Fine Dining Restaurant Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/the-golden-fork.jpg" data-title="The Golden Fork Fine Dining" data-category="Event Flyers" data-desc="High-end restaurant and gourmet culinary showcase flyer with golden ambiance and curated executive menu." aria-label="Open preview for The Golden Fork Fine Dining Restaurant Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">The Golden Fork Fine Dining</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Grill &amp; Thrill BBQ &amp; Nightlife -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/grill-and-thrill.jpg" alt="Grill and Thrill BBQ Lounge Night Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/grill-and-thrill.jpg" data-title="Grill &amp; Thrill BBQ &amp; Nightlife" data-category="Event Flyers" data-desc="Energetic barbecue weekend party flyer designed with glowing charcoal embers and festive typography." aria-label="Open preview for Grill and Thrill BBQ Lounge Night Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Grill &amp; Thrill BBQ &amp; Nightlife</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Auntie Lizzy's Kitchen Cuisine -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/auntie-lizzys-kitchen.jpg" alt="Auntie Lizzy's Kitchen Authentic Cuisine Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/auntie-lizzys-kitchen.jpg" data-title="Auntie Lizzy's Kitchen Cuisine" data-category="Event Flyers" data-desc="Authentic Ghanaian culinary catering flyer celebrating local flavors, fresh delicacies, and warm hospitality." aria-label="Open preview for Auntie Lizzy's Kitchen Authentic Cuisine Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Auntie Lizzy's Kitchen Cuisine</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Glady's Bite Bakery &amp; Pastries -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/gladys-bite.jpg" alt="Gladys Bite Confectionery and Pastries Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/gladys-bite.jpg" data-title="Glady's Bite Bakery &amp; Pastries" data-category="Event Flyers" data-desc="Sweet pastry and bakery catering promo flyer crafted with warm bakery tones and delightful dessert layouts." aria-label="Open preview for Gladys Bite Confectionery and Pastries Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Glady's Bite Bakery &amp; Pastries</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: R-Fast Food &amp; Express Delivery -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/rfast-food.jpg" alt="R-Fast Food and Express Delivery Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/rfast-food.jpg" data-title="R-Fast Food &amp; Express Delivery" data-category="Event Flyers" data-desc="Fast food take-out and home delivery promo flyer highlighting meal combos, quick delivery, and vibrant food visuals." aria-label="Open preview for R-Fast Food and Express Delivery Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">R-Fast Food &amp; Express Delivery</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Blue Summit Executive Conference -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/blue-conference-flyer.jpg" alt="Blue Summit Executive Conference Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/blue-conference-flyer.jpg" data-title="Blue Summit Executive Conference" data-category="Event Flyers" data-desc="Corporate seminar and leadership symposium flyer designed with oceanic corporate blue and keynote speaker profiles." aria-label="Open preview for Blue Summit Executive Conference Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Blue Summit Executive Conference</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Aura Beauty Salon &amp; Glam Studio -->
+          <article class="portfolio-item" data-category="social">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/aura-beauty-salon.jpg" alt="Aura Beauty Salon and Cosmetics Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/aura-beauty-salon.jpg" data-title="Aura Beauty Salon &amp; Glam Studio" data-category="Social Media" data-desc="Glamorous beauty studio and cosmetic transformation flyer featuring modern aesthetics and luxury salon treatments." aria-label="Open preview for Aura Beauty Salon and Cosmetics Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Social Media</span>
+                <h3 class="portfolio-title">Aura Beauty Salon &amp; Glam Studio</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Luxury Hair Studio &amp; Wig Styling -->
+          <article class="portfolio-item" data-category="social">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/luxury-hair-stylist.jpg" alt="Luxury Hair and Salon Studio Flyer" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/luxury-hair-stylist.jpg" data-title="Luxury Hair Studio &amp; Wig Styling" data-category="Social Media" data-desc="Sleek hair styling and salon campaign graphic tailored for viral Instagram engagement and booking inquiries." aria-label="Open preview for Luxury Hair and Salon Studio Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Social Media</span>
+                <h3 class="portfolio-title">Luxury Hair Studio &amp; Wig Styling</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Elysian Summer Drop Campaign -->
+          <article class="portfolio-item" data-category="social">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/social-media-1.svg" alt="Elysian Summer Drop Social Media Campaign" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/social-media-1.svg" data-title="Elysian Summer Drop Campaign" data-category="Social Media" data-desc="Dynamic, multi-format Instagram post and story templates crafted for an apparel product launch." aria-label="Open preview for Elysian Summer Drop Social Media Campaign">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Social Media</span>
+                <h3 class="portfolio-title">Elysian Summer Drop Campaign</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: David Addotei Signature AD Monogram -->
+          <article class="portfolio-item" data-category="logos">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/david-addotei-signature-logo.jpg" alt="David Addotei Official Signature Monogram Logo" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/david-addotei-signature-logo.jpg" data-title="David Addotei Signature AD Monogram" data-category="Logos" data-desc="Bespoke luxury brand identity logo mark in brushed champagne gold with 3D chiseled beveling on matte obsidian black." aria-label="Open preview for David Addotei Official Signature Monogram Logo">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Logos</span>
+                <h3 class="portfolio-title">David Addotei Signature AD Monogram</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Luxe &amp; Co. Minimalist Monogram -->
+          <article class="portfolio-item" data-category="logos">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/logo-design-1.svg" alt="Luxe and Co Minimalist Monogram Logo" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/logo-design-1.svg" data-title="Luxe &amp; Co. Minimalist Monogram" data-category="Logos" data-desc="Timeless luxury monogram identity featuring geometric symmetry, bespoke serif typography, and premium gold accents." aria-label="Open preview for Luxe and Co Minimalist Monogram Logo">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Logos</span>
+                <h3 class="portfolio-title">Luxe &amp; Co. Minimalist Monogram</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Vanguard Athletic Crest -->
+          <article class="portfolio-item" data-category="logos">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/logo-design-2.svg" alt="Vanguard Athletic Performance Crest" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/logo-design-2.svg" data-title="Vanguard Athletic Crest" data-category="Logos" data-desc="Bold athletic crest combining modern shield geometry, aggressive angles, and high-energy contrast." aria-label="Open preview for Vanguard Athletic Performance Crest">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Logos</span>
+                <h3 class="portfolio-title">Vanguard Athletic Crest</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Graphtech Corporate Identity Card -->
+          <article class="portfolio-item" data-category="branding">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/graphtech-business-card.jpg" alt="Graphtech Corporate Business Card" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/graphtech-business-card.jpg" data-title="Graphtech Corporate Identity Card" data-category="Branding" data-desc="Executive corporate business card and stationery identity system with clean typography and minimalist layout." aria-label="Open preview for Graphtech Corporate Business Card">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Branding</span>
+                <h3 class="portfolio-title">Graphtech Corporate Identity Card</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Obsidian &amp; Gold Luxury Identity -->
+          <article class="portfolio-item" data-category="branding">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/branding-identity-1.svg" alt="Obsidian and Gold Complete Brand Identity Suite" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/branding-identity-1.svg" data-title="Obsidian &amp; Gold Luxury Identity" data-category="Branding" data-desc="Comprehensive brand identity system including logo guidelines, color hierarchy, and stationery mockups." aria-label="Open preview for Obsidian and Gold Complete Brand Identity Suite">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Branding</span>
+                <h3 class="portfolio-title">Obsidian &amp; Gold Luxury Identity</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Pulse Electric Music Festival -->
+          <article class="portfolio-item" data-category="posters">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/event-flyer-1.svg" alt="Pulse Electric Music Festival Poster" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/event-flyer-1.svg" data-title="Pulse Electric Music Festival" data-category="Posters" data-desc="High-energy electronic music festival poster with neon duotone gradients, bold typography, and DJ lineup." aria-label="Open preview for Pulse Electric Music Festival Poster">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Posters</span>
+                <h3 class="portfolio-title">Pulse Electric Music Festival</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Solstice Cinematic Film Poster -->
+          <article class="portfolio-item" data-category="posters">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/poster-design-1.svg" alt="Solstice Indie Film Festival Poster" loading="lazy">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/poster-design-1.svg" data-title="Solstice Cinematic Film Poster" data-category="Posters" data-desc="Moody, cinematic movie poster featuring atmospheric lighting, minimalist billing block, and festival laurel leaves." aria-label="Open preview for Solstice Indie Film Festival Poster">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Posters</span>
+                <h3 class="portfolio-title">Solstice Cinematic Film Poster</h3>
+              </div>
+            </div>
+          </article>
+
+        </div><div class="portfolio-footer text-center">
+          <p class="portfolio-callout">Have a specific design vision in mind that isn't shown above?</p>
+          <a href="#contact" class="btn btn-gold">Request Custom Design</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" class="lightbox-modal" aria-hidden="true" role="dialog" aria-label="Project Preview">
+      <div class="lightbox-backdrop"></div>
+      <div class="lightbox-content">
+        <button id="lightbox-close" class="lightbox-close-btn" aria-label="Close lightbox">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="lightbox-body">
+          <div class="lightbox-image-col">
+            <img id="lightbox-img" src="" alt="Portfolio preview item">
+          </div>
+          <div class="lightbox-details-col">
+            <span id="lightbox-category" class="lightbox-cat">Category</span>
+            <h3 id="lightbox-title" class="lightbox-title">Project Title</h3>
+            <p id="lightbox-desc" class="lightbox-desc">Project detailed description.</p>
+            
+            <div class="lightbox-perks">
+              <div class="perk-tag">&#10003; Fast Turnaround</div>
+            </div>
+
+            <div class="lightbox-cta">
+              <a id="lightbox-hire-btn" href="#contact" class="btn btn-gold btn-block">Order This Style</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 4: Services -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">SERVICES &amp; EXPERTISE</span>
+          <h2 class="section-title">Tailored Creative Services for <span class="gold-gradient-text">Maximum Impact</span></h2>
+          <p class="section-subtitle">From eye-catching flyers to full-scale corporate rebrands, every deliverable is built to captivate audiences and drive action.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Service 1: Flyer Design -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">✦</span>
+            </div>
+            <h3 class="service-title">Flyer Design</h3>
+            <p class="service-desc">
+              High-converting, vibrant flyers tailored for nightclub events, festivals, concerts, corporate announcements, and private parties that demand attendance.
+            </p>
+            <ul class="service-features">
+              <li>Print-ready 300 DPI CMYK PDFs</li>
+              <li>High-res RGB web &amp; WhatsApp versions</li>
+              <li>24 - 48 hour standard delivery</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Flyer ➔</a>
+          </div>
+
+          <!-- Service 2: Church Flyer Design -->
+          <div class="service-card featured-service">
+            <div class="featured-ribbon">Most Popular</div>
+            <div class="service-icon-wrapper">
+              <span class="service-icon">✞</span>
+            </div>
+            <h3 class="service-title">Church &amp; Ministry Flyers</h3>
+            <p class="service-desc">
+              Inspiring, spiritually resonant conference flyers, all-night praise posters, revival banners, and sermon series templates designed with divine elegance.
+            </p>
+            <ul class="service-features">
+              <li>Speaker portraits &amp; theme lighting</li>
+              <li>Social media story &amp; feed crops</li>
+              <li>Live-stream thumbnail formatting</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Church Flyer ➔</a>
+          </div>
+
+          <!-- Service 3: Poster Design -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">▤</span>
+            </div>
+            <h3 class="service-title">Poster Design</h3>
+            <p class="service-desc">
+              Large-scale posters designed for theatre showcases, academic conferences, product launches, and billboard displays with dramatic visual hierarchy.
+            </p>
+            <ul class="service-features">
+              <li>Scalable vector typography</li>
+              <li>Billboard &amp; rollup banner specs</li>
+              <li>Rich color separation</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Poster ➔</a>
+          </div>
+
+          <!-- Service 4: Logo Design -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">◈</span>
+            </div>
+            <h3 class="service-title">Logo Design</h3>
+            <p class="service-desc">
+              Memorable, distinctive logos engineered with strategic geometry. From luxury monograms to modern tech icons that anchor your brand for decades.
+            </p>
+            <ul class="service-features">
+              <li>Full vector files (AI, EPS, SVG, PDF)</li>
+              <li>Transparent high-res PNGs</li>
+              <li>Black, white &amp; gold color variations</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Logo ➔</a>
+          </div>
+
+          <!-- Service 5: Social Media Graphics -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">❖</span>
+            </div>
+            <h3 class="service-title">Social Media Graphics</h3>
+            <p class="service-desc">
+              Engaging carousel layouts, promotional banners, quotes, and story graphics that turn casual scrollers into loyal followers and paying clients.
+            </p>
+            <ul class="service-features">
+              <li>Optimized for IG, Facebook, X, LinkedIn</li>
+              <li>Cohesive aesthetic branding kits</li>
+              <li>Editable Canva or PSD templates available</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Social Kit ➔</a>
+          </div>
+
+          <!-- Service 6: Brand Identity -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">♕</span>
+            </div>
+            <h3 class="service-title">Brand Identity Suite</h3>
+            <p class="service-desc">
+              The complete visual ecosystem: typography rules, luxury color palettes, brand guideline manual, iconography, and multi-channel asset blueprints.
+            </p>
+            <ul class="service-features">
+              <li>Comprehensive Brand Style Guide (PDF)</li>
+              <li>Curated typography pairings</li>
+              <li>Real-world mockups &amp; merchandise guide</li>
+            </ul>
+            <a href="#contact" class="service-link">Build Brand Identity ➔</a>
+          </div>
+
+          <!-- Service 7: Business Cards & Stationery -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">✉</span>
+            </div>
+            <h3 class="service-title">Business Cards &amp; Stationery</h3>
+            <p class="service-desc">
+              Tangible luxury: metallic gold foil business cards, letterheads, invoice templates, and corporate envelopes that make a lasting executive impression.
+            </p>
+            <ul class="service-features">
+              <li>Foil stamp &amp; spot UV finishing guides</li>
+              <li>Standard US &amp; European cut dimensions</li>
+              <li>Corporate email signature graphics</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Stationery ➔</a>
+          </div>
+
+          <!-- Service 8: Banner & Invitation Design -->
+          <div class="service-card">
+            <div class="service-icon-wrapper">
+              <span class="service-icon">★</span>
+            </div>
+            <h3 class="service-title">Invitation Cards &amp; Banners</h3>
+            <p class="service-desc">
+              Bespoke luxury wedding invitations, gala passes, VIP badges, and conference pull-up banners tailored with timeless sophistication.
+            </p>
+            <ul class="service-features">
+              <li>Custom monogram creation</li>
+              <li>Digital interactive RSVP cards</li>
+              <li>Durable high-res roll-up banners</li>
+            </ul>
+            <a href="#contact" class="service-link">Order Invitations ➔</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Creative Process (How We Work) -->
+    <section id="process" class="section process-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">STRUCTURED EXCELLENCE</span>
+          <h2 class="section-title">How We Bring Your <span class="gold-gradient-text">Vision to Life</span></h2>
+          <p class="section-subtitle">A seamless 4-step creative journey designed to deliver iconic, print-ready artwork on time, every time.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="process-grid">
+          
+          <!-- Step 1 -->
+          <div class="process-card">
+            <div class="process-step-num">01</div>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+              </svg>
+            </div>
+            <h3 class="process-title">Brief &amp; Discovery</h3>
+            <p class="process-desc">
+              We analyze your event theme, target audience, dimensions, brand colors, and inspirations. A 50% deposit secures your production slot.
+            </p>
+            <span class="process-timeline">⏱️ Day 1: Alignment</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-card">
+            <div class="process-step-num">02</div>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 8v4l3 3"></path>
+              </svg>
+            </div>
+            <h3 class="process-title">Design &amp; First Draft</h3>
+            <p class="process-desc">
+              David crafts your high-impact visual from scratch, balancing typography hierarchy, color grading, lighting, and imagery into a captivating composition.
+            </p>
+            <span class="process-timeline">⏱️ 24 – 48 Hours Express</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-card">
+            <div class="process-step-num">03</div>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9"></path>
+                <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+              </svg>
+            </div>
+            <h3 class="process-title">Refine &amp; Perfect</h3>
+            <p class="process-desc">
+              You review the draft. We make prompt revisions to fine-tune text, speaker names, photos, or adjustments until the design meets your exact standard (2–3 free rounds).
+            </p>
+            <span class="process-timeline">⏱️ Collaborative Feedback</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-card">
+            <div class="process-step-num">04</div>
+            <div class="process-icon">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+            </div>
+            <h3 class="process-title">Master Delivery &amp; Rights</h3>
+            <p class="process-desc">
+              Upon final balance clearance, you receive pristine 300 DPI CMYK print-ready files, web-optimized RGB files, and full commercial ownership rights.
+            </p>
+            <span class="process-timeline">⏱️ Instant Cloud Transfer</span>
+          </div>
+
+        </div>
+
+        <div class="process-cta text-center">
+          <p class="process-cta-text">Ready to experience this frictionless workflow for your next project?</p>
+          <a href="#contact" class="btn btn-gold">Start Your Project Now ➔</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Why Choose Me -->
+    <section id="why-me" class="section why-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">THE STUDIO ADVANTAGE</span>
+          <h2 class="section-title">Why Leading Brands <span class="gold-gradient-text">Trust David Addotei</span></h2>
+          <p class="section-subtitle">We believe exceptional graphic design is a balance between fine art and calculated commercial strategy.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="why-grid">
+          
+          <div class="why-card">
+            <div class="why-number">01</div>
+            <h3 class="why-title">Creative Solutions</h3>
+            <p class="why-desc">No boring cookie-cutter templates. Every single design is conceptualized from scratch to tell your unique story and make your brand stand out dramatically.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">02</div>
+            <h3 class="why-title">Fast Turnaround</h3>
+            <p class="why-desc">We respect your timelines and marketing calendars. Typical drafts are delivered within 24 to 48 hours, with rush 12-hour delivery available on demand.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">03</div>
+            <h3 class="why-title">Affordable &amp; Transparent Pricing</h3>
+            <p class="why-desc">Agency-grade creative brilliance without bloated agency retainer fees. Honest upfront quotes with no hidden costs or surprise surcharges.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">04</div>
+            <h3 class="why-title">Professional Communication</h3>
+            <p class="why-desc">Clear, courteous, and proactive communication. You receive direct updates via WhatsApp or email throughout every phase of the design process.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">05</div>
+            <h3 class="why-title">Obsessive Attention to Detail</h3>
+            <p class="why-desc">From micro-kerning and color harmony to print bleed boundaries and optical balance, we ensure every pixel and millimeter is flawless.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-number">06</div>
+            <h3 class="why-title">100% Client Satisfaction</h3>
+            <p class="why-desc">Your satisfaction is our benchmark. We provide iterative revisions until the final piece matches your vision and surpasses your expectations.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Testimonials -->
+    <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CLIENT ENDORSEMENTS</span>
+          <h2 class="section-title">What Our Clients <span class="gold-gradient-text">Say About Us</span></h2>
+          <p class="section-subtitle">Real experiences from pastors, business leaders, event promoters, and founders who trust Addotei Creative Studio.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <!-- Testimonials Action Bar with Leave a Review Trigger -->
+        <div class="testimonials-action-bar">
+          <div class="review-stat-pill">
+            <span class="review-stars-gold">★★★★★</span>
+            <span class="review-score"><strong>4.9 / 5.0</strong> Client Rating</span>
+            <span class="review-badge-count">(50+ Commissions)</span>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold" data-modal-open="review-modal">
+            <span>✍️ Leave a Client Review</span>
+          </button>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
+          
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "David designed the official flyers for our annual national youth convention. The design was so majestic that attendance increased by over 40%. His ability to capture our spiritual theme in an elegant, modern format was remarkable!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">PA</div>
+              <div class="author-info">
+                <strong class="author-name">Pastor Daniel Mensah</strong>
+                <span class="author-role">Senior Pastor, Grace Tabernacle</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card featured-testimonial">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "Working with Addotei Creative Studio was the best decision for our investment summit. David delivered our complete speaker flyers and rollup banners in under 36 hours. The clean, luxury look impressed every CEO in attendance."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar gold-avatar">EA</div>
+              <div class="author-info">
+                <strong class="author-name">Dr. Elizabeth Arthur-Mensah</strong>
+                <span class="author-role">Managing Director, Apex Capital</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "When I launched my luxury skincare line, I needed branding that felt international and timeless. David created a logo and packaging suite that rivaled top French luxury houses. Truly an exceptional talent."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">EV</div>
+              <div class="author-info">
+                <strong class="author-name">Eleanor Vance</strong>
+                <span class="author-role">Founder &amp; CEO, Solstice Organics</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "As an event promoter, flyer quality directly impacts ticket sales. David understands high-energy nightlife visuals better than anyone I've hired. Our VIP tables were completely sold out two weeks before the event!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MK</div>
+              <div class="author-info">
+                <strong class="author-name">Marcus K. Boateng</strong>
+                <span class="author-role">Director, Aura Entertainment Group</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "Patient, responsive, and insanely creative. David handled our school anniversary publicity with utmost professionalism. He even provided multiple variations for different social platforms without hesitation."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SA</div>
+              <div class="author-info">
+                <strong class="author-name">Sarah Addo-Yobo</strong>
+                <span class="author-role">Communications Head, Heritage International School</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimonial-card">
+            <div class="rating-stars">★★★★★</div>
+            <p class="testimonial-quote">
+              "David is our go-to creative partner for all NGO campaigns. His visual storytelling evokes real empathy and inspires generous donor action. You won't find better dedication anywhere else."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">KA</div>
+              <div class="author-info">
+                <strong class="author-name">Kwame Appiah</strong>
+                <span class="author-role">Country Representative, Hope Global Initiative</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="testimonials-footer-cta text-center">
+          <p class="testimonials-cta-text">Have you worked with David on a flyer or branding project?</p>
+          <button type="button" class="btn btn-sm btn-outline" data-modal-open="review-modal">
+            <span>Share Your Experience &amp; Rating ➔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: FAQ -->
+    <section id="faq" class="section faq-section">
+      <div class="container faq-container">
+        <div class="section-header text-center">
+          <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title">Everything You Need to Know <span class="gold-gradient-text">Before Ordering</span></h2>
+          <p class="section-subtitle">Have questions before we get started? Here are straightforward answers to our most common client inquiries.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="faq-accordion" id="faq-accordion">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is your typical turnaround time for designs?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>For standard flyers, posters, and social media graphics, turnaround is typically <strong>24 to 48 hours</strong> after we receive your brief and content. Full brand identity suites and custom logo packages take between 3 to 7 business days. If you are on an urgent deadline, <strong>same-day express delivery (12 hours)</strong> is available upon request.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What file formats do I receive when the design is complete?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>You will receive comprehensive, high-resolution formats ready for all use cases:
+                <br>• <strong>Print-Ready PDF:</strong> 300 DPI CMYK with crop marks and bleeds for printing presses.
+                <br>• <strong>Digital Images:</strong> Crisp high-resolution PNG &amp; JPEG optimized for WhatsApp status, Instagram feeds, Facebook, and websites.
+                <br>• <strong>Source Files:</strong> Layered Adobe Photoshop (PSD), Illustrator (AI), or vector SVG files upon request based on your package.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I request revisions if I need adjustments?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes, absolutely! Client satisfaction is our priority. Every project includes up to <strong>3 rounds of revisions</strong> covering typography tweaks, color adjustments, image replacements, and date/text updates to guarantee you love the final outcome.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What information do I need to prepare before hiring you?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>To ensure a fast and accurate design, prepare:
+                <br>1. Complete text details (Event name, theme, date, time, venue, guest ministers/speakers, contact info).
+                <br>2. High-resolution photos of speakers, hosts, or products.
+                <br>3. High-resolution logo file (preferably PNG with transparent background or vector).
+                <br>4. Any specific color preferences or reference flyer examples you admire.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do you work with international clients outside your local area?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Yes! Addotei Creative Studio serves clients globally across North America, the UK, Europe, Ghana, Nigeria, and beyond. We collaborate smoothly via WhatsApp, Zoom, Google Meet, and email, accepting seamless international payments.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do payments work?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We typically require a <strong>50% commitment deposit</strong> to commence design work, with the remaining 50% balance due upon your final design approval right before source and high-resolution print files are delivered. We accept Mobile Money, Bank Transfers, PayPal, and major credit cards.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Contact -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">START A CONVERSATION</span>
+          <h2 class="section-title">Let's Create Something <span class="gold-gradient-text">Extraordinary</span></h2>
+          <p class="section-subtitle">Ready to elevate your event, church, or business with world-class graphic design? Reach out directly or fill out the form below.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="contact-grid">
+          
+          <!-- Contact Details & Direct Actions -->
+          <div class="contact-info-col">
+            <div class="contact-card">
+              <h3 class="contact-card-title">Studio Information</h3>
+              <p class="contact-card-desc">Whether you have an immediate flyer need or a long-term branding partnership in mind, David Addotei is ready to assist you.</p>
+
+              <div class="contact-methods">
+                
+                <!-- WhatsApp Quick Action -->
+                <div class="contact-item">
+                  <div class="contact-item-icon whatsapp-bg">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+                    </svg>
+                  </div>
+                  <div class="contact-item-content">
+                    <span class="contact-label">Fastest Response</span>
+                    <strong class="contact-val">WhatsApp (+233 53 955 4952)</strong>
+                    <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20visited%20Addotei%20Creative%20Studio%20and%20I%20would%20like%20to%20hire%20you%20for%20a%20graphic%20design%20project." target="_blank" rel="noopener noreferrer" class="contact-action-link">
+                      Chat on WhatsApp (Instant) →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Instagram Handle -->
+                <div class="contact-item">
+                  <div class="contact-item-icon instagram-bg" style="background: rgba(225, 48, 108, 0.15); color: #E1306C;">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </div>
+                  <div class="contact-item-content">
+                    <span class="contact-label">Instagram Portfolio</span>
+                    <strong class="contact-val">@addoteicreative_studio</strong>
+                    <a href="https://www.instagram.com/addoteicreative_studio/" target="_blank" rel="noopener noreferrer" class="contact-action-link">
+                      View Instagram Profile →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- TikTok Channel -->
+                <div class="contact-item">
+                  <div class="contact-item-icon tiktok-bg" style="background: rgba(0, 242, 234, 0.15); color: #00F2EA;">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .58.04.85.12V9.32a6.34 6.34 0 0 0-.85-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.28 8.28 0 0 0 4.81 1.54V7.15a4.84 4.84 0 0 1-1.1-.46z"/>
+                    </svg>
+                  </div>
+                  <div class="contact-item-content">
+                    <span class="contact-label">TikTok Content</span>
+                    <strong class="contact-val">@addoteicreative_studio</strong>
+                    <a href="https://www.tiktok.com/@addoteicreative_studio" target="_blank" rel="noopener noreferrer" class="contact-action-link">
+                      Watch on TikTok →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Telegram Direct -->
+                <div class="contact-item">
+                  <div class="contact-item-icon telegram-bg" style="background: rgba(0, 136, 204, 0.15); color: #0088CC;">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                  </div>
+                  <div class="contact-item-content">
+                    <span class="contact-label">Telegram Chat</span>
+                    <strong class="contact-val">@addoteicreative_studio</strong>
+                    <a href="https://t.me/addoteicreative_studio" target="_blank" rel="noopener noreferrer" class="contact-action-link">
+                      Message on Telegram →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Direct Email -->
+                <div class="contact-item">
+                  <div class="contact-item-icon email-bg">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div class="contact-item-content">
+                    <span class="contact-label">Email Inquiries</span>
+                    <strong class="contact-val">d8222815@gmail.com</strong>
+                    <a href="mailto:d8222815@gmail.com?subject=Design%20Project%20Inquiry%20-%20Addotei%20Creative%20Studio" class="contact-action-link">
+                      Send Email Directly →
+                    </a>
+                  </div>
+                </div>
+
+                <!-- Studio Location -->
+                <div class="contact-item">
+                  <div class="contact-item-icon loc-bg">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div class="contact-item-content">
+                    <span class="contact-label">Studio Base</span>
+                    <strong class="contact-val">Accra, Ghana</strong>
+                    <span class="contact-note">Working Remotely with Global Clients Worldwide</span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Social Media Connections -->
+              <div class="contact-social-strip">
+                <span class="social-label">Follow &amp; Connect:</span>
+                <div class="social-icons-group">
+                  <a href="https://www.instagram.com/addoteicreative_studio/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram (@addoteicreative_studio)" title="Instagram: @addoteicreative_studio">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                  </a>
+                  <a href="https://www.tiktok.com/@addoteicreative_studio" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="TikTok (@addoteicreative_studio)" title="TikTok: @addoteicreative_studio">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .58.04.85.12V9.32a6.34 6.34 0 0 0-.85-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.28 8.28 0 0 0 4.81 1.54V7.15a4.84 4.84 0 0 1-1.1-.46z"/>
+                    </svg>
+                  </a>
+                  <a href="https://t.me/addoteicreative_studio" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Telegram (@addoteicreative_studio)" title="Telegram: @addoteicreative_studio">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                    </svg>
+                  </a>
+                  <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20would%20like%20to%20inquire%20about%20a%20design%20project." target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp (+233 53 955 4952)" title="WhatsApp: +233 53 955 4952">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Contact Form -->
+          <div class="contact-form-col">
+            <div class="form-card">
+              <h3 class="form-card-title">Send a Project Brief</h3>
+              <p class="form-card-subtitle">Fill in the project details below for an upfront quote within a few hours.</p>
+
+              <form id="contact-form" class="contact-form" novalidate>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="client-name" class="form-label">Full Name <span class="req">*</span></label>
+                    <input type="text" id="client-name" name="name" class="form-input" placeholder="e.g. Pastor David Arthur" required>
+                    <span class="field-error" id="name-error">Please enter your full name.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="client-email" class="form-label">Email Address <span class="req">*</span></label>
+                    <input type="email" id="client-email" name="email" class="form-input" placeholder="e.g. david@example.com" required>
+                    <span class="field-error" id="email-error">Please enter a valid email address.</span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="client-phone" class="form-label">Phone or WhatsApp Number <span class="req">*</span></label>
+                    <input type="tel" id="client-phone" name="phone" class="form-input" placeholder="e.g. +233 24 000 0000" required>
+                    <span class="field-error" id="phone-error">Please provide a valid phone or WhatsApp number.</span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="service-select" class="form-label">Service Needed <span class="req">*</span></label>
+                    <select id="service-select" name="service" class="form-select" required>
+                      <option value="" disabled selected>Select a Service</option>
+                      <option value="Event Flyer">Event Flyer Design</option>
+                      <option value="Church Flyer">Church / Ministry Flyer</option>
+                      <option value="Business Flyer">Corporate / Business Flyer</option>
+                      <option value="Logo Design">Logo &amp; Icon Design</option>
+                      <option value="Social Media Graphics">Social Media Graphic Suite</option>
+                      <option value="Poster Design">Poster / Banner Design</option>
+                      <option value="Brand Identity">Complete Brand Identity</option>
+                      <option value="Other">Other Custom Design</option>
+                    </select>
+                    <span class="field-error" id="service-error">Please select a service category.</span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="project-deadline" class="form-label">Target Completion Date</label>
+                  <select id="project-deadline" name="deadline" class="form-select">
+                    <option value="Standard (2-3 Days)">Standard (2 - 3 Days)</option>
+                    <option value="Urgent Express (24 Hours)">Urgent Express (24 Hours)</option>
+                    <option value="Super Rush (12 Hours)">Super Rush (12 Hours)</option>
+                    <option value="Flexible Timeline">Flexible Timeline</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="project-message" class="form-label">Project Description &amp; Details <span class="req">*</span></label>
+                  <textarea id="project-message" name="message" class="form-textarea" rows="4" placeholder="Tell us about the event or project: theme, target audience, dimensions, specific ideas..." required></textarea>
+                  <span class="field-error" id="message-error">Please share a brief description of your project.</span>
+                </div>
+
+                <!-- Invisible Anti-Spam Honeypot -->
+                <div class="form-honeypot" aria-hidden="true" style="display: none; visibility: hidden;">
+                  <label for="client-company-url">Leave this field blank</label>
+                  <input type="text" id="client-company-url" name="_honey" tabindex="-1" autocomplete="off">
+                </div>
+
+                <div class="form-legal-notice">
+                  <span class="lock-icon">🔒</span>
+                  <span>Strict Confidentiality Guaranteed. Submitting agrees to our <button type="button" class="legal-inline-btn" data-modal-open="terms-modal">Terms</button> &amp; <button type="button" class="legal-inline-btn" data-modal-open="privacy-modal">Privacy</button>.</span>
+                </div>
+
+                <button type="submit" id="form-submit-btn" class="btn btn-gold btn-block btn-submit">
+                  <span class="submit-text">Send Design Inquiry</span>
+                  <span class="submit-spinner" aria-hidden="true"></span>
+                </button>
+
+              </form>
+
+              <!-- Submission Success Feedback Modal / Alert -->
+              <div id="form-success" class="form-success-banner" aria-live="polite">
+                <div class="success-icon">✓</div>
+                <h4 class="success-title">Inquiry Received Successfully!</h4>
+                <p class="success-desc">Thank you for contacting Addotei Creative Studio. David will review your project brief and get in touch within a few hours.</p>
+                <div class="success-whatsapp-cta">
+                  <span>Need an instant reply right now?</span>
+                  <a id="whatsapp-quick-link" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-gold">
+                    Open WhatsApp Chat ➔
+                  </a>
+                </div>
+              </div>
+
+              <!-- Payment & Quality Assurance Badges -->
+              <div class="contact-trust-bar">
+                <div class="trust-guarantees">
+                  <div class="trust-badge-item">
+                    <span class="trust-badge-icon">🛡️</span>
+                    <span class="trust-badge-text"><strong>100% Satisfaction</strong> Priority</span>
+                  </div>
+                  <div class="trust-badge-item">
+                    <span class="trust-badge-icon">⚡</span>
+                    <span class="trust-badge-text"><strong>24–48h</strong> Express Turnaround</span>
+                  </div>
+                  <div class="trust-badge-item">
+                    <span class="trust-badge-icon">📐</span>
+                    <span class="trust-badge-text"><strong>300 DPI</strong> Print-Ready PDF/CMYK</span>
+                  </div>
+                </div>
+
+                <div class="payment-methods-strip">
+                  <span class="payment-strip-title">Accepted Payment Channels:</span>
+                  <div class="payment-pill-group">
+                    <span class="pay-pill momo" title="MTN Mobile Money">MTN MoMo</span>
+                    <span class="pay-pill telecel" title="Telecel Cash">Telecel Cash</span>
+                    <span class="pay-pill bank" title="Direct Bank Wire">Bank Wire</span>
+                    <span class="pay-pill card" title="PayPal, Visa, Mastercard">PayPal / Visa / Card</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section 9: Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      
+      <div class="footer-grid">
+        <!-- Brand Col -->
+        <div class="footer-brand-col">
+          <a href="#home" class="brand-logo footer-logo">
+            <span class="logo-mark">
+              <svg viewBox="0 0 40 40" width="30" height="30">
+                <rect width="40" height="40" rx="8" fill="#222222" stroke="#D4AF37" stroke-width="1.5"/>
+                <path d="M20 9 L30 31 L25 31 L22.5 25 L17.5 25 L15 31 L10 31 Z M20 15 L18.5 21 L21.5 21 Z" fill="#D4AF37"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <strong class="brand-name">ADDOTEI</strong>
+              <small class="brand-sub">CREATIVE STUDIO</small>
+            </span>
+          </a>
+          <p class="footer-bio">
+            A luxury minimalist graphic design studio led by David Addotei. Dedicated to forging iconic visual experiences for forward-thinking brands, churches, events, and entrepreneurs globally.
+          </p>
+          <div class="footer-badge-pill">
+            <span>📍 Accra, Ghana • Serving Global Clients</span>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Col -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Quick Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About David</a></li>
+            <li><a href="#portfolio">Curated Portfolio</a></li>
+            <li><a href="#services">Creative Services</a></li>
+            <li><a href="#process">How We Work</a></li>
+            <li><a href="#why-me">Why Choose Me</a></li>
+            <li><a href="#testimonials">Client Testimonials</a></li>
+            <li><a href="#faq">Client FAQ</a></li>
+            <li><a href="#contact">Contact &amp; Hire</a></li>
+          </ul>
+        </div>
+
+        <!-- Services Links Col -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Creative Services</h4>
+          <ul class="footer-links">
+            <li><a href="#portfolio">Event Flyers</a></li>
+            <li><a href="#portfolio">Church &amp; Ministry Flyers</a></li>
+            <li><a href="#portfolio">Corporate Business Flyers</a></li>
+            <li><a href="#portfolio">Logo &amp; Brand Identity</a></li>
+            <li><a href="#portfolio">Social Media Graphics</a></li>
+            <li><a href="#portfolio">Posters &amp; Rollup Banners</a></li>
+            <li><a href="#portfolio">Stationery &amp; Print Ready</a></li>
+          </ul>
+        </div>
+
+        <!-- Social Media & Direct Connect Col -->
+        <div class="footer-contact-col">
+          <h4 class="footer-heading">Follow &amp; Connect</h4>
+          <p class="footer-contact-text">Connect across our official social channels for design process reels and client updates:</p>
+          
+          <ul class="footer-social-channels-list">
+            <li>
+              <a href="https://www.instagram.com/addoteicreative_studio/" target="_blank" rel="noopener noreferrer" class="footer-social-item" title="Instagram: @addoteicreative_studio">
+                <span class="footer-social-icon ig">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </span>
+                <span class="footer-social-info">
+                  <strong>Instagram</strong>
+                  <small>@addoteicreative_studio</small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.tiktok.com/@addoteicreative_studio" target="_blank" rel="noopener noreferrer" class="footer-social-item" title="TikTok: @addoteicreative_studio">
+                <span class="footer-social-icon tt">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.3 0 .58.04.85.12V9.32a6.34 6.34 0 0 0-.85-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V9.05a8.28 8.28 0 0 0 4.81 1.54V7.15a4.84 4.84 0 0 1-1.1-.46z"/></svg>
+                </span>
+                <span class="footer-social-info">
+                  <strong>TikTok</strong>
+                  <small>@addoteicreative_studio</small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://t.me/addoteicreative_studio" target="_blank" rel="noopener noreferrer" class="footer-social-item" title="Telegram: @addoteicreative_studio">
+                <span class="footer-social-icon tg">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 0 0-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                </span>
+                <span class="footer-social-info">
+                  <strong>Telegram</strong>
+                  <small>@addoteicreative_studio</small>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20would%20like%20to%20inquire%20about%20a%20design%20project." target="_blank" rel="noopener noreferrer" class="footer-social-item" title="WhatsApp: +233 53 955 4952">
+                <span class="footer-social-icon wa">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+                </span>
+                <span class="footer-social-info">
+                  <strong>WhatsApp</strong>
+                  <small>+233 53 955 4952</small>
+                </span>
+              </a>
+            </li>
+          </ul>
+
+          <div class="footer-direct-btns">
+            <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20would%20like%20to%20inquire%20about%20a%20design%20project." target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm btn-block">
+              💬 Instant WhatsApp Chat
+            </a>
+            <a href="mailto:d8222815@gmail.com" class="btn btn-outline btn-sm btn-block">
+              ✉️ d8222815@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Footer: Copyright & Legal & Navigation -->
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright-wrap">
+          <div class="footer-copyright-main">
+            &copy; <span id="current-year">2026</span> <strong>Addotei Creative Studio</strong>. All Rights Reserved.
+          </div>
+          <div class="footer-copyright-sub">
+            Designed &amp; Directed by <strong>David Addotei</strong> • Luxury Minimalism • Accra, Ghana.
+          </div>
+        </div>
+
+        <div class="footer-bottom-actions">
+          <div class="footer-legal-links">
+            <button type="button" class="legal-link-btn" data-modal-open="privacy-modal">Privacy Policy</button>
+            <span class="legal-sep">•</span>
+            <button type="button" class="legal-link-btn" data-modal-open="terms-modal">Terms of Service</button>
+            <span class="legal-sep">•</span>
+            <button type="button" class="legal-link-btn" data-modal-open="copyright-modal">Copyright &amp; IP</button>
+          </div>
+          <a href="#home" class="footer-back-top-link">Back to Top ↑</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Floating Anti-Theft Toast Notification -->
+  <div id="anti-theft-toast" class="anti-theft-toast" aria-live="polite">
+    <span class="toast-icon">🛡️</span>
+    <span class="toast-text">Artwork Protected • © Addotei Creative Studio</span>
+  </div>
+
+  <!-- =========================================================================
+       LEGAL MODALS SUITE
+       ========================================================================= -->
+
+  <!-- Modal 1: Privacy Policy -->
+  <div id="privacy-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="privacy-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">DATA PROTECTION</span>
+          <h3 id="privacy-modal-title" class="legal-modal-title">Studio Privacy Policy</h3>
+          <p class="legal-modal-subtitle">Addotei Creative Studio • Effective Date: January 2026</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Privacy Policy Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <h4>1. Information We Collect</h4>
+        <p>When you submit a project brief through our website, we collect your <strong>Full Name, Email Address, Phone / WhatsApp Number</strong>, and project descriptions. We do not collect cookies for tracking or sell behavioral data.</p>
+
+        <h4>2. Purpose of Collection</h4>
+        <p>Your contact details are strictly utilized to:</p>
+        <ul>
+          <li>Evaluate design scope, calculate turnaround, and issue project estimates.</li>
+          <li>Communicate revisions, proofs, and delivery files directly with you.</li>
+          <li>Invoice completed work accurately.</li>
+        </ul>
+
+        <h4>3. Absolute Zero-Spam Pledge</h4>
+        <p>We respect your inbox and messaging space. We <strong>never</strong> sell, rent, lease, or monetize your email or phone number with third-party advertisers, data brokers, or marketing lists.</p>
+
+        <h4>4. Project Brief Confidentiality (NDA Standard)</h4>
+        <p>We treat all unreleased event graphics, church conventions, unannounced business initiatives, and brand launch assets as strictly confidential prior to your public launch.</p>
+
+        <h4>5. Data Deletion &amp; Rights</h4>
+        <p>You have the right to request deletion of your contact records from our studio database at any time. Simply email <a href="mailto:d8222815@gmail.com" class="gold-text">d8222815@gmail.com</a> with the subject "Data Erasure".</p>
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Understood &amp; Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Terms of Service -->
+  <div id="terms-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="terms-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">CLIENT AGREEMENT</span>
+          <h3 id="terms-modal-title" class="legal-modal-title">Terms of Service</h3>
+          <p class="legal-modal-subtitle">Project Policies &amp; Creative Deliverables Standards</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Terms of Service Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <h4>1. Studio Engagement</h4>
+        <p>By commissioning Addotei Creative Studio (led by Creative Director David Addotei), you agree to these standard project terms. Work begins upon receipt of a confirmed project brief and commitment deposit.</p>
+
+        <h4>2. Deposit &amp; Payment Schedule</h4>
+        <ul>
+          <li>A <strong>50% commitment deposit</strong> is required upfront before design drafting and concept exploration begins.</li>
+          <li>The remaining <strong>50% balance</strong> is payable upon your approval of the final watermark proof, prior to releasing unwatermarked 300 DPI master print and web files.</li>
+          <li>Accepted channels include MTN Mobile Money, Telecel Cash, Direct Bank Transfer, and PayPal.</li>
+        </ul>
+
+        <h4>3. Revision Policy</h4>
+        <p>Every standard design package includes up to <strong>2 to 3 rounds of revisions</strong> (text changes, color tweaks, element sizing, speaker photo replacements). Drastic scope changes requested after initial brief approval (e.g. changing the entire event concept, date, or new theme) are billed as a new design.</p>
+
+        <h4>4. Production Turnaround</h4>
+        <p>Standard turnaround is <strong>24 to 48 hours</strong> from deposit clearance and asset receipt (high-res photos, approved text). Delays in client feedback or missing content may extend production timelines.</p>
+
+        <h4>5. Cancellations &amp; Refunds</h4>
+        <p>Because creative design reserves dedicated studio labor and hours, deposits are non-refundable once initial concept drafting has commenced.</p>
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Accept &amp; Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Copyright & IP Notice -->
+  <div id="copyright-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="copyright-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">INTELLECTUAL PROPERTY</span>
+          <h3 id="copyright-modal-title" class="legal-modal-title">Copyright &amp; Ownership</h3>
+          <p class="legal-modal-subtitle">Creative Rights, Commercial Ownership &amp; Portfolio Usage</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Copyright Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <h4>1. 100% Commercial Rights Transfer</h4>
+        <p>Upon full settlement of the final invoice, full and unrestricted <strong>commercial usage rights</strong> to the approved design deliverables transfer 100% to you (the client). You may print, distribute, publish, and advertise the final design without recurring license fees.</p>
+
+        <h4>2. Studio Portfolio Showcase Rights</h4>
+        <p>Addotei Creative Studio retains the customary professional right to exhibit completed artworks across studio portfolios, social media showcases, and marketing archives as demonstrations of creative caliber.</p>
+
+        <h4>3. Originality &amp; Licensed Assets</h4>
+        <p>We guarantee all compositions are crafted with original creative layouts. Any incorporated third-party typefaces, textures, or stock photography conform to commercial licensing standards.</p>
+
+        <h4>4. Anti-Theft &amp; Web Scraping Notice</h4>
+        <p>All portfolio items, mockups, vector artwork, and flyer samples displayed on this website are the intellectual property of Addotei Creative Studio. Unauthorized downloading, scraping, watermark removal, or commercial resale of our portfolio artwork is strictly prohibited and subject to DMCA takedowns.</p>
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       INTERACTIVE CLIENT REVIEW MODAL
+       ========================================================================= -->
+  <div id="review-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="review-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card review-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">CLIENT ENDORSEMENT</span>
+          <h3 id="review-modal-title" class="legal-modal-title">Leave a Client Review</h3>
+          <p class="legal-modal-subtitle">Share your experience working with David Addotei</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Review Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <form id="client-review-form" class="client-review-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-client-name" class="form-label">Your Name <span class="req">*</span></label>
+              <input type="text" id="review-client-name" name="client_name" class="form-input" placeholder="e.g. Pastor Michael Mensah" required>
+            </div>
+            <div class="form-group">
+              <label for="review-client-role" class="form-label">Title / Church / Business <span class="req">*</span></label>
+              <input type="text" id="review-client-role" name="client_role" class="form-input" placeholder="e.g. Lead Pastor, Grace Church" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-client-email" class="form-label">Your Email <span class="req">*</span></label>
+              <input type="email" id="review-client-email" name="client_email" class="form-input" placeholder="e.g. client@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="review-service-type" class="form-label">Service Received <span class="req">*</span></label>
+              <select id="review-service-type" name="service_type" class="form-select" required>
+                <option value="Event Flyer">Event &amp; Club Flyer</option>
+                <option value="Church Flyer" selected>Church &amp; Ministry Flyer</option>
+                <option value="Business Flyer">Corporate Business Flyer</option>
+                <option value="Logo Design">Logo &amp; Brand Identity</option>
+                <option value="Social Media">Social Media Graphics</option>
+                <option value="Poster / Banner">Poster or Rollup Banner</option>
+                <option value="Other">Other Creative Work</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Interactive Star Rating Selector -->
+          <div class="form-group rating-selector-group">
+            <label class="form-label">Your Overall Rating <span class="req">*</span></label>
+            <div class="star-rating-widget" id="star-rating-widget">
+              <button type="button" class="star-btn active" data-value="1" aria-label="1 star">★</button>
+              <button type="button" class="star-btn active" data-value="2" aria-label="2 stars">★</button>
+              <button type="button" class="star-btn active" data-value="3" aria-label="3 stars">★</button>
+              <button type="button" class="star-btn active" data-value="4" aria-label="4 stars">★</button>
+              <button type="button" class="star-btn active" data-value="5" aria-label="5 stars">★</button>
+              <span class="rating-label-text" id="rating-label-text">5.0 - Exceptional Quality!</span>
+            </div>
+            <input type="hidden" id="review-rating-value" name="rating" value="5">
+          </div>
+
+          <div class="form-group">
+            <label for="review-message" class="form-label">Your Review / Testimonial <span class="req">*</span></label>
+            <textarea id="review-message" name="review_text" class="form-textarea" rows="3" placeholder="Tell us about the design quality, speed, communication, and impact of the artwork..." required></textarea>
+          </div>
+
+          <button type="submit" id="review-submit-btn" class="btn btn-gold btn-block btn-submit">
+            <span class="submit-text">Submit Verified Review</span>
+            <span class="submit-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <!-- Review Success Feedback Banner -->
+        <div id="review-success-banner" class="form-success-banner" aria-live="polite">
+          <div class="success-icon">✓</div>
+          <h4 class="success-title">Review Submitted!</h4>
+          <p class="success-desc">Thank you for your endorsement. Your review has been recorded and delivered directly to David Addotei.</p>
+          <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       OFFICIAL STUDIO BUSINESS PROFILE DOSSIER MODAL
+       ========================================================================= -->
+  <div id="business-profile-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="profile-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card business-dossier-card">
+      <div class="legal-modal-header dossier-header">
+        <div class="dossier-header-branding">
+          <span class="dossier-emblem">AD</span>
+          <div>
+            <span class="legal-badge">OFFICIAL CAPABILITY DOSSIER</span>
+            <h3 id="profile-modal-title" class="legal-modal-title">Addotei Creative Studio</h3>
+            <p class="legal-modal-subtitle">Bespoke Visual Architecture • Accra, Ghana • Serving Global Clients</p>
+          </div>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Business Profile Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body dossier-body">
+        
+        <!-- Section 1: Executive Summary -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">1. Executive Overview &amp; Studio Direction</h4>
+          <p>
+            <strong>Addotei Creative Studio</strong> is an independent luxury minimalist graphic design practice founded and directed by <strong>David Addotei</strong>. Operating from Accra, Ghana, the studio engineers high-impact event publicity, reverent church visuals, corporate branding, and modern vector identities for clients worldwide.
+          </p>
+          <div class="dossier-key-stats">
+            <div class="dossier-stat-box">
+              <strong>500+</strong>
+              <small>Artworks Delivered</small>
+            </div>
+            <div class="dossier-stat-box">
+              <strong>24-48h</strong>
+              <small>Turnaround SLA</small>
+            </div>
+            <div class="dossier-stat-box">
+              <strong>100%</strong>
+              <small>Commercial IP Transfer</small>
+            </div>
+            <div class="dossier-stat-box">
+              <strong>Global</strong>
+              <small>Ghana, UK, US, Diaspora</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Core Competencies Matrix -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">2. Core Competency Disciplines</h4>
+          <div class="dossier-competencies-grid">
+            <div class="competency-card">
+              <h5>✨ Event &amp; Nightlife Flyers</h5>
+              <p>High-energy VIP galas, music concerts, nightlife publicity, anniversary celebrations, and ticketing promotional artwork.</p>
+            </div>
+            <div class="competency-card">
+              <h5>⛪ Church &amp; Ministry Graphics</h5>
+              <p>Reverent spiritual posters, prophetic revivals, worship nights, national conventions, sermon series, and social broadcasts.</p>
+            </div>
+            <div class="competency-card">
+              <h5>💼 Corporate &amp; Business Flyers</h5>
+              <p>Executive summits, product launches, corporate capability profiles, financial conferences, and institutional publications.</p>
+            </div>
+            <div class="competency-card">
+              <h5>🎨 Brand Identity &amp; Logo Suites</h5>
+              <p>Bespoke monograms, modern minimal vector trademarks, color typography palettes, and commercial brand guidelines.</p>
+            </div>
+            <div class="competency-card">
+              <h5>🖼️ Posters &amp; Rollup Banners</h5>
+              <p>Large-format 300 DPI exhibition graphics, pull-up banners, stage backdrops, and billboard-grade vector outputs.</p>
+            </div>
+            <div class="competency-card">
+              <h5>📱 Social Media Campaign Kits</h5>
+              <p>Instagram carousels, TikTok vertical covers, WhatsApp status announcements, and high-conversion ad creatives.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Technical Capabilities & Standards -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">3. Technical Software Stack &amp; Deliverables</h4>
+          <div class="dossier-pills-wrap">
+            <span class="dossier-pill">Adobe Photoshop CC</span>
+            <span class="dossier-pill">Adobe Illustrator CC</span>
+            <span class="dossier-pill">Apple iPad Pro &amp; Pencil</span>
+            <span class="dossier-pill">Procreate Digital Canvas</span>
+            <span class="dossier-pill">CMYK 300 DPI Print Standards</span>
+            <span class="dossier-pill">RGB Screen Optimized</span>
+            <span class="dossier-pill">Vector SVG / EPS</span>
+            <span class="dossier-pill">Ultra-HD 4K Previews</span>
+          </div>
+        </div>
+
+        <!-- Section 4: Operational Terms & Guarantees -->
+        <div class="dossier-section">
+          <h4 class="dossier-section-title">4. Studio Guarantees &amp; Commercial Terms</h4>
+          <ul class="dossier-guarantees-list">
+            <li><strong>Production Turnaround:</strong> Standard delivery within 24 to 48 hours; express rush delivery available upon brief clearance.</li>
+            <li><strong>Revision Commitment:</strong> Up to 2 to 3 revision rounds per commission for perfection and text accuracy.</li>
+            <li><strong>Intellectual Property:</strong> 100% full commercial rights transfer to client upon final invoice settlement.</li>
+            <li><strong>Confidentiality:</strong> Non-disclosure guaranteed for pre-launch event announcements and corporate initiatives.</li>
+          </ul>
+        </div>
+
+        <!-- Section 5: Direct Studio Contact -->
+        <div class="dossier-contact-box">
+          <div class="dossier-contact-info">
+            <strong>Ready to commission Addotei Creative Studio?</strong>
+            <span>Lead Creative Director: <strong>David Addotei</strong> • Accra, Ghana</span>
+          </div>
+          <div class="dossier-cta-btns">
+            <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20have%20reviewed%20your%20Business%20Profile%20and%20would%20like%20to%20commission%20a%20project." target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-sm">
+              💬 Instant WhatsApp Booking
+            </a>
+            <a href="mailto:d8222815@gmail.com?subject=Project%20Inquiry%20-%20Addotei%20Creative%20Studio" class="btn btn-outline btn-sm">
+              ✉️ Email Project Brief
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close Profile</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top of page" title="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
