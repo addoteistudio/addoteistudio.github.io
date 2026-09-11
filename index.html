@@ -35,7 +35,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=2.4">
+  <link rel="stylesheet" href="style.css?v=2.5">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -72,6 +72,8 @@
     }
   }
   </script>
+  <!-- Paystack Inline Payment Gateway SDK -->
+  <script src="https://js.paystack.co/v1/inline.js"></script>
 </head>
 <body>
 
@@ -163,6 +165,9 @@
           </span>
         </button>
 
+                <button type="button" class="btn btn-outline btn-sm hide-mobile" data-modal-open="paystack-modal" style="border-color: rgba(212, 175, 55, 0.4);">
+          <span>ðŸ’³ Pay Online</span>
+        </button>
         <a href="#contact" class="btn btn-gold btn-sm hide-mobile">Hire Me</a>
 
         <!-- Mobile Hamburger Toggle -->
@@ -186,6 +191,11 @@
         <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
         <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+        <li>
+          <button type="button" class="btn btn-gold btn-block btn-sm" data-modal-open="paystack-modal" style="margin-top: 14px;">
+            <span>ðŸ’³ Pay Online (MoMo &amp; Card)</span>
+          </button>
+        </li>
       </ul>
       <div class="mobile-menu-cta">
         <a href="#contact" class="btn btn-gold btn-block mobile-nav-link">Hire Me Now</a>
@@ -2481,6 +2491,134 @@
     </div>
   </div>
 
+    <!-- =========================================================================
+       OFFICIAL PAYSTACK PAYMENT & DEPOSIT GATEWAY MODAL
+       ========================================================================= -->
+  <div id="paystack-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="paystack-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card payment-modal-card">
+      <div class="legal-modal-header payment-modal-header">
+        <div class="payment-header-branding">
+          <span class="dossier-emblem">AD</span>
+          <div>
+            <span class="legal-badge">SECURE PAYMENT GATEWAY</span>
+            <h3 id="paystack-modal-title" class="legal-modal-title">Make a Payment or Deposit</h3>
+            <p class="legal-modal-subtitle">Instant MoMo &amp; Card Settlement &bull; Powered by Paystack</p>
+          </div>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Payment Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body payment-modal-body">
+        
+        <!-- Preset Package Quick Selector -->
+        <div class="payment-package-selector">
+          <label class="form-label">Select Package / Deposit (or enter custom amount below):</label>
+          <div class="package-chips-grid">
+            <button type="button" class="package-chip active" data-amount="60" data-service="Flyer 50% Deposit">
+              <span class="chip-title">Flyer Deposit (50%)</span>
+              <strong class="chip-price">GHâ‚µ 60</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="100" data-service="Single-Sided Flyer Design">
+              <span class="chip-title">Single Flyer</span>
+              <strong class="chip-price">GHâ‚µ 100</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="180" data-service="Double-Sided Flyer Design">
+              <span class="chip-title">Double Flyer</span>
+              <strong class="chip-price">GHâ‚µ 180</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="150" data-service="Logo Design Deposit">
+              <span class="chip-title">Logo Deposit</span>
+              <strong class="chip-price">GHâ‚µ 150</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="500" data-service="Starter Business Package">
+              <span class="chip-title">Starter Package</span>
+              <strong class="chip-price">GHâ‚µ 500</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="800" data-service="Business Growth Package">
+              <span class="chip-title">Growth Package</span>
+              <strong class="chip-price">GHâ‚µ 800</strong>
+            </button>
+          </div>
+        </div>
+
+        <form id="paystack-checkout-form" class="paystack-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pay-client-name" class="form-label">Full Name <span class="req">*</span></label>
+              <input type="text" id="pay-client-name" class="form-input" placeholder="e.g. Pastor David Arthur" required>
+            </div>
+            <div class="form-group">
+              <label for="pay-client-email" class="form-label">Email Address (for instant receipt) <span class="req">*</span></label>
+              <input type="email" id="pay-client-email" class="form-input" placeholder="e.g. client@gmail.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pay-client-phone" class="form-label">Mobile Money / WhatsApp Number <span class="req">*</span></label>
+              <input type="tel" id="pay-client-phone" class="form-input" placeholder="e.g. 0539554952" required>
+            </div>
+            <div class="form-group">
+              <label for="pay-amount-input" class="form-label">Amount in Ghana Cedis (GHâ‚µ) <span class="req">*</span></label>
+              <div class="amount-input-wrap">
+                <span class="currency-prefix">GHâ‚µ</span>
+                <input type="number" id="pay-amount-input" class="form-input amount-field" value="60" min="5" step="5" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pay-project-note" class="form-label">Project Name / Description</label>
+            <input type="text" id="pay-project-note" class="form-input" placeholder="e.g. Church Revival Flyer Deposit" value="Flyer 50% Deposit">
+          </div>
+
+          <!-- Trust Badges & Supported Channels -->
+          <div class="payment-trust-card">
+            <div class="trust-pill-icons">
+              <span class="channel-badge momo">MTN MoMo</span>
+              <span class="channel-badge telecel">Telecel Cash</span>
+              <span class="channel-badge card">Visa &bull; Mastercard</span>
+              <span class="channel-badge apple">Apple Pay</span>
+            </div>
+            <div class="secure-badge-note">
+              ðŸ”’ <strong>256-Bit Bank Encryption</strong> &bull; Secured by Paystack &bull; Automatic SMS &amp; Email Receipt
+            </div>
+          </div>
+
+          <button type="submit" id="paystack-submit-btn" class="btn btn-gold btn-block btn-pay">
+            <span class="pay-btn-icon">âš¡</span>
+            <span id="pay-btn-label">Pay GHâ‚µ 60 via Mobile Money / Card</span>
+          </button>
+        </form>
+
+        <!-- Payment Success Confirmation Screen -->
+        <div id="payment-success-box" class="payment-success-box" style="display: none;" aria-live="polite">
+          <div class="success-gold-circle">âœ“</div>
+          <h3 class="success-title">Payment Confirmed!</h3>
+          <p class="success-desc">
+            Your transaction was processed successfully by Paystack. A formal receipt has been emailed to you, and David Addotei has received an instant payment notification.
+          </p>
+          <div class="transaction-receipt-card">
+            <div class="receipt-row"><span>Amount Paid:</span><strong id="receipt-amount" class="gold-text">GHâ‚µ 0.00</strong></div>
+            <div class="receipt-row"><span>Reference ID:</span><code id="receipt-ref">AD-XXXXXX</code></div>
+            <div class="receipt-row"><span>Project Purpose:</span><span id="receipt-project">Design Service</span></div>
+            <div class="receipt-row"><span>Status:</span><span class="status-verified">â— Verified &amp; Settled</span></div>
+          </div>
+          <div class="success-actions" style="margin-top: 20px;">
+            <a id="payment-whatsapp-confirm-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-block">
+              ðŸ’¬ Send Payment Proof on WhatsApp
+            </a>
+            <button type="button" class="btn btn-outline btn-sm btn-block" data-modal-close style="margin-top: 10px;">
+              Close Window
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
   <!-- Floating Back to Top Button -->
   <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top of page" title="Back to top">
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -2489,6 +2627,6 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <script src="script.js?v=2.4"></script>
+  <script src="script.js?v=2.5"></script>
 </body>
 </html>

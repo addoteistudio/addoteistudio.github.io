@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ADDOTEI CREATIVE STUDIO - MAIN JAVASCRIPT
  * Handles: Preloader, Theme Switching, Mobile Navigation, Hero Canvas Particles,
  * Portfolio Filtering, Lightbox Modal, Animated Counters, FAQ Accordion,
@@ -762,5 +762,134 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-});
+  /* ==========================================================================
+     16. Paystack Inline Payment Gateway Controller
+     ========================================================================== */
+  const PAYSTACK_PUBLIC_KEY = 'pk_live_692fef8543cda3a1ebfd49f5e0af4b3a96136c9f';
+  const payForm = document.getElementById('paystack-checkout-form');
+  const payAmountInput = document.getElementById('pay-amount-input');
+  const payNoteInput = document.getElementById('pay-project-note');
+  const payBtnLabel = document.getElementById('pay-btn-label');
+  const packageChips = document.querySelectorAll('.package-chip');
+  const paySuccessBox = document.getElementById('payment-success-box');
 
+  function updatePayBtnText() {
+    const val = parseFloat(payAmountInput ? payAmountInput.value : 0) || 0;
+    if (payBtnLabel) {
+      payBtnLabel.textContent = Pay GHâ‚µ  + val.toLocaleString() +  via Mobile Money / Card;
+    }
+  }
+
+  packageChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      packageChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      const amount = chip.getAttribute('data-amount');
+      const service = chip.getAttribute('data-service');
+      if (payAmountInput) {
+        payAmountInput.value = amount;
+      }
+      if (payNoteInput && service) {
+        payNoteInput.value = service;
+      }
+      updatePayBtnText();
+    });
+  });
+
+  if (payAmountInput) {
+    payAmountInput.addEventListener('input', () => {
+      packageChips.forEach(c => c.classList.remove('active'));
+      updatePayBtnText();
+    });
+  }
+
+  if (payForm) {
+    payForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById('pay-client-name').value.trim();
+      const email = document.getElementById('pay-client-email').value.trim();
+      const phone = document.getElementById('pay-client-phone').value.trim();
+      const note = payNoteInput ? payNoteInput.value.trim() : 'Design Service Deposit';
+      const amountGHS = parseFloat(payAmountInput.value);
+
+      if (!name || !email || !amountGHS || amountGHS < 5) {
+        alert('Please enter your name, email, and a minimum payment amount of GHâ‚µ 5.');
+        return;
+      }
+
+      if (typeof PaystackPop === 'undefined') {
+        alert('Paystack payment gateway is connecting. Please check your internet connection and try again.');
+        return;
+      }
+
+      const amountInPesewas = Math.round(amountGHS * 100);
+      const uniqueRef = 'AD-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+
+      const handler = PaystackPop.setup({
+        key: PAYSTACK_PUBLIC_KEY,
+        email: email,
+        amount: amountInPesewas,
+        currency: 'GHS',
+        ref: uniqueRef,
+        channels: ['mobile_money', 'card'],
+        metadata: {
+          custom_fields: [
+            { display_name: 'Client Name', variable_name: 'client_name', value: name },
+            { display_name: 'Phone / WhatsApp', variable_name: 'client_phone', value: phone },
+            { display_name: 'Project Purpose', variable_name: 'project_purpose', value: note }
+          ]
+        },
+        callback: function(response) {
+          // Hide form, show celebration success receipt
+          payForm.style.display = 'none';
+          const selector = document.querySelector('.payment-package-selector');
+          if (selector) selector.style.display = 'none';
+          if (paySuccessBox) paySuccessBox.style.display = 'block';
+
+          const rAmount = document.getElementById('receipt-amount');
+          const rRef = document.getElementById('receipt-ref');
+          const rProject = document.getElementById('receipt-project');
+
+          if (rAmount) rAmount.textContent = GHâ‚µ  + amountGHS.toLocaleString();
+          if (rRef) rRef.textContent = response.reference || uniqueRef;
+          if (rProject) rProject.textContent = note;
+
+          // Configure WhatsApp confirmation button
+          const waConfirmBtn = document.getElementById('payment-whatsapp-confirm-btn');
+          if (waConfirmBtn) {
+            const waMsg = encodeURIComponent(
+              Hello David! I have just made a secure payment of GHâ‚µ  + amountGHS +  on your website for " + note + ".\n\n +
+              *Name:*  + name + \n +
+              *Paystack Reference:*  + (response.reference || uniqueRef) + \n +
+              *Receipt Email:*  + email
+            );
+            waConfirmBtn.href = https://wa.me/233539554952?text= + waMsg;
+          }
+
+          // Optional duplicate notification to David's Gmail
+          try {
+            fetch('https://formsubmit.co/ajax/d8222815@gmail.com', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+              body: JSON.stringify({
+                _subject: ðŸ’° PAYSTACK PAYMENT RECEIVED: GHâ‚µ  + amountGHS +  from  + name,
+                Client_Name: name,
+                Client_Email: email,
+                Client_Phone: phone,
+                Amount_GHS: amountGHS,
+                Project_Note: note,
+                Paystack_Reference: response.reference || uniqueRef
+              })
+            });
+          } catch(err) {}
+        },
+        onClose: function() {
+          // Modal closed without completing
+        }
+      });
+
+      handler.openIframe();
+    });
+  }
+});
