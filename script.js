@@ -1,4 +1,4 @@
-﻿/**
+/**
  * ADDOTEI CREATIVE STUDIO - MAIN JAVASCRIPT
  * Handles: Preloader, Theme Switching, Mobile Navigation, Hero Canvas Particles,
  * Portfolio Filtering, Lightbox Modal, Animated Counters, FAQ Accordion,
@@ -762,6 +762,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
   /* ==========================================================================
      16. Paystack Inline Payment Gateway Controller
      ========================================================================== */
@@ -776,7 +777,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function updatePayBtnText() {
     const val = parseFloat(payAmountInput ? payAmountInput.value : 0) || 0;
     if (payBtnLabel) {
-      payBtnLabel.textContent = Pay GHâ‚µ  + val.toLocaleString() +  via Mobile Money / Card;
+      payBtnLabel.textContent = 'Pay GH\u20B5 ' + val.toLocaleString() + ' via Mobile Money / Card';
     }
   }
 
@@ -803,18 +804,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  /* Direct click listener for all Pay Online buttons & triggers */
+  const payOnlineButtons = document.querySelectorAll('[data-modal-open="paystack-modal"], .pay-online-trigger, #header-pay-btn, #mobile-pay-btn');
+  payOnlineButtons.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      // If mobile drawer is open, close it cleanly
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuToggle = document.getElementById('menu-toggle');
+      if (mobileMenu && mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        if (menuToggle) {
+          menuToggle.classList.remove('active');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+      openLegalModal('paystack-modal');
+    });
+  });
+
   if (payForm) {
     payForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const name = document.getElementById('pay-client-name').value.trim();
-      const email = document.getElementById('pay-client-email').value.trim();
-      const phone = document.getElementById('pay-client-phone').value.trim();
+      const nameInput = document.getElementById('pay-client-name');
+      const emailInput = document.getElementById('pay-client-email');
+      const phoneInput = document.getElementById('pay-client-phone');
+
+      const name = nameInput ? nameInput.value.trim() : '';
+      const email = emailInput ? emailInput.value.trim() : '';
+      const phone = phoneInput ? phoneInput.value.trim() : '';
       const note = payNoteInput ? payNoteInput.value.trim() : 'Design Service Deposit';
-      const amountGHS = parseFloat(payAmountInput.value);
+      const amountGHS = parseFloat(payAmountInput ? payAmountInput.value : 0) || 0;
 
       if (!name || !email || !amountGHS || amountGHS < 5) {
-        alert('Please enter your name, email, and a minimum payment amount of GHâ‚µ 5.');
+        alert('Please enter your name, email, and a minimum payment amount of GH\u20B5 5.');
         return;
       }
 
@@ -851,7 +875,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const rRef = document.getElementById('receipt-ref');
           const rProject = document.getElementById('receipt-project');
 
-          if (rAmount) rAmount.textContent = GHâ‚µ  + amountGHS.toLocaleString();
+          if (rAmount) rAmount.textContent = 'GH\u20B5 ' + amountGHS.toLocaleString();
           if (rRef) rRef.textContent = response.reference || uniqueRef;
           if (rProject) rProject.textContent = note;
 
@@ -859,21 +883,21 @@ document.addEventListener('DOMContentLoaded', () => {
           const waConfirmBtn = document.getElementById('payment-whatsapp-confirm-btn');
           if (waConfirmBtn) {
             const waMsg = encodeURIComponent(
-              Hello David! I have just made a secure payment of GHâ‚µ  + amountGHS +  on your website for " + note + ".\n\n +
-              *Name:*  + name + \n +
-              *Paystack Reference:*  + (response.reference || uniqueRef) + \n +
-              *Receipt Email:*  + email
+              'Hello David! I have just made a secure payment of GH\u20B5 ' + amountGHS + ' on your website for "' + note + '".\n\n' +
+              '*Name:* ' + name + '\n' +
+              '*Paystack Reference:* ' + (response.reference || uniqueRef) + '\n' +
+              '*Receipt Email:* ' + email
             );
-            waConfirmBtn.href = https://wa.me/233539554952?text= + waMsg;
+            waConfirmBtn.href = 'https://wa.me/233539554952?text=' + waMsg;
           }
 
-          // Optional duplicate notification to David's Gmail
+          // Optional duplicate notification to David\'s Gmail
           try {
             fetch('https://formsubmit.co/ajax/d8222815@gmail.com', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
               body: JSON.stringify({
-                _subject: ðŸ’° PAYSTACK PAYMENT RECEIVED: GHâ‚µ  + amountGHS +  from  + name,
+                _subject: 'PAYSTACK PAYMENT RECEIVED: GH\u20B5 ' + amountGHS + ' from ' + name,
                 Client_Name: name,
                 Client_Email: email,
                 Client_Phone: phone,
