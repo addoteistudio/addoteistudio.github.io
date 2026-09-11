@@ -30,12 +30,15 @@
   <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
 
   <!-- Google Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://js.paystack.co">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=2.5">
+  <link rel="stylesheet" href="style.css?v=3.2">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -73,7 +76,9 @@
   }
   </script>
   <!-- Paystack Inline Payment Gateway SDK -->
-  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <!-- Paystack Inline Payment Gateway SDK (Deferred for non-blocking rendering) -->
+  <!-- Paystack Inline Payment Gateway SDK (Deferred for non-blocking rendering) -->
+  <script src="https://js.paystack.co/v1/inline.js" defer></script>
 </head>
 <body>
 
@@ -89,21 +94,21 @@
       <h2 class="preloader-text">ADDOTEI CREATIVE STUDIO</h2>
       <div class="preloader-bar"><div class="preloader-progress"></div></div>
   <script>
-    /* Bulletproof preloader dismiss (prevents getting stuck) */
+    /* Ultra-fast preloader dismiss (instant UI rendering) */
     (function() {
       function dismissPreloader() {
         var p = document.getElementById('preloader');
         if (p && !p.classList.contains('fade-out')) {
           p.classList.add('fade-out');
-          setTimeout(function() { p.style.display = 'none'; }, 600);
+          setTimeout(function() { p.style.display = 'none'; }, 250);
         }
       }
-      if (document.readyState === 'complete') {
-        dismissPreloader();
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        setTimeout(dismissPreloader, 80);
       } else {
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 80); });
         window.addEventListener('load', dismissPreloader);
-        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 800); });
-        setTimeout(dismissPreloader, 1500);
+        setTimeout(dismissPreloader, 500);
       }
     })();
   </script>
@@ -281,7 +286,7 @@
           <div class="about-media-col">
             <div class="profile-card">
               <div class="profile-img-wrapper">
-                <img src="images/portfolio/david-addotei-signature-logo.jpg" alt="David Addotei - Official Executive Studio Monogram" class="profile-img" loading="lazy">
+                <img src="images/portfolio/david-addotei-signature-logo.jpg" alt="David Addotei - Official Executive Studio Monogram" class="profile-img" loading="lazy" decoding="async">
               </div>
               <div class="profile-badge-float">
                 <span class="badge-years">5+</span>
@@ -401,7 +406,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/weight-of-glory-flyer.jpg" alt="The Weight of Glory Church Conference Flyer" loading="lazy">
+                <img src="images/portfolio/weight-of-glory-flyer.jpg" alt="The Weight of Glory Church Conference Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/weight-of-glory-flyer.jpg" data-title="The Weight of Glory &bull; Tongues of Fire '26" data-category="Church Flyers" data-desc="Flagship church conference flyer engineered with deep obsidian contrast, 3D liquid gold typography, and guest minister gallery." aria-label="Open preview for The Weight of Glory Church Conference Flyer">
@@ -426,7 +431,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/golgotha-night-flyer.jpg" alt="Golgotha Night Church Vigil Flyer" loading="lazy">
+                <img src="images/portfolio/golgotha-night-flyer.jpg" alt="Golgotha Night Church Vigil Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/golgotha-night-flyer.jpg" data-title="Golgotha Night &bull; Tout Est Accompli" data-category="Church Flyers" data-desc="Ultra-luxury all-night prayer vigil flyer featuring glowing holy cross rays, 3D platinum typography, and fanned minister panels." aria-label="Open preview for Golgotha Night Church Vigil Flyer">
@@ -451,7 +456,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/phaneroo-sunday-service.jpg" alt="Phaneroo Sunday Service Church Flyer" loading="lazy">
+                <img src="images/portfolio/phaneroo-sunday-service.jpg" alt="Phaneroo Sunday Service Church Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/phaneroo-sunday-service.jpg" data-title="Phaneroo &bull; Sunday Worship Service" data-category="Church Flyers" data-desc="Futuristic Sunday worship service flyer with floating champagne gold glass panels and cinematic stage lighting." aria-label="Open preview for Phaneroo Sunday Service Church Flyer">
@@ -476,7 +481,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/glory-night-flyer.jpg" alt="Glory Night Church Service with Addotei K. David" loading="lazy">
+                <img src="images/portfolio/glory-night-flyer.jpg" alt="Glory Night Church Service with Addotei K. David" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/glory-night-flyer.jpg" data-title="Glory Night &bull; Arise and Shine" data-category="Church Flyers" data-desc="Dynamic ministry revival service flyer featuring Minister Addotei K. David, striking split composition, and radiant gold accents." aria-label="Open preview for Glory Night Church Service with Addotei K. David">
@@ -501,7 +506,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/anointed-gathering-church.jpg" alt="Anointed Gathering Church Convention Flyer" loading="lazy">
+                <img src="images/portfolio/anointed-gathering-church.jpg" alt="Anointed Gathering Church Convention Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/anointed-gathering-church.jpg" data-title="Anointed Gathering Church Convention" data-category="Church Flyers" data-desc="Spiritual convention flyer designed with divine golden lighting, anointed typography, and minister portraits." aria-label="Open preview for Anointed Gathering Church Convention Flyer">
@@ -526,7 +531,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/christ-apostolic-church.jpg" alt="Christ Apostolic Church International Sunday Service" loading="lazy">
+                <img src="images/portfolio/christ-apostolic-church.jpg" alt="Christ Apostolic Church International Sunday Service" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/christ-apostolic-church.jpg" data-title="Christ Apostolic Church International" data-category="Church Flyers" data-desc="Vibrant Sunday praise and ministry worship flyer with clean ecclesiastical layout and striking spiritual hierarchy." aria-label="Open preview for Christ Apostolic Church International Sunday Service">
@@ -551,7 +556,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/believers-church-of-christ.jpg" alt="Believers Church of Christ Fellowship Flyer" loading="lazy">
+                <img src="images/portfolio/believers-church-of-christ.jpg" alt="Believers Church of Christ Fellowship Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/believers-church-of-christ.jpg" data-title="Believers Church of Christ Fellowship" data-category="Church Flyers" data-desc="Reverent fellowship gathering flyer designed with rich sacred imagery and elegant typography." aria-label="Open preview for Believers Church of Christ Fellowship Flyer">
@@ -576,7 +581,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/in-the-midst-of-the-storm.jpg" alt="In The Midst Of The Storm Praise Vigil Flyer" loading="lazy">
+                <img src="images/portfolio/in-the-midst-of-the-storm.jpg" alt="In The Midst Of The Storm Praise Vigil Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/in-the-midst-of-the-storm.jpg" data-title="In The Midst Of The Storm &bull; Vigil" data-category="Church Flyers" data-desc="Dramatic prayer and deliverance vigil flyer capturing dynamic emotional depth and divine breakthrough." aria-label="Open preview for In The Midst Of The Storm Praise Vigil Flyer">
@@ -601,7 +606,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/midweek-service-flyer.jpg" alt="Midweek Miracle Service Church Flyer" loading="lazy">
+                <img src="images/portfolio/midweek-service-flyer.jpg" alt="Midweek Miracle Service Church Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/midweek-service-flyer.jpg" data-title="Midweek Miracle Revival Service" data-category="Church Flyers" data-desc="High-impact midweek revival service flyer with bold typography, gold flares, and guest speaker features." aria-label="Open preview for Midweek Miracle Service Church Flyer">
@@ -626,7 +631,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/phaneroo-594.jpg" alt="Phaneroo 594 Celebration Service Flyer" loading="lazy">
+                <img src="images/portfolio/phaneroo-594.jpg" alt="Phaneroo 594 Celebration Service Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/phaneroo-594.jpg" data-title="Phaneroo 594 &bull; Milestone Celebration" data-category="Church Flyers" data-desc="Dynamic milestone worship service flyer with bold modern branding and radiant visual presence." aria-label="Open preview for Phaneroo 594 Celebration Service Flyer">
@@ -651,7 +656,7 @@
           <article class="portfolio-item" data-category="church">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/grace-church-flyer.jpg" alt="Grace and Glory Church Assembly Flyer" loading="lazy">
+                <img src="images/portfolio/grace-church-flyer.jpg" alt="Grace and Glory Church Assembly Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/grace-church-flyer.jpg" data-title="Grace &amp; Glory Church Assembly" data-category="Church Flyers" data-desc="Inspiring Sunday worship and praise service design crafted for maximum congregation engagement." aria-label="Open preview for Grace and Glory Church Assembly Flyer">
@@ -676,7 +681,7 @@
           <article class="portfolio-item" data-category="business">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/beckys-plaza-retail.jpg" alt="Becky's Plaza Commercial Retail Opening Flyer" loading="lazy">
+                <img src="images/portfolio/beckys-plaza-retail.jpg" alt="Becky's Plaza Commercial Retail Opening Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/beckys-plaza-retail.jpg" data-title="Becky's Plaza &bull; Commercial Retail" data-category="Business Flyers" data-desc="Modern high-visibility retail plaza announcement flyer designed to attract premium commercial tenants and shoppers." aria-label="Open preview for Becky's Plaza Commercial Retail Opening Flyer">
@@ -701,7 +706,7 @@
           <article class="portfolio-item" data-category="business">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/cctv-air-conditioning.jpg" alt="CCTV and Air Conditioning Services Flyer" loading="lazy">
+                <img src="images/portfolio/cctv-air-conditioning.jpg" alt="CCTV and Air Conditioning Services Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/cctv-air-conditioning.jpg" data-title="CCTV &amp; Climate Security Systems" data-category="Business Flyers" data-desc="Technical and security installation service flyer showcasing corporate surveillance and HVAC climate expertise." aria-label="Open preview for CCTV and Air Conditioning Services Flyer">
@@ -726,7 +731,7 @@
           <article class="portfolio-item" data-category="business">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/ezra-marble-granite.jpg" alt="Ezra Marble and Granite Architectural Works" loading="lazy">
+                <img src="images/portfolio/ezra-marble-granite.jpg" alt="Ezra Marble and Granite Architectural Works" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/ezra-marble-granite.jpg" data-title="Ezra Marble &amp; Granite Works" data-category="Business Flyers" data-desc="Luxurious architectural stone masonry flyer highlighting premium marble, quartz, and granite interior finishes." aria-label="Open preview for Ezra Marble and Granite Architectural Works">
@@ -751,7 +756,7 @@
           <article class="portfolio-item" data-category="business">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/onetime-media-institute.jpg" alt="Onetime Media Institute Academy Admission Flyer" loading="lazy">
+                <img src="images/portfolio/onetime-media-institute.jpg" alt="Onetime Media Institute Academy Admission Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/onetime-media-institute.jpg" data-title="Onetime Media Institute Academy" data-category="Business Flyers" data-desc="Educational promotional flyer for creative media arts, videography, and digital broadcasting students." aria-label="Open preview for Onetime Media Institute Academy Admission Flyer">
@@ -776,7 +781,7 @@
           <article class="portfolio-item" data-category="business">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/school-academy-flyer.jpg" alt="Premier Academy School Admission Announcement" loading="lazy">
+                <img src="images/portfolio/school-academy-flyer.jpg" alt="Premier Academy School Admission Announcement" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/school-academy-flyer.jpg" data-title="Premier Academy School Admissions" data-category="Business Flyers" data-desc="Prestigious academic enrollment flyer designed with trust-building educational layouts and clear course pathways." aria-label="Open preview for Premier Academy School Admission Announcement">
@@ -801,7 +806,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/new-feels-bite.jpg" alt="New Feels Bite Food and Burger Lounge Flyer" loading="lazy">
+                <img src="images/portfolio/new-feels-bite.jpg" alt="New Feels Bite Food and Burger Lounge Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/new-feels-bite.jpg" data-title="New Feel's Bite &bull; Burger &amp; Pie" data-category="Event Flyers" data-desc="Vibrant culinary marketing flyer featuring fast delivery hotlines, promotional discount badges, and appetizing visuals." aria-label="Open preview for New Feels Bite Food and Burger Lounge Flyer">
@@ -826,7 +831,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/the-golden-fork.jpg" alt="The Golden Fork Fine Dining Restaurant Flyer" loading="lazy">
+                <img src="images/portfolio/the-golden-fork.jpg" alt="The Golden Fork Fine Dining Restaurant Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/the-golden-fork.jpg" data-title="The Golden Fork Fine Dining" data-category="Event Flyers" data-desc="High-end restaurant and gourmet culinary showcase flyer with golden ambiance and curated executive menu." aria-label="Open preview for The Golden Fork Fine Dining Restaurant Flyer">
@@ -851,7 +856,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/grill-and-thrill.jpg" alt="Grill and Thrill BBQ Lounge Night Flyer" loading="lazy">
+                <img src="images/portfolio/grill-and-thrill.jpg" alt="Grill and Thrill BBQ Lounge Night Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/grill-and-thrill.jpg" data-title="Grill &amp; Thrill BBQ &amp; Nightlife" data-category="Event Flyers" data-desc="Energetic barbecue weekend party flyer designed with glowing charcoal embers and festive typography." aria-label="Open preview for Grill and Thrill BBQ Lounge Night Flyer">
@@ -876,7 +881,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/auntie-lizzys-kitchen.jpg" alt="Auntie Lizzy's Kitchen Authentic Cuisine Flyer" loading="lazy">
+                <img src="images/portfolio/auntie-lizzys-kitchen.jpg" alt="Auntie Lizzy's Kitchen Authentic Cuisine Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/auntie-lizzys-kitchen.jpg" data-title="Auntie Lizzy's Kitchen Cuisine" data-category="Event Flyers" data-desc="Authentic Ghanaian culinary catering flyer celebrating local flavors, fresh delicacies, and warm hospitality." aria-label="Open preview for Auntie Lizzy's Kitchen Authentic Cuisine Flyer">
@@ -901,7 +906,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/gladys-bite.jpg" alt="Gladys Bite Confectionery and Pastries Flyer" loading="lazy">
+                <img src="images/portfolio/gladys-bite.jpg" alt="Gladys Bite Confectionery and Pastries Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/gladys-bite.jpg" data-title="Glady's Bite Bakery &amp; Pastries" data-category="Event Flyers" data-desc="Sweet pastry and bakery catering promo flyer crafted with warm bakery tones and delightful dessert layouts." aria-label="Open preview for Gladys Bite Confectionery and Pastries Flyer">
@@ -926,7 +931,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/rfast-food.jpg" alt="R-Fast Food and Express Delivery Flyer" loading="lazy">
+                <img src="images/portfolio/rfast-food.jpg" alt="R-Fast Food and Express Delivery Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/rfast-food.jpg" data-title="R-Fast Food &amp; Express Delivery" data-category="Event Flyers" data-desc="Fast food take-out and home delivery promo flyer highlighting meal combos, quick delivery, and vibrant food visuals." aria-label="Open preview for R-Fast Food and Express Delivery Flyer">
@@ -951,7 +956,7 @@
           <article class="portfolio-item" data-category="event">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/blue-conference-flyer.jpg" alt="Blue Summit Executive Conference Flyer" loading="lazy">
+                <img src="images/portfolio/blue-conference-flyer.jpg" alt="Blue Summit Executive Conference Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/blue-conference-flyer.jpg" data-title="Blue Summit Executive Conference" data-category="Event Flyers" data-desc="Corporate seminar and leadership symposium flyer designed with oceanic corporate blue and keynote speaker profiles." aria-label="Open preview for Blue Summit Executive Conference Flyer">
@@ -976,7 +981,7 @@
           <article class="portfolio-item" data-category="social">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/aura-beauty-salon.jpg" alt="Aura Beauty Salon and Cosmetics Flyer" loading="lazy">
+                <img src="images/portfolio/aura-beauty-salon.jpg" alt="Aura Beauty Salon and Cosmetics Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/aura-beauty-salon.jpg" data-title="Aura Beauty Salon &amp; Glam Studio" data-category="Social Media" data-desc="Glamorous beauty studio and cosmetic transformation flyer featuring modern aesthetics and luxury salon treatments." aria-label="Open preview for Aura Beauty Salon and Cosmetics Flyer">
@@ -1001,7 +1006,7 @@
           <article class="portfolio-item" data-category="social">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/luxury-hair-stylist.jpg" alt="Luxury Hair and Salon Studio Flyer" loading="lazy">
+                <img src="images/portfolio/luxury-hair-stylist.jpg" alt="Luxury Hair and Salon Studio Flyer" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/luxury-hair-stylist.jpg" data-title="Luxury Hair Studio &amp; Wig Styling" data-category="Social Media" data-desc="Sleek hair styling and salon campaign graphic tailored for viral Instagram engagement and booking inquiries." aria-label="Open preview for Luxury Hair and Salon Studio Flyer">
@@ -1026,7 +1031,7 @@
           <article class="portfolio-item" data-category="social">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/social-media-1.svg" alt="Elysian Summer Drop Social Media Campaign" loading="lazy">
+                <img src="images/portfolio/social-media-1.svg" alt="Elysian Summer Drop Social Media Campaign" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/social-media-1.svg" data-title="Elysian Summer Drop Campaign" data-category="Social Media" data-desc="Dynamic, multi-format Instagram post and story templates crafted for an apparel product launch." aria-label="Open preview for Elysian Summer Drop Social Media Campaign">
@@ -1051,7 +1056,7 @@
           <article class="portfolio-item" data-category="logos">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/logo-design-1.svg" alt="Luxe and Co Minimalist Monogram Logo" loading="lazy">
+                <img src="images/portfolio/logo-design-1.svg" alt="Luxe and Co Minimalist Monogram Logo" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/logo-design-1.svg" data-title="Luxe &amp; Co. Minimalist Monogram" data-category="Logos" data-desc="Timeless luxury monogram identity featuring geometric symmetry, bespoke serif typography, and premium gold accents." aria-label="Open preview for Luxe and Co Minimalist Monogram Logo">
@@ -1076,7 +1081,7 @@
           <article class="portfolio-item" data-category="logos">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/logo-design-2.svg" alt="Vanguard Athletic Performance Crest" loading="lazy">
+                <img src="images/portfolio/logo-design-2.svg" alt="Vanguard Athletic Performance Crest" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/logo-design-2.svg" data-title="Vanguard Athletic Crest" data-category="Logos" data-desc="Bold athletic crest combining modern shield geometry, aggressive angles, and high-energy contrast." aria-label="Open preview for Vanguard Athletic Performance Crest">
@@ -1101,7 +1106,7 @@
           <article class="portfolio-item" data-category="branding">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/graphtech-business-card.jpg" alt="Graphtech Corporate Business Card" loading="lazy">
+                <img src="images/portfolio/graphtech-business-card.jpg" alt="Graphtech Corporate Business Card" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/graphtech-business-card.jpg" data-title="Graphtech Corporate Identity Card" data-category="Branding" data-desc="Executive corporate business card and stationery identity system with clean typography and minimalist layout." aria-label="Open preview for Graphtech Corporate Business Card">
@@ -1126,7 +1131,7 @@
           <article class="portfolio-item" data-category="branding">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/branding-identity-1.svg" alt="Obsidian and Gold Complete Brand Identity Suite" loading="lazy">
+                <img src="images/portfolio/branding-identity-1.svg" alt="Obsidian and Gold Complete Brand Identity Suite" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/branding-identity-1.svg" data-title="Obsidian &amp; Gold Luxury Identity" data-category="Branding" data-desc="Comprehensive brand identity system including logo guidelines, color hierarchy, and stationery mockups." aria-label="Open preview for Obsidian and Gold Complete Brand Identity Suite">
@@ -1151,7 +1156,7 @@
           <article class="portfolio-item" data-category="posters">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/event-flyer-1.svg" alt="Pulse Electric Music Festival Poster" loading="lazy">
+                <img src="images/portfolio/event-flyer-1.svg" alt="Pulse Electric Music Festival Poster" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/event-flyer-1.svg" data-title="Pulse Electric Music Festival" data-category="Posters" data-desc="High-energy electronic music festival poster with neon duotone gradients, bold typography, and DJ lineup." aria-label="Open preview for Pulse Electric Music Festival Poster">
@@ -1176,7 +1181,7 @@
           <article class="portfolio-item" data-category="posters">
             <div class="portfolio-card">
               <div class="portfolio-thumb">
-                <img src="images/portfolio/poster-design-1.svg" alt="Solstice Indie Film Festival Poster" loading="lazy">
+                <img src="images/portfolio/poster-design-1.svg" alt="Solstice Indie Film Festival Poster" loading="lazy" decoding="async">
                 <div class="portfolio-overlay">
                   <div class="overlay-actions">
                     <button class="preview-btn" data-src="images/portfolio/poster-design-1.svg" data-title="Solstice Cinematic Film Poster" data-category="Posters" data-desc="Moody, cinematic movie poster featuring atmospheric lighting, minimalist billing block, and festival laurel leaves." aria-label="Open preview for Solstice Indie Film Festival Poster">
@@ -1217,7 +1222,7 @@
 
         <div class="lightbox-body">
           <div class="lightbox-image-col">
-            <img id="lightbox-img" src="" alt="Portfolio preview item">
+            <img id="lightbox-img" src="" alt="Portfolio preview item" decoding="async">
           </div>
           <div class="lightbox-details-col">
             <span id="lightbox-category" class="lightbox-cat">Category</span>
@@ -2648,6 +2653,6 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <script src="script.js?v=3.0"></script>
+  <script src="script.js?v=3.2"></script>
 </body>
 </html>

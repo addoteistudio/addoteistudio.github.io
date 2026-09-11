@@ -9,30 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
   'use strict';
 
   /* ==========================================================================
-     1. Preloader Screen
+     1. Preloader Screen (Speed-Optimized)
      ========================================================================== */
   const preloader = document.getElementById('preloader');
-  
-  window.addEventListener('load', () => {
-    setTimeout(() => {
-      if (preloader) {
-        preloader.classList.add('fade-out');
-        setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 600);
-      }
-    }, 400);
-  });
-
-  /* Fallback if load event already triggered or delayed */
-  setTimeout(() => {
+  const dismissPreloader = () => {
     if (preloader && !preloader.classList.contains('fade-out')) {
       preloader.classList.add('fade-out');
       setTimeout(() => {
         preloader.style.display = 'none';
-      }, 600);
+      }, 250);
     }
-  }, 2000);
+  };
+
+  if (document.readyState !== 'loading') {
+    setTimeout(dismissPreloader, 80);
+  } else {
+    document.addEventListener('DOMContentLoaded', () => setTimeout(dismissPreloader, 80));
+  }
+  window.addEventListener('load', dismissPreloader);
+  setTimeout(dismissPreloader, 500);
 
   /* ==========================================================================
      2. Theme Switcher (Dark / Light Mode)

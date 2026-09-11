@@ -168,7 +168,7 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.6s ease, visibility 0.6s ease;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
 }
 
 .preloader.fade-out {
@@ -3215,4 +3215,12 @@ ul {
   .package-chips-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+/* Performance: Content Visibility for Smooth Mobile Scrolling */
+.portfolio-grid,
+.testimonials-section,
+.faq-accordion,
+.process-steps {
+  content-visibility: auto;
+  contain-intrinsic-size: 800px;
 }
