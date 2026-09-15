@@ -1,4 +1,4 @@
-/**
+﻿/**
  * ADDOTEI CREATIVE STUDIO - MAIN JAVASCRIPT
  * Handles: Preloader, Theme Switching, Mobile Navigation, Hero Canvas Particles,
  * Portfolio Filtering, Lightbox Modal, Animated Counters, FAQ Accordion,
@@ -220,42 +220,78 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ==========================================================================
-     6. Animated Statistics Counters
+     6. Animated Statistics Counters (Fast, Reliable & Smooth)
      ========================================================================== */
   const statNumbers = document.querySelectorAll('.stat-number');
   let animatedStats = false;
 
-  const animateCounter = (el) => {
-    const target = parseInt(el.getAttribute('data-target'), 10);
-    const duration = 1800; /* ms */
-    const stepTime = 20;
-    const steps = duration / stepTime;
-    const increment = target / steps;
-    let current = 0;
+  const runAllCounters = () => {
+    if (animatedStats) return;
+    animatedStats = true;
 
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        el.textContent = target;
-        clearInterval(timer);
-      } else {
-        el.textContent = Math.floor(current);
-      }
-    }, stepTime);
+    statNumbers.forEach(el => {
+      const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+      const duration = 1600; /* ms */
+      const startTime = performance.now();
+
+      el.textContent = '0';
+
+      const updateCount = (currentTime) => {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const ease = 1 - Math.pow(1 - progress, 4); // easeOutQuart
+        const currentVal = Math.floor(ease * target);
+        el.textContent = currentVal;
+
+        if (progress < 1) {
+          requestAnimationFrame(updateCount);
+        } else {
+          el.textContent = target;
+        }
+      };
+
+      requestAnimationFrame(updateCount);
+    });
   };
 
   const statsSection = document.getElementById('stats-counter');
   if (statsSection) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !animatedStats) {
-          animatedStats = true;
-          statNumbers.forEach(num => animateCounter(num));
-        }
-      });
-    }, { threshold: 0.3 });
+    if ('IntersectionObserver' in window) {
+      const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            runAllCounters();
+            statsObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -20px 0px' });
 
-    statsObserver.observe(statsSection);
+      statsObserver.observe(statsSection);
+    }
+
+    // Scroll listener fallback for instant response on mobile or rapid scroll
+    const scrollFallback = () => {
+      if (animatedStats) {
+        window.removeEventListener('scroll', scrollFallback);
+        return;
+      }
+      const rect = statsSection.getBoundingClientRect();
+      if (rect.top <= (window.innerHeight || document.documentElement.clientHeight) + 50 && rect.bottom >= 0) {
+        runAllCounters();
+        window.removeEventListener('scroll', scrollFallback);
+      }
+    };
+    window.addEventListener('scroll', scrollFallback, { passive: true });
+    setTimeout(scrollFallback, 400);
+
+    // Safety fallback: Ensure target numbers are always visible
+    setTimeout(() => {
+      if (!animatedStats) {
+        statNumbers.forEach(el => {
+          el.textContent = el.getAttribute('data-target') || el.textContent;
+        });
+      }
+    }, 3500);
   }
 
   /* ==========================================================================
@@ -358,6 +394,13 @@ document.addEventListener('DOMContentLoaded', () => {
       closeLightbox();
     }
   });
+
+  /* Close lightbox after launching WhatsApp inquiry */
+  if (lightboxHireBtn) {
+    lightboxHireBtn.addEventListener('click', () => {
+      setTimeout(closeLightbox, 300);
+    });
+  }
 
   /* ==========================================================================
      9. FAQ Accordion
@@ -526,6 +569,37 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
+
+  /* Universal Smooth Scroll & Navigation Handler for all In-Page Anchors */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (!targetId || targetId === '#' || targetId.startsWith('#!')) return;
+
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+
+        // Close mobile drawer if active
+        if (typeof closeMobileMenu === 'function') {
+          closeMobileMenu();
+        }
+
+        // Smooth scroll to target
+        targetEl.scrollIntoView({
+          behavior: 'smooth'
+        });
+
+        // If navigating to contact form, gently focus the first input
+        if (targetId === '#contact') {
+          setTimeout(() => {
+            const firstInput = document.getElementById('client-name');
+            if (firstInput) firstInput.focus();
+          }, 600);
+        }
+      }
+    });
+  });
 
   /* ==========================================================================
      12. Current Year in Footer
@@ -734,7 +808,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /* Dynamically prepend new review card to testimonials grid */
         if (testimonialsGrid) {
-          const starsStr = '★'.repeat(parseInt(ratingVal, 10));
+          const starsStr = 'â˜…'.repeat(parseInt(ratingVal, 10));
           const initials = nameVal.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'CL';
           const newCard = document.createElement('div');
           newCard.className = 'testimonial-card featured-testimonial';
