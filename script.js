@@ -808,7 +808,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         /* Dynamically prepend new review card to testimonials grid */
         if (testimonialsGrid) {
-          const starsStr = 'â˜…'.repeat(parseInt(ratingVal, 10));
+          const starsStr = '\u2605'.repeat(parseInt(ratingVal, 10));
           const initials = nameVal.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2) || 'CL';
           const newCard = document.createElement('div');
           newCard.className = 'testimonial-card featured-testimonial';
