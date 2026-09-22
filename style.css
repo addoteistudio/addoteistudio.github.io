@@ -1,4 +1,4 @@
-﻿/* ==========================================================================
+/* ==========================================================================
    ADDOTEI CREATIVE STUDIO - MAIN STYLESHEET
    Design Style: Luxury Minimalism
    Colors: Black (#111111), White (#FFFFFF), Gold (#D4AF37)
@@ -2923,7 +2923,7 @@ ul {
 }
 
 .dossier-guarantees-list li::before {
-  content: "✦";
+  content: "\2726";
   position: absolute;
   left: 0;
   color: var(--color-gold);
