@@ -47,7 +47,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=3.6">
+  <link rel="stylesheet" href="style.css?v=3.7">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -379,766 +379,117 @@
     </section>
 
     <!-- Section 3: Portfolio -->
+        <!-- Section 3: Curated Design Catalog Portal -->
     <section id="portfolio" class="section portfolio-section">
       <div class="container">
         <div class="section-header text-center">
           <span class="section-tag">CURATED PORTFOLIO</span>
-          <h2 class="section-title">Selected Works &amp; <span class="gold-gradient-text">Design Case Studies</span></h2>
+          <h2 class="section-title">Studio Visual <span class="gold-gradient-text">Catalog</span></h2>
           <p class="section-subtitle">
-            Explore our diverse collection of high-converting flyers, modern identities, and editorial graphics crafted for clients worldwide.
+            An organized archive of bespoke church flyers, corporate publications, luxury event branding, and vector trademarks.
           </p>
           <div class="title-divider"></div>
         </div>
 
-        <!-- Category Filter Buttons -->
-        <div class="portfolio-filter-container">
-          <div class="portfolio-filters" role="tablist" aria-label="Portfolio Categories">
-            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Works</button>
-            <button class="filter-btn" data-filter="church" role="tab" aria-selected="false">Church Flyers</button>
-            <button class="filter-btn" data-filter="business" role="tab" aria-selected="false">Business Flyers</button>
-            <button class="filter-btn" data-filter="event" role="tab" aria-selected="false">Event Flyers</button>
-            <button class="filter-btn" data-filter="logos" role="tab" aria-selected="false">Logos</button>
-            <button class="filter-btn" data-filter="social" role="tab" aria-selected="false">Social Media</button>
-            <button class="filter-btn" data-filter="posters" role="tab" aria-selected="false">Posters</button>
-            <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding</button>
+        <!-- Catalog Hub Portal Card -->
+        <div class="catalog-hub-card">
+          <div class="catalog-hub-header">
+            <div class="catalog-hub-branding">
+              <span class="catalog-badge">&#10024; OFFICIAL WORK ARCHIVE &bull; 29 MASTERPIECES</span>
+              <h3 class="catalog-hub-title">Explore Complete Design Portfolio</h3>
+              <p class="catalog-hub-desc">
+                Browse our complete, high-resolution collection categorized by discipline. Select any category below to immediately open the filtered catalog or explore the entire studio archive.
+              </p>
+            </div>
+            <div class="catalog-hub-cta-wrap">
+              <button type="button" class="btn btn-gold btn-open-catalog" data-modal-open="portfolio-catalog-modal" data-category-filter="all">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:inline-block; vertical-align:middle; margin-right:8px;"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                <span>Open Visual Catalog (29 Artworks)</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Category Quick-Access Catalog Tiles -->
+          <div class="catalog-category-grid">
+            
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="church">
+              <div class="catalog-cat-icon">&#9962;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Church &amp; Ministry</span>
+                <span class="cat-count">11 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="event">
+              <div class="catalog-cat-icon">&#10024;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Event &amp; Nightlife</span>
+                <span class="cat-count">5 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="business">
+              <div class="catalog-cat-icon">&#128188;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Corporate &amp; Business</span>
+                <span class="cat-count">4 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="logos">
+              <div class="catalog-cat-icon">&#127912;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Logos &amp; Trademarks</span>
+                <span class="cat-count">2 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="branding">
+              <div class="catalog-cat-icon">&#9733;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Brand Identity Suites</span>
+                <span class="cat-count">2 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="social">
+              <div class="catalog-cat-icon">&#128241;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Social Media Campaigns</span>
+                <span class="cat-count">3 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile" data-modal-open="portfolio-catalog-modal" data-category-filter="posters">
+              <div class="catalog-cat-icon">&#128444;&#65039;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Posters &amp; Banners</span>
+                <span class="cat-count">2 Artworks &rarr;</span>
+              </div>
+            </button>
+
+            <button type="button" class="catalog-cat-tile catalog-cat-tile-all" data-modal-open="portfolio-catalog-modal" data-category-filter="all">
+              <div class="catalog-cat-icon">&#9776;</div>
+              <div class="catalog-cat-details">
+                <span class="cat-name">Browse All Works</span>
+                <span class="cat-count">29 Artworks &rarr;</span>
+              </div>
+            </button>
+
+          </div>
+
+          <!-- Catalog Footer Bar -->
+          <div class="catalog-hub-footer">
+            <span class="catalog-quality-note">
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:inline-block; vertical-align:middle; margin-right:4px;"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+              Fast 24&ndash;48h turnaround &bull; 300 DPI print-ready master files &bull; Worldwide commissions
+            </span>
+            <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20would%20like%20to%20order%20a%20design%20from%20your%20catalog." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline">
+              Order Custom Design via WhatsApp &rarr;
+            </a>
           </div>
         </div>
 
-        <!-- Portfolio Gallery Grid -->
-                <!-- Portfolio Gallery Grid -->
-        <div class="portfolio-grid" id="portfolio-grid">
-          <!-- Work: The Weight of Glory &bull; Tongues of Fire '26 -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/weight-of-glory-flyer.jpg" alt="The Weight of Glory Church Conference Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/weight-of-glory-flyer.jpg" data-title="The Weight of Glory &bull; Tongues of Fire '26" data-category="Church Flyers" data-desc="Flagship church conference flyer engineered with deep obsidian contrast, 3D liquid gold typography, and guest minister gallery." aria-label="Open preview for The Weight of Glory Church Conference Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">The Weight of Glory &bull; Tongues of Fire '26</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Golgotha Night &bull; Tout Est Accompli -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/golgotha-night-flyer.jpg" alt="Golgotha Night Church Vigil Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/golgotha-night-flyer.jpg" data-title="Golgotha Night &bull; Tout Est Accompli" data-category="Church Flyers" data-desc="Ultra-luxury all-night prayer vigil flyer featuring glowing holy cross rays, 3D platinum typography, and fanned minister panels." aria-label="Open preview for Golgotha Night Church Vigil Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Golgotha Night &bull; Tout Est Accompli</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Phaneroo &bull; Sunday Worship Service -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/phaneroo-sunday-service.jpg" alt="Phaneroo Sunday Service Church Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/phaneroo-sunday-service.jpg" data-title="Phaneroo &bull; Sunday Worship Service" data-category="Church Flyers" data-desc="Futuristic Sunday worship service flyer with floating champagne gold glass panels and cinematic stage lighting." aria-label="Open preview for Phaneroo Sunday Service Church Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Phaneroo &bull; Sunday Worship Service</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Glory Night &bull; Arise and Shine -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/glory-night-flyer.jpg" alt="Glory Night Church Service with Addotei K. David" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/glory-night-flyer.jpg" data-title="Glory Night &bull; Arise and Shine" data-category="Church Flyers" data-desc="Dynamic ministry revival service flyer featuring Minister Addotei K. David, striking split composition, and radiant gold accents." aria-label="Open preview for Glory Night Church Service with Addotei K. David">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Glory Night &bull; Arise and Shine</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Anointed Gathering Church Convention -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/anointed-gathering-church.jpg" alt="Anointed Gathering Church Convention Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/anointed-gathering-church.jpg" data-title="Anointed Gathering Church Convention" data-category="Church Flyers" data-desc="Spiritual convention flyer designed with divine golden lighting, anointed typography, and minister portraits." aria-label="Open preview for Anointed Gathering Church Convention Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Anointed Gathering Church Convention</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Christ Apostolic Church International -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/christ-apostolic-church.jpg" alt="Christ Apostolic Church International Sunday Service" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/christ-apostolic-church.jpg" data-title="Christ Apostolic Church International" data-category="Church Flyers" data-desc="Vibrant Sunday praise and ministry worship flyer with clean ecclesiastical layout and striking spiritual hierarchy." aria-label="Open preview for Christ Apostolic Church International Sunday Service">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Christ Apostolic Church International</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Believers Church of Christ Fellowship -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/believers-church-of-christ.jpg" alt="Believers Church of Christ Fellowship Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/believers-church-of-christ.jpg" data-title="Believers Church of Christ Fellowship" data-category="Church Flyers" data-desc="Reverent fellowship gathering flyer designed with rich sacred imagery and elegant typography." aria-label="Open preview for Believers Church of Christ Fellowship Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Believers Church of Christ Fellowship</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: In The Midst Of The Storm &bull; Vigil -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/in-the-midst-of-the-storm.jpg" alt="In The Midst Of The Storm Praise Vigil Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/in-the-midst-of-the-storm.jpg" data-title="In The Midst Of The Storm &bull; Vigil" data-category="Church Flyers" data-desc="Dramatic prayer and deliverance vigil flyer capturing dynamic emotional depth and divine breakthrough." aria-label="Open preview for In The Midst Of The Storm Praise Vigil Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">In The Midst Of The Storm &bull; Vigil</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Midweek Miracle Revival Service -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/midweek-service-flyer.jpg" alt="Midweek Miracle Service Church Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/midweek-service-flyer.jpg" data-title="Midweek Miracle Revival Service" data-category="Church Flyers" data-desc="High-impact midweek revival service flyer with bold typography, gold flares, and guest speaker features." aria-label="Open preview for Midweek Miracle Service Church Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Midweek Miracle Revival Service</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Phaneroo 594 &bull; Milestone Celebration -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/phaneroo-594.jpg" alt="Phaneroo 594 Celebration Service Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/phaneroo-594.jpg" data-title="Phaneroo 594 &bull; Milestone Celebration" data-category="Church Flyers" data-desc="Dynamic milestone worship service flyer with bold modern branding and radiant visual presence." aria-label="Open preview for Phaneroo 594 Celebration Service Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Phaneroo 594 &bull; Milestone Celebration</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Grace &amp; Glory Church Assembly -->
-          <article class="portfolio-item" data-category="church">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/grace-church-flyer.jpg" alt="Grace and Glory Church Assembly Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/grace-church-flyer.jpg" data-title="Grace &amp; Glory Church Assembly" data-category="Church Flyers" data-desc="Inspiring Sunday worship and praise service design crafted for maximum congregation engagement." aria-label="Open preview for Grace and Glory Church Assembly Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Church Flyers</span>
-                <h3 class="portfolio-title">Grace &amp; Glory Church Assembly</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Becky's Plaza &bull; Commercial Retail -->
-          <article class="portfolio-item" data-category="business">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/beckys-plaza-retail.jpg" alt="Becky's Plaza Commercial Retail Opening Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/beckys-plaza-retail.jpg" data-title="Becky's Plaza &bull; Commercial Retail" data-category="Business Flyers" data-desc="Modern high-visibility retail plaza announcement flyer designed to attract premium commercial tenants and shoppers." aria-label="Open preview for Becky's Plaza Commercial Retail Opening Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Business Flyers</span>
-                <h3 class="portfolio-title">Becky's Plaza &bull; Commercial Retail</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: CCTV &amp; Climate Security Systems -->
-          <article class="portfolio-item" data-category="business">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/cctv-air-conditioning.jpg" alt="CCTV and Air Conditioning Services Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/cctv-air-conditioning.jpg" data-title="CCTV &amp; Climate Security Systems" data-category="Business Flyers" data-desc="Technical and security installation service flyer showcasing corporate surveillance and HVAC climate expertise." aria-label="Open preview for CCTV and Air Conditioning Services Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Business Flyers</span>
-                <h3 class="portfolio-title">CCTV &amp; Climate Security Systems</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Ezra Marble &amp; Granite Works -->
-          <article class="portfolio-item" data-category="business">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/ezra-marble-granite.jpg" alt="Ezra Marble and Granite Architectural Works" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/ezra-marble-granite.jpg" data-title="Ezra Marble &amp; Granite Works" data-category="Business Flyers" data-desc="Luxurious architectural stone masonry flyer highlighting premium marble, quartz, and granite interior finishes." aria-label="Open preview for Ezra Marble and Granite Architectural Works">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Business Flyers</span>
-                <h3 class="portfolio-title">Ezra Marble &amp; Granite Works</h3>
-              </div>
-            </div>
-          </article>
-
-
-          <!-- Work: Premier Academy School Admissions -->
-          <article class="portfolio-item" data-category="business">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/school-academy-flyer.jpg" alt="Premier Academy School Admission Announcement" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/school-academy-flyer.jpg" data-title="Premier Academy School Admissions" data-category="Business Flyers" data-desc="Prestigious academic enrollment flyer designed with trust-building educational layouts and clear course pathways." aria-label="Open preview for Premier Academy School Admission Announcement">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Business Flyers</span>
-                <h3 class="portfolio-title">Premier Academy School Admissions</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: New Feel's Bite &bull; Burger &amp; Pie -->
-          <article class="portfolio-item" data-category="event">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/new-feels-bite.jpg" alt="New Feels Bite Food and Burger Lounge Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/new-feels-bite.jpg" data-title="New Feel's Bite &bull; Burger &amp; Pie" data-category="Event Flyers" data-desc="Vibrant culinary marketing flyer featuring fast delivery hotlines, promotional discount badges, and appetizing visuals." aria-label="Open preview for New Feels Bite Food and Burger Lounge Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Event Flyers</span>
-                <h3 class="portfolio-title">New Feel's Bite &bull; Burger &amp; Pie</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: The Golden Fork Fine Dining -->
-          <article class="portfolio-item" data-category="event">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/the-golden-fork.jpg" alt="The Golden Fork Fine Dining Restaurant Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/the-golden-fork.jpg" data-title="The Golden Fork Fine Dining" data-category="Event Flyers" data-desc="High-end restaurant and gourmet culinary showcase flyer with golden ambiance and curated executive menu." aria-label="Open preview for The Golden Fork Fine Dining Restaurant Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Event Flyers</span>
-                <h3 class="portfolio-title">The Golden Fork Fine Dining</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Grill &amp; Thrill BBQ &amp; Nightlife -->
-          <article class="portfolio-item" data-category="event">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/grill-and-thrill.jpg" alt="Grill and Thrill BBQ Lounge Night Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/grill-and-thrill.jpg" data-title="Grill &amp; Thrill BBQ &amp; Nightlife" data-category="Event Flyers" data-desc="Energetic barbecue weekend party flyer designed with glowing charcoal embers and festive typography." aria-label="Open preview for Grill and Thrill BBQ Lounge Night Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Event Flyers</span>
-                <h3 class="portfolio-title">Grill &amp; Thrill BBQ &amp; Nightlife</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Auntie Lizzy's Kitchen Cuisine -->
-          <article class="portfolio-item" data-category="event">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/auntie-lizzys-kitchen.jpg" alt="Auntie Lizzy's Kitchen Authentic Cuisine Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/auntie-lizzys-kitchen.jpg" data-title="Auntie Lizzy's Kitchen Cuisine" data-category="Event Flyers" data-desc="Authentic Ghanaian culinary catering flyer celebrating local flavors, fresh delicacies, and warm hospitality." aria-label="Open preview for Auntie Lizzy's Kitchen Authentic Cuisine Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Event Flyers</span>
-                <h3 class="portfolio-title">Auntie Lizzy's Kitchen Cuisine</h3>
-              </div>
-            </div>
-          </article>
-
-
-          <!-- Work: R-Fast Food &amp; Express Delivery -->
-          <article class="portfolio-item" data-category="event">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/rfast-food.jpg" alt="R-Fast Food and Express Delivery Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/rfast-food.jpg" data-title="R-Fast Food &amp; Express Delivery" data-category="Event Flyers" data-desc="Fast food take-out and home delivery promo flyer highlighting meal combos, quick delivery, and vibrant food visuals." aria-label="Open preview for R-Fast Food and Express Delivery Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Event Flyers</span>
-                <h3 class="portfolio-title">R-Fast Food &amp; Express Delivery</h3>
-              </div>
-            </div>
-          </article>
-
-
-          <!-- Work: Aura Beauty Salon &amp; Glam Studio -->
-          <article class="portfolio-item" data-category="social">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/aura-beauty-salon.jpg" alt="Aura Beauty Salon and Cosmetics Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/aura-beauty-salon.jpg" data-title="Aura Beauty Salon &amp; Glam Studio" data-category="Social Media" data-desc="Glamorous beauty studio and cosmetic transformation flyer featuring modern aesthetics and luxury salon treatments." aria-label="Open preview for Aura Beauty Salon and Cosmetics Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Social Media</span>
-                <h3 class="portfolio-title">Aura Beauty Salon &amp; Glam Studio</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Luxury Hair Studio &amp; Wig Styling -->
-          <article class="portfolio-item" data-category="social">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/luxury-hair-stylist.jpg" alt="Luxury Hair and Salon Studio Flyer" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/luxury-hair-stylist.jpg" data-title="Luxury Hair Studio &amp; Wig Styling" data-category="Social Media" data-desc="Sleek hair styling and salon campaign graphic tailored for viral Instagram engagement and booking inquiries." aria-label="Open preview for Luxury Hair and Salon Studio Flyer">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Social Media</span>
-                <h3 class="portfolio-title">Luxury Hair Studio &amp; Wig Styling</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Elysian Summer Drop Campaign -->
-          <article class="portfolio-item" data-category="social">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/social-media-1.svg" alt="Elysian Summer Drop Social Media Campaign" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/social-media-1.svg" data-title="Elysian Summer Drop Campaign" data-category="Social Media" data-desc="Dynamic, multi-format Instagram post and story templates crafted for an apparel product launch." aria-label="Open preview for Elysian Summer Drop Social Media Campaign">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Social Media</span>
-                <h3 class="portfolio-title">Elysian Summer Drop Campaign</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Luxe &amp; Co. Minimalist Monogram -->
-          <article class="portfolio-item" data-category="logos">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/logo-design-1.svg" alt="Luxe and Co Minimalist Monogram Logo" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/logo-design-1.svg" data-title="Luxe &amp; Co. Minimalist Monogram" data-category="Logos" data-desc="Timeless luxury monogram identity featuring geometric symmetry, bespoke serif typography, and premium gold accents." aria-label="Open preview for Luxe and Co Minimalist Monogram Logo">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Logos</span>
-                <h3 class="portfolio-title">Luxe &amp; Co. Minimalist Monogram</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Vanguard Athletic Crest -->
-          <article class="portfolio-item" data-category="logos">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/logo-design-2.svg" alt="Vanguard Athletic Performance Crest" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/logo-design-2.svg" data-title="Vanguard Athletic Crest" data-category="Logos" data-desc="Bold athletic crest combining modern shield geometry, aggressive angles, and high-energy contrast." aria-label="Open preview for Vanguard Athletic Performance Crest">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Logos</span>
-                <h3 class="portfolio-title">Vanguard Athletic Crest</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Graphtech Corporate Identity Card -->
-          <article class="portfolio-item" data-category="branding">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/graphtech-business-card.jpg" alt="Graphtech Corporate Business Card" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/graphtech-business-card.jpg" data-title="Graphtech Corporate Identity Card" data-category="Branding" data-desc="Executive corporate business card and stationery identity system with clean typography and minimalist layout." aria-label="Open preview for Graphtech Corporate Business Card">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Branding</span>
-                <h3 class="portfolio-title">Graphtech Corporate Identity Card</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Obsidian &amp; Gold Luxury Identity -->
-          <article class="portfolio-item" data-category="branding">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/branding-identity-1.svg" alt="Obsidian and Gold Complete Brand Identity Suite" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/branding-identity-1.svg" data-title="Obsidian &amp; Gold Luxury Identity" data-category="Branding" data-desc="Comprehensive brand identity system including logo guidelines, color hierarchy, and stationery mockups." aria-label="Open preview for Obsidian and Gold Complete Brand Identity Suite">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Branding</span>
-                <h3 class="portfolio-title">Obsidian &amp; Gold Luxury Identity</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Pulse Electric Music Festival -->
-          <article class="portfolio-item" data-category="posters">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/event-flyer-1.svg" alt="Pulse Electric Music Festival Poster" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/event-flyer-1.svg" data-title="Pulse Electric Music Festival" data-category="Posters" data-desc="High-energy electronic music festival poster with neon duotone gradients, bold typography, and DJ lineup." aria-label="Open preview for Pulse Electric Music Festival Poster">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Posters</span>
-                <h3 class="portfolio-title">Pulse Electric Music Festival</h3>
-              </div>
-            </div>
-          </article>
-
-          <!-- Work: Solstice Cinematic Film Poster -->
-          <article class="portfolio-item" data-category="posters">
-            <div class="portfolio-card">
-              <div class="portfolio-thumb">
-                <img src="images/portfolio/poster-design-1.svg" alt="Solstice Indie Film Festival Poster" loading="lazy" decoding="async">
-                <div class="portfolio-overlay">
-                  <div class="overlay-actions">
-                    <button class="preview-btn" data-src="images/portfolio/poster-design-1.svg" data-title="Solstice Cinematic Film Poster" data-category="Posters" data-desc="Moody, cinematic movie poster featuring atmospheric lighting, minimalist billing block, and festival laurel leaves." aria-label="Open preview for Solstice Indie Film Festival Poster">
-                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        <line x1="11" y1="8" x2="11" y2="14"></line>
-                        <line x1="8" y1="11" x2="14" y2="11"></line>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              </div>
-              <div class="portfolio-info">
-                <span class="portfolio-cat">Posters</span>
-                <h3 class="portfolio-title">Solstice Cinematic Film Poster</h3>
-              </div>
-            </div>
-          </article>
-
-        </div><div class="portfolio-footer text-center">
-          <p class="portfolio-callout">Have a specific design vision in mind that isn't shown above?</p>
-          <a href="#contact" class="btn btn-gold">Request Custom Design</a>
-        </div>
       </div>
     </section>
 
@@ -1881,7 +1232,780 @@
        LEGAL MODALS SUITE
        ========================================================================= -->
 
-  <!-- Modal 1: Privacy Policy -->
+    <!-- =========================================================================
+       OFFICIAL STUDIO VISUAL CATALOG MODAL (ALL 29 ARTWORKS)
+       ========================================================================= -->
+  <div id="portfolio-catalog-modal" class="legal-modal catalog-modal" aria-hidden="true" role="dialog" aria-labelledby="catalog-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card catalog-modal-card">
+      <div class="legal-modal-header catalog-modal-header">
+        <div class="catalog-header-branding">
+          <span class="catalog-modal-badge">&#10024; STUDIO WORK ARCHIVE</span>
+          <h3 id="catalog-modal-title" class="legal-modal-title">Official Design Catalog</h3>
+          <p class="legal-modal-subtitle">29 Curated Artworks &bull; High-Definition 300 DPI &bull; Click Any Artwork to Preview &amp; Order</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Design Catalog Modal">&times;</button>
+      </div>
+
+      <!-- Sticky Category Filter Navigation Bar inside Modal -->
+      <div class="catalog-sticky-filter-bar">
+        <div class="portfolio-filter-container">
+          <div class="portfolio-filters" role="tablist" aria-label="Catalog Categories">
+            <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All Works (29)</button>
+            <button class="filter-btn" data-filter="church" role="tab" aria-selected="false">Church (11)</button>
+            <button class="filter-btn" data-filter="event" role="tab" aria-selected="false">Event (5)</button>
+            <button class="filter-btn" data-filter="business" role="tab" aria-selected="false">Business (4)</button>
+            <button class="filter-btn" data-filter="logos" role="tab" aria-selected="false">Logos (2)</button>
+            <button class="filter-btn" data-filter="branding" role="tab" aria-selected="false">Branding (2)</button>
+            <button class="filter-btn" data-filter="social" role="tab" aria-selected="false">Social Media (3)</button>
+            <button class="filter-btn" data-filter="posters" role="tab" aria-selected="false">Posters (2)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="legal-modal-body catalog-modal-body">
+        <!-- The Complete Portfolio Grid -->
+        <div class="portfolio-grid" id="portfolio-grid">
+          <!-- Work: The Weight of Glory &bull; Tongues of Fire '26 -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/weight-of-glory-flyer.jpg" alt="The Weight of Glory Church Conference Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/weight-of-glory-flyer.jpg" data-title="The Weight of Glory &bull; Tongues of Fire '26" data-category="Church Flyers" data-desc="Flagship church conference flyer engineered with deep obsidian contrast, 3D liquid gold typography, and guest minister gallery." aria-label="Open preview for The Weight of Glory Church Conference Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">The Weight of Glory &bull; Tongues of Fire '26</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Golgotha Night &bull; Tout Est Accompli -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/golgotha-night-flyer.jpg" alt="Golgotha Night Church Vigil Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/golgotha-night-flyer.jpg" data-title="Golgotha Night &bull; Tout Est Accompli" data-category="Church Flyers" data-desc="Ultra-luxury all-night prayer vigil flyer featuring glowing holy cross rays, 3D platinum typography, and fanned minister panels." aria-label="Open preview for Golgotha Night Church Vigil Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Golgotha Night &bull; Tout Est Accompli</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Phaneroo &bull; Sunday Worship Service -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/phaneroo-sunday-service.jpg" alt="Phaneroo Sunday Service Church Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/phaneroo-sunday-service.jpg" data-title="Phaneroo &bull; Sunday Worship Service" data-category="Church Flyers" data-desc="Futuristic Sunday worship service flyer with floating champagne gold glass panels and cinematic stage lighting." aria-label="Open preview for Phaneroo Sunday Service Church Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Phaneroo &bull; Sunday Worship Service</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Glory Night &bull; Arise and Shine -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/glory-night-flyer.jpg" alt="Glory Night Church Service with Addotei K. David" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/glory-night-flyer.jpg" data-title="Glory Night &bull; Arise and Shine" data-category="Church Flyers" data-desc="Dynamic ministry revival service flyer featuring Minister Addotei K. David, striking split composition, and radiant gold accents." aria-label="Open preview for Glory Night Church Service with Addotei K. David">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Glory Night &bull; Arise and Shine</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Anointed Gathering Church Convention -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/anointed-gathering-church.jpg" alt="Anointed Gathering Church Convention Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/anointed-gathering-church.jpg" data-title="Anointed Gathering Church Convention" data-category="Church Flyers" data-desc="Spiritual convention flyer designed with divine golden lighting, anointed typography, and minister portraits." aria-label="Open preview for Anointed Gathering Church Convention Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Anointed Gathering Church Convention</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Christ Apostolic Church International -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/christ-apostolic-church.jpg" alt="Christ Apostolic Church International Sunday Service" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/christ-apostolic-church.jpg" data-title="Christ Apostolic Church International" data-category="Church Flyers" data-desc="Vibrant Sunday praise and ministry worship flyer with clean ecclesiastical layout and striking spiritual hierarchy." aria-label="Open preview for Christ Apostolic Church International Sunday Service">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Christ Apostolic Church International</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Believers Church of Christ Fellowship -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/believers-church-of-christ.jpg" alt="Believers Church of Christ Fellowship Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/believers-church-of-christ.jpg" data-title="Believers Church of Christ Fellowship" data-category="Church Flyers" data-desc="Reverent fellowship gathering flyer designed with rich sacred imagery and elegant typography." aria-label="Open preview for Believers Church of Christ Fellowship Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Believers Church of Christ Fellowship</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: In The Midst Of The Storm &bull; Vigil -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/in-the-midst-of-the-storm.jpg" alt="In The Midst Of The Storm Praise Vigil Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/in-the-midst-of-the-storm.jpg" data-title="In The Midst Of The Storm &bull; Vigil" data-category="Church Flyers" data-desc="Dramatic prayer and deliverance vigil flyer capturing dynamic emotional depth and divine breakthrough." aria-label="Open preview for In The Midst Of The Storm Praise Vigil Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">In The Midst Of The Storm &bull; Vigil</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Midweek Miracle Revival Service -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/midweek-service-flyer.jpg" alt="Midweek Miracle Service Church Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/midweek-service-flyer.jpg" data-title="Midweek Miracle Revival Service" data-category="Church Flyers" data-desc="High-impact midweek revival service flyer with bold typography, gold flares, and guest speaker features." aria-label="Open preview for Midweek Miracle Service Church Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Midweek Miracle Revival Service</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Phaneroo 594 &bull; Milestone Celebration -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/phaneroo-594.jpg" alt="Phaneroo 594 Celebration Service Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/phaneroo-594.jpg" data-title="Phaneroo 594 &bull; Milestone Celebration" data-category="Church Flyers" data-desc="Dynamic milestone worship service flyer with bold modern branding and radiant visual presence." aria-label="Open preview for Phaneroo 594 Celebration Service Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Phaneroo 594 &bull; Milestone Celebration</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Grace &amp; Glory Church Assembly -->
+          <article class="portfolio-item" data-category="church">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/grace-church-flyer.jpg" alt="Grace and Glory Church Assembly Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/grace-church-flyer.jpg" data-title="Grace &amp; Glory Church Assembly" data-category="Church Flyers" data-desc="Inspiring Sunday worship and praise service design crafted for maximum congregation engagement." aria-label="Open preview for Grace and Glory Church Assembly Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Church Flyers</span>
+                <h3 class="portfolio-title">Grace &amp; Glory Church Assembly</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Becky's Plaza &bull; Commercial Retail -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/beckys-plaza-retail.jpg" alt="Becky's Plaza Commercial Retail Opening Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/beckys-plaza-retail.jpg" data-title="Becky's Plaza &bull; Commercial Retail" data-category="Business Flyers" data-desc="Modern high-visibility retail plaza announcement flyer designed to attract premium commercial tenants and shoppers." aria-label="Open preview for Becky's Plaza Commercial Retail Opening Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Becky's Plaza &bull; Commercial Retail</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: CCTV &amp; Climate Security Systems -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/cctv-air-conditioning.jpg" alt="CCTV and Air Conditioning Services Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/cctv-air-conditioning.jpg" data-title="CCTV &amp; Climate Security Systems" data-category="Business Flyers" data-desc="Technical and security installation service flyer showcasing corporate surveillance and HVAC climate expertise." aria-label="Open preview for CCTV and Air Conditioning Services Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">CCTV &amp; Climate Security Systems</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Ezra Marble &amp; Granite Works -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/ezra-marble-granite.jpg" alt="Ezra Marble and Granite Architectural Works" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/ezra-marble-granite.jpg" data-title="Ezra Marble &amp; Granite Works" data-category="Business Flyers" data-desc="Luxurious architectural stone masonry flyer highlighting premium marble, quartz, and granite interior finishes." aria-label="Open preview for Ezra Marble and Granite Architectural Works">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Ezra Marble &amp; Granite Works</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Premier Academy School Admissions -->
+          <article class="portfolio-item" data-category="business">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/school-academy-flyer.jpg" alt="Premier Academy School Admission Announcement" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/school-academy-flyer.jpg" data-title="Premier Academy School Admissions" data-category="Business Flyers" data-desc="Prestigious academic enrollment flyer designed with trust-building educational layouts and clear course pathways." aria-label="Open preview for Premier Academy School Admission Announcement">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Business Flyers</span>
+                <h3 class="portfolio-title">Premier Academy School Admissions</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: New Feel's Bite &bull; Burger &amp; Pie -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/new-feels-bite.jpg" alt="New Feels Bite Food and Burger Lounge Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/new-feels-bite.jpg" data-title="New Feel's Bite &bull; Burger &amp; Pie" data-category="Event Flyers" data-desc="Vibrant culinary marketing flyer featuring fast delivery hotlines, promotional discount badges, and appetizing visuals." aria-label="Open preview for New Feels Bite Food and Burger Lounge Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">New Feel's Bite &bull; Burger &amp; Pie</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: The Golden Fork Fine Dining -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/the-golden-fork.jpg" alt="The Golden Fork Fine Dining Restaurant Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/the-golden-fork.jpg" data-title="The Golden Fork Fine Dining" data-category="Event Flyers" data-desc="High-end restaurant and gourmet culinary showcase flyer with golden ambiance and curated executive menu." aria-label="Open preview for The Golden Fork Fine Dining Restaurant Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">The Golden Fork Fine Dining</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Grill &amp; Thrill BBQ &amp; Nightlife -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/grill-and-thrill.jpg" alt="Grill and Thrill BBQ Lounge Night Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/grill-and-thrill.jpg" data-title="Grill &amp; Thrill BBQ &amp; Nightlife" data-category="Event Flyers" data-desc="Energetic barbecue weekend party flyer designed with glowing charcoal embers and festive typography." aria-label="Open preview for Grill and Thrill BBQ Lounge Night Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Grill &amp; Thrill BBQ &amp; Nightlife</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Auntie Lizzy's Kitchen Cuisine -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/auntie-lizzys-kitchen.jpg" alt="Auntie Lizzy's Kitchen Authentic Cuisine Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/auntie-lizzys-kitchen.jpg" data-title="Auntie Lizzy's Kitchen Cuisine" data-category="Event Flyers" data-desc="Authentic Ghanaian culinary catering flyer celebrating local flavors, fresh delicacies, and warm hospitality." aria-label="Open preview for Auntie Lizzy's Kitchen Authentic Cuisine Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">Auntie Lizzy's Kitchen Cuisine</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: R-Fast Food &amp; Express Delivery -->
+          <article class="portfolio-item" data-category="event">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/rfast-food.jpg" alt="R-Fast Food and Express Delivery Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/rfast-food.jpg" data-title="R-Fast Food &amp; Express Delivery" data-category="Event Flyers" data-desc="Fast food take-out and home delivery promo flyer highlighting meal combos, quick delivery, and vibrant food visuals." aria-label="Open preview for R-Fast Food and Express Delivery Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Event Flyers</span>
+                <h3 class="portfolio-title">R-Fast Food &amp; Express Delivery</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Aura Beauty Salon &amp; Glam Studio -->
+          <article class="portfolio-item" data-category="social">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/aura-beauty-salon.jpg" alt="Aura Beauty Salon and Cosmetics Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/aura-beauty-salon.jpg" data-title="Aura Beauty Salon &amp; Glam Studio" data-category="Social Media" data-desc="Glamorous beauty studio and cosmetic transformation flyer featuring modern aesthetics and luxury salon treatments." aria-label="Open preview for Aura Beauty Salon and Cosmetics Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Social Media</span>
+                <h3 class="portfolio-title">Aura Beauty Salon &amp; Glam Studio</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Luxury Hair Studio &amp; Wig Styling -->
+          <article class="portfolio-item" data-category="social">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/luxury-hair-stylist.jpg" alt="Luxury Hair and Salon Studio Flyer" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/luxury-hair-stylist.jpg" data-title="Luxury Hair Studio &amp; Wig Styling" data-category="Social Media" data-desc="Sleek hair styling and salon campaign graphic tailored for viral Instagram engagement and booking inquiries." aria-label="Open preview for Luxury Hair and Salon Studio Flyer">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Social Media</span>
+                <h3 class="portfolio-title">Luxury Hair Studio &amp; Wig Styling</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Elysian Summer Drop Campaign -->
+          <article class="portfolio-item" data-category="social">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/social-media-1.svg" alt="Elysian Summer Drop Social Media Campaign" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/social-media-1.svg" data-title="Elysian Summer Drop Campaign" data-category="Social Media" data-desc="Dynamic, multi-format Instagram post and story templates crafted for an apparel product launch." aria-label="Open preview for Elysian Summer Drop Social Media Campaign">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Social Media</span>
+                <h3 class="portfolio-title">Elysian Summer Drop Campaign</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Luxe &amp; Co. Minimalist Monogram -->
+          <article class="portfolio-item" data-category="logos">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/logo-design-1.svg" alt="Luxe and Co Minimalist Monogram Logo" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/logo-design-1.svg" data-title="Luxe &amp; Co. Minimalist Monogram" data-category="Logos" data-desc="Timeless luxury monogram identity featuring geometric symmetry, bespoke serif typography, and premium gold accents." aria-label="Open preview for Luxe and Co Minimalist Monogram Logo">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Logos</span>
+                <h3 class="portfolio-title">Luxe &amp; Co. Minimalist Monogram</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Vanguard Athletic Crest -->
+          <article class="portfolio-item" data-category="logos">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/logo-design-2.svg" alt="Vanguard Athletic Performance Crest" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/logo-design-2.svg" data-title="Vanguard Athletic Crest" data-category="Logos" data-desc="Bold athletic crest combining modern shield geometry, aggressive angles, and high-energy contrast." aria-label="Open preview for Vanguard Athletic Performance Crest">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Logos</span>
+                <h3 class="portfolio-title">Vanguard Athletic Crest</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Graphtech Corporate Identity Card -->
+          <article class="portfolio-item" data-category="branding">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/graphtech-business-card.jpg" alt="Graphtech Corporate Business Card" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/graphtech-business-card.jpg" data-title="Graphtech Corporate Identity Card" data-category="Branding" data-desc="Executive corporate business card and stationery identity system with clean typography and minimalist layout." aria-label="Open preview for Graphtech Corporate Business Card">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Branding</span>
+                <h3 class="portfolio-title">Graphtech Corporate Identity Card</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Obsidian &amp; Gold Luxury Identity -->
+          <article class="portfolio-item" data-category="branding">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/branding-identity-1.svg" alt="Obsidian and Gold Complete Brand Identity Suite" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/branding-identity-1.svg" data-title="Obsidian &amp; Gold Luxury Identity" data-category="Branding" data-desc="Comprehensive brand identity system including logo guidelines, color hierarchy, and stationery mockups." aria-label="Open preview for Obsidian and Gold Complete Brand Identity Suite">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Branding</span>
+                <h3 class="portfolio-title">Obsidian &amp; Gold Luxury Identity</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Pulse Electric Music Festival -->
+          <article class="portfolio-item" data-category="posters">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/event-flyer-1.svg" alt="Pulse Electric Music Festival Poster" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/event-flyer-1.svg" data-title="Pulse Electric Music Festival" data-category="Posters" data-desc="High-energy electronic music festival poster with neon duotone gradients, bold typography, and DJ lineup." aria-label="Open preview for Pulse Electric Music Festival Poster">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Posters</span>
+                <h3 class="portfolio-title">Pulse Electric Music Festival</h3>
+              </div>
+            </div>
+          </article>
+
+          <!-- Work: Solstice Cinematic Film Poster -->
+          <article class="portfolio-item" data-category="posters">
+            <div class="portfolio-card">
+              <div class="portfolio-thumb">
+                <img src="images/portfolio/poster-design-1.svg" alt="Solstice Indie Film Festival Poster" loading="lazy" decoding="async">
+                <div class="portfolio-overlay">
+                  <div class="overlay-actions">
+                    <button class="preview-btn" data-src="images/portfolio/poster-design-1.svg" data-title="Solstice Cinematic Film Poster" data-category="Posters" data-desc="Moody, cinematic movie poster featuring atmospheric lighting, minimalist billing block, and festival laurel leaves." aria-label="Open preview for Solstice Indie Film Festival Poster">
+                      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        <line x1="11" y1="8" x2="11" y2="14"></line>
+                        <line x1="8" y1="11" x2="14" y2="11"></line>
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="portfolio-info">
+                <span class="portfolio-cat">Posters</span>
+                <h3 class="portfolio-title">Solstice Cinematic Film Poster</h3>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="legal-modal-footer catalog-modal-footer">
+        <div class="catalog-footer-actions">
+          <span>Need a tailored design like these?</span>
+          <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20am%20browsing%20your%20Visual%20Catalog%20and%20would%20like%20to%20order%20a%20design." target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-gold">
+            Commission on WhatsApp &rarr;
+          </a>
+        </div>
+        <button type="button" class="btn btn-sm btn-outline" data-modal-close>Close Catalog</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal 1: Privacy Policy -->
   <div id="privacy-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="privacy-modal-title">
     <div class="legal-modal-backdrop" data-modal-close></div>
     <div class="legal-modal-card">
@@ -2341,6 +2465,6 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <script src="script.js?v=3.6"></script>
+  <script src="script.js?v=3.7"></script>
 </body>
 </html>

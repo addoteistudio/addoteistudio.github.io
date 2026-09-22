@@ -363,7 +363,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!lightboxModal) return;
     lightboxModal.classList.remove('open');
     lightboxModal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    const anyActiveModal = document.querySelector('.legal-modal.active');
+    if (anyActiveModal) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
   };
 
   previewBtns.forEach(btn => {
@@ -638,6 +643,15 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
       const targetId = btn.getAttribute('data-modal-open');
       openLegalModal(targetId);
+
+      // If opening portfolio catalog with a category filter
+      const filterCategory = btn.getAttribute('data-category-filter');
+      if (targetId === 'portfolio-catalog-modal' && filterCategory) {
+        const matchingFilterBtn = document.querySelector(`.catalog-modal .filter-btn[data-filter="${filterCategory}"]`);
+        if (matchingFilterBtn) {
+          matchingFilterBtn.click();
+        }
+      }
     });
   });
 
