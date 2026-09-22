@@ -1,5 +1,5 @@
 // Addotei Creative Studio - Service Worker
-const CACHE_NAME = 'addotei-studio-v3-8';
+const CACHE_NAME = 'addotei-studio-v3-9';
 const ASSETS_TO_CACHE = [
   './',
   './index.html',
@@ -7,6 +7,7 @@ const ASSETS_TO_CACHE = [
   './script.js',
   './manifest.json',
   './images/addotei-official-logo.jpg',
+  './images/david-addotei-monogram.png',
   './images/icon-192.png',
   './images/icon-512.png'
 ];

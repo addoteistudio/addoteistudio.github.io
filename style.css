@@ -333,6 +333,24 @@ ul {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
+}
+
+.brand-monogram-img {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+  object-fit: cover;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+  display: block;
+  transition: all var(--transition-smooth);
+}
+
+.brand-logo:hover .brand-monogram-img {
+  border-color: var(--color-gold);
+  transform: scale(1.06);
+  box-shadow: 0 4px 20px rgba(212, 175, 55, 0.35);
 }
 
 .brand-text {
@@ -341,19 +359,49 @@ ul {
 }
 
 .brand-name {
-  font-family: var(--font-sans);
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 3px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
   color: var(--text-primary);
-  line-height: 1.1;
+  line-height: 1.15;
+  transition: color var(--transition-fast);
+}
+
+.brand-logo:hover .brand-name {
+  color: var(--color-gold);
 }
 
 .brand-sub {
-  font-size: 9px;
+  font-family: var(--font-sans);
+  font-size: 8.5px;
   font-weight: 600;
-  letter-spacing: 3px;
+  letter-spacing: 3.5px;
   color: var(--color-gold);
+  text-transform: uppercase;
+}
+
+.preloader-monogram-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  border: 1.5px solid var(--color-gold);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+  animation: pulseLogo 2s ease-in-out infinite;
+}
+
+@keyframes pulseLogo {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 20px rgba(212, 175, 55, 0.3); }
+  50% { transform: scale(1.04); box-shadow: 0 0 35px rgba(212, 175, 55, 0.55); }
+}
+
+.dossier-monogram-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--color-gold);
+  object-fit: cover;
+  display: block;
 }
 
 /* Desktop Nav */
