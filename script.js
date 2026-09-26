@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const htmlRoot = document.documentElement;
 
   /* Retrieve saved preference or default to dark */
-  const savedTheme = localStorage.getItem('acs_theme') || 'dark';
+  const savedTheme = localStorage.getItem('acs_theme') || 'light';
   htmlRoot.setAttribute('data-theme', savedTheme);
 
   if (themeToggleBtn) {
