@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    (function() {
+      try {
+        // Force reset any old 'dark' preference to 'light' (white theme default)
+        if (localStorage.getItem('acs_theme_v5_white') !== 'done') {
+          localStorage.setItem('acs_theme', 'light');
+          localStorage.setItem('acs_theme_v5_white', 'done');
+        }
+        var currentTheme = localStorage.getItem('acs_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+      } catch(e) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+
+      // Automatically unregister stale Service Workers and purge old caches
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(regs) {
+          for (var reg of regs) { reg.unregister(); }
+        });
+      }
+      if ('caches' in window) {
+        caches.keys().then(function(names) {
+          for (var name of names) {
+            if (name !== 'addotei-studio-v4-5') {
+              caches.delete(name);
+            }
+          }
+        });
+      }
+    })();
+  </script>
+  
+  <!-- Primary Meta Tags -->
+  <title>FAQ & Verified Client Reviews | David Addotei Creative Studio</title>
+  <meta name="title" content="Addotei Creative Studio | Premium Graphic Design, Branding &amp; Flyers by David Addotei">
+  <meta name="description" content="Answers to common questions about turnaround times, project preparation, and client reviews from pastors, CEOs, and founders.">
+  <meta name="keywords" content="Graphic Designer, Flyer Design, Church Flyers, Event Flyers, Business Flyers, Logo Design, Brand Identity, Social Media Graphics, Posters, David Addotei, Addotei Creative Studio, Luxury Design">
+  <meta name="author" content="David Addotei">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://addoteistudio.github.io/">
+  <meta property="og:title" content="Addotei Creative Studio | Premium Graphic Design &amp; Visual Branding">
+  <meta property="og:description" content="Award-winning flyer design, brand identity, and visual marketing for businesses, churches, events, and entrepreneurs.">
+  <meta property="og:image" content="https://addoteistudio.github.io/images/portfolio/david-addotei-signature-logo.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://addoteistudio.github.io/">
+  <meta property="twitter:title" content="Addotei Creative Studio | David Addotei">
+  <meta property="twitter:description" content="Transforming brands through iconic flyers, timeless logos, and luxury visual design.">
+  <meta property="twitter:image" content="https://addoteistudio.github.io/images/portfolio/david-addotei-signature-logo.jpg">
+
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/png" href="images/david-addotei-monogram.png">
+  <link rel="apple-touch-icon" href="images/david-addotei-monogram.png">
+  <link rel="alternate icon" type="image/x-icon" href="images/app-icon.ico">
+  <link rel="apple-touch-icon" sizes="192x192" href="images/icon-192.png">
+
+  <!-- Progressive Web App (PWA) Manifest -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Addotei Studio">
+  <meta name="application-name" content="Addotei Studio">
+
+  <!-- Google Fonts -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://js.paystack.co">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css?v=5.0">
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Addotei Creative Studio",
+    "founder": {
+      "@type": "Person",
+      "name": "David Addotei",
+      "jobTitle": "Creative Director & Lead Graphic Designer"
+    },
+    "description": "Premium graphic design studio specializing in event flyers, church flyers, corporate identity, logo design, and social media branding.",
+    "priceRange": "$$",
+    "serviceArea": {
+      "@type": "AdministrativeArea",
+      "name": "Global & International"
+    },
+    "sameAs": [
+      "https://www.instagram.com/addoteicreative_studio/",
+      "https://www.tiktok.com/@addoteicreative_studio",
+      "https://t.me/addoteicreative_studio",
+      "https://wa.me/233539554952"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Graphic Design Services",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flyer Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Church Flyer Design" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Logo & Brand Identity" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Graphics" } }
+      ]
+    }
+  }
+  </script>
+  <!-- Paystack Inline Payment Gateway SDK -->
+  <!-- Paystack Inline Payment Gateway SDK (Deferred for non-blocking rendering) -->
+  <!-- Paystack Inline Payment Gateway SDK (Deferred for non-blocking rendering) -->
+  <script src="https://js.paystack.co/v1/inline.js" defer></script>
+</head>
+<body>
+<!-- Preloader Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-monogram">
+        <img src="images/david-addotei-monogram.png" alt="David Addotei Official AD Monogram" class="preloader-monogram-img">
+      </div>
+      <h2 class="preloader-text">DAVID ADDOTEI CREATIVE STUDIO</h2>
+      <div class="preloader-bar"><div class="preloader-progress"></div></div>
+  <script>
+    /* Ultra-fast preloader dismiss (instant UI rendering) */
+    (function() {
+      function dismissPreloader() {
+        var p = document.getElementById('preloader');
+        if (p && !p.classList.contains('fade-out')) {
+          p.classList.add('fade-out');
+          setTimeout(function() { p.style.display = 'none'; }, 250);
+        }
+      }
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        setTimeout(dismissPreloader, 80);
+      } else {
+        document.addEventListener('DOMContentLoaded', function() { setTimeout(dismissPreloader, 80); });
+        window.addEventListener('load', dismissPreloader);
+        setTimeout(dismissPreloader, 500);
+      }
+    })();
+  </script>
+    </div>
+  </div>
+
+  
+  <!-- Header & Navigation -->
+  <header class="site-header" id="site-header">
+    <div class="container nav-container">
+      <a href="index.html" class="brand-logo" aria-label="David Addotei Creative Studio Home">
+        <span class="logo-mark">
+          <img src="images/david-addotei-monogram.png" alt="David Addotei AD Logo" class="brand-monogram-img">
+        </span>
+        <span class="brand-text">
+          <strong class="brand-name">DAVID ADDOTEI</strong>
+          <small class="brand-sub">CREATIVE STUDIO</small>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link ">Home</a></li>
+          <li><a href="portfolio.html" class="nav-link ">Portfolio</a></li>
+          <li><a href="about.html" class="nav-link ">About &amp; Why Us</a></li>
+          <li><a href="faq.html" class="nav-link active">FAQ &amp; Reviews</a></li>
+          <li><a href="contact.html" class="nav-link ">Contact &amp; Pay</a></li>
+        </ul>
+      </nav>
+
+      <!-- Action Items: Theme Switcher & Hire Button -->
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark and light theme" title="Switch Theme">
+          <span class="theme-icon sun-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+          </span>
+          <span class="theme-icon moon-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </span>
+        </button>
+
+        <a href="contact.html" class="btn btn-gold btn-sm hide-mobile">Hire Me</a>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button id="menu-toggle" class="menu-toggle-btn" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="mobile-drawer" aria-hidden="true">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link ">Home</a></li>
+        <li><a href="portfolio.html" class="mobile-nav-link ">Portfolio Catalog</a></li>
+        <li><a href="about.html" class="mobile-nav-link ">About &amp; Why Us</a></li>
+        <li><a href="faq.html" class="mobile-nav-link active">FAQ &amp; Reviews</a></li>
+        <li><a href="contact.html" class="mobile-nav-link ">Contact &amp; Pay Online</a></li>
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="contact.html" class="btn btn-gold btn-block mobile-nav-link">Hire Me Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Page Hero Banner -->
+    <section class="page-hero">
+      <div class="container">
+        <nav class="page-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>FAQ &amp; Reviews</span>
+        </nav>
+        <span class="section-tag">CLIENT GUIDELINES &amp; ENDORSEMENTS</span>
+        <h1 class="page-hero-title">Frequently Asked Questions &amp; <span class="gold-gradient-text">Client Reviews</span></h1>
+        <p class="page-hero-desc">
+          Everything you need to know before ordering, plus authentic feedback from leaders who trust Addotei Creative Studio.
+        </p>
+      </div>
+    </section>
+
+<!-- Section 6: FAQ -->
+    <section id="faq" class="section faq-section">
+      <div class="container faq-container">
+        <div class="section-header text-center">
+          <span class="section-tag">FREQUENTLY ASKED QUESTIONS</span>
+          <h2 class="section-title">Everything You Need to Know <span class="gold-gradient-text">Before Ordering</span></h2>
+          <p class="section-subtitle">Have questions before we get started? Here are straightforward answers to our most common client inquiries.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <div class="faq-accordion" id="faq-accordion">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is your typical turnaround time for designs?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>For standard flyers, posters, and social media graphics, turnaround is typically <strong>24 to 48 hours</strong> after we receive your brief and content. Full brand identity suites and custom logo packages take between 3 to 7 business days. If you are on an urgent deadline, <strong>same-day express delivery (12 hours)</strong> is available upon request.</p>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What information do I need to prepare before hiring you?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>To ensure a fast and accurate design, prepare:
+                <br>1. Complete text details (Event name, theme, date, time, venue, guest ministers/speakers, contact info).
+                <br>2. High-resolution photos of speakers, hosts, or products.
+                <br>3. High-resolution logo file (preferably PNG with transparent background or vector).
+                <br>4. Any specific color preferences or reference flyer examples you admire.
+              </p>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How do payments work?</span>
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>We typically require a <strong>50% commitment deposit</strong> to commence design work, with the remaining 50% balance due upon your final design approval right before source and high-resolution print files are delivered. We accept Mobile Money, Bank Transfers, PayPal, and major credit cards.</p>
+              <div style="margin-top: 14px;">
+                <button type="button" class="btn btn-gold btn-sm pay-online-trigger" data-modal-open="paystack-modal" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                  <span>Pay Online / Make Deposit &rarr;</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    
+<!-- Section 7: Testimonials -->
+    <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-tag">CLIENT ENDORSEMENTS</span>
+          <h2 class="section-title">What Our Clients <span class="gold-gradient-text">Say About Us</span></h2>
+          <p class="section-subtitle">Real experiences from pastors, business leaders, event promoters, and founders who trust Addotei Creative Studio.</p>
+          <div class="title-divider"></div>
+        </div>
+
+        <!-- Testimonials Action Bar with Leave a Review Trigger -->
+        <div class="testimonials-action-bar">
+          <div class="review-stat-pill">
+            <span class="review-stars-gold">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+            <span class="review-score"><strong>4.9 / 5.0</strong> Client Rating</span>
+            <span class="review-badge-count">(50+ Commissions)</span>
+          </div>
+          <button type="button" class="btn btn-sm btn-gold" data-modal-open="review-modal">
+            <span>&#9998; Leave a Client Review</span>
+          </button>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid">
+          
+          <!-- Testimonial 1: Church & Ministry -->
+          <div class="testimonial-card">
+            <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-quote">
+              "David designed the official flyers for our annual national youth convention. The design was so majestic that attendance increased by over 40%. His ability to capture our spiritual theme in an elegant, modern format was remarkable!"
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">PA</div>
+              <div class="author-info">
+                <strong class="author-name">Pastor Daniel Mensah</strong>
+                <span class="author-role">Senior Pastor, Grace Tabernacle</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2: Corporate Summit (Featured) -->
+          <div class="testimonial-card featured-testimonial">
+            <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-quote">
+              "Working with Addotei Creative Studio was the best decision for our investment summit. David delivered our complete speaker flyers and rollup banners in under 36 hours. The clean, luxury look impressed every CEO in attendance."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar gold-avatar">EA</div>
+              <div class="author-info">
+                <strong class="author-name">Dr. Elizabeth Arthur-Mensah</strong>
+                <span class="author-role">Managing Director, Apex Capital</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3: Luxury Branding & Identity -->
+          <div class="testimonial-card">
+            <div class="rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-quote">
+              "When I launched my luxury skincare line, I needed branding that felt international and timeless. David created a logo and packaging suite that rivaled top French luxury houses. Truly an exceptional talent."
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar">EV</div>
+              <div class="author-info">
+                <strong class="author-name">Eleanor Vance</strong>
+                <span class="author-role">Founder &amp; CEO, Solstice Organics</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="testimonials-footer-cta text-center">
+          <p class="testimonials-cta-text">Have you worked with David on a flyer or branding project?</p>
+          <button type="button" class="btn btn-sm btn-outline" data-modal-open="review-modal">
+            <span>Share Your Experience &amp; Rating &rarr;</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- Bottom Page CTA Banner -->
+    <section class="section" style="padding: 60px 0; background-color: var(--bg-secondary); border-top: 1px solid var(--border-color);">
+      <div class="container text-center">
+        <h3 style="font-family: var(--font-serif); font-size: 26px; margin-bottom: 12px; color: var(--text-primary);">Have a specific inquiry not listed above?</h3>
+        <p style="color: var(--text-secondary); max-width: 600px; margin: 0 auto 24px;">Reach out directly on WhatsApp or submit a formal project brief on our contact page.</p>
+        <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+          <a href="https://wa.me/233539554952?text=Hello%20David%2C%20I%20have%20a%20question%20regarding%20a%20design%20project." target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-md">Chat Directly on WhatsApp &rarr;</a>
+          <a href="contact.html" class="btn btn-outline btn-md">Go to Booking &amp; Payment Page &rarr;</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Section: Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-grid">
+        
+        <!-- Brand & Bio Col -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand-logo footer-logo" aria-label="David Addotei Creative Studio Home">
+            <span class="logo-mark">
+              <img src="images/david-addotei-monogram.png" alt="David Addotei AD Logo" class="brand-monogram-img">
+            </span>
+            <span class="brand-text">
+              <strong class="brand-name">DAVID ADDOTEI</strong>
+              <small class="brand-sub">CREATIVE STUDIO</small>
+            </span>
+          </a>
+          <p class="footer-bio">
+            A luxury minimalist graphic design practice led by David Addotei. Dedicated to forging iconic visual experiences for forward-thinking brands, churches, events, and visionaries globally.
+          </p>
+          <div class="footer-badge-pill">
+            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:inline-block; vertical-align:middle; margin-right:4px;"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg><span>Accra, Ghana &bull; Serving Clients Worldwide</span>
+          </div>
+        </div>
+
+        <!-- Quick Navigation Col -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Studio Portals</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home Hub</a></li>
+            <li><a href="portfolio.html">Design Catalog (30 Works)</a></li>
+            <li><a href="about.html">About David &amp; Why Us</a></li>
+            <li><a href="faq.html">FAQ &amp; Client Reviews</a></li>
+            <li><a href="contact.html">Contact &amp; Pay Online</a></li>
+          </ul>
+        </div>
+
+        <!-- Creative Services Col -->
+        <div class="footer-links-col">
+          <h4 class="footer-heading">Creative Services</h4>
+          <ul class="footer-links">
+            <li><a href="portfolio.html">Church &amp; Ministry Flyers</a></li>
+            <li><a href="portfolio.html">Event &amp; Nightlife Flyers</a></li>
+            <li><a href="portfolio.html">Corporate Business Flyers</a></li>
+            <li><a href="portfolio.html">Logo &amp; Brand Identity</a></li>
+            <li><a href="portfolio.html">Social Media Campaigns</a></li>
+            <li><a href="portfolio.html">Posters &amp; Rollup Banners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Footer: Copyright & Legal & Navigation -->
+      <div class="footer-bottom-bar">
+        <div class="footer-copyright-wrap">
+          <div class="footer-copyright-main">
+            &copy; <span id="current-year">2026</span> <strong>Addotei Creative Studio</strong>. All Rights Reserved.
+          </div>
+          <div class="footer-copyright-sub">
+            Designed &amp; Directed by <strong>David Addotei</strong> &bull; Luxury Minimalism &bull; Accra, Ghana.
+          </div>
+        </div>
+
+        <div class="footer-bottom-actions">
+          <div class="footer-legal-links">
+            <button type="button" class="legal-link-btn" data-modal-open="privacy-modal">Privacy Policy</button>
+            <span class="legal-sep">&bull;</span>
+            <button type="button" class="legal-link-btn" data-modal-open="terms-modal">Terms of Service</button>
+            <span class="legal-sep">&bull;</span>
+            <button type="button" class="legal-link-btn" data-modal-open="copyright-modal">Copyright &amp; IP</button>
+          </div>
+          <a href="#site-header" class="footer-back-top-link">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+  <!-- Floating Back to Top Button -->
+  <button id="back-to-top" class="back-to-top-btn" aria-label="Back to top of page" title="Back to top">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Floating Anti-Theft Toast Notification -->
+  <div id="anti-theft-toast" class="anti-theft-toast" aria-live="polite">
+    <span class="toast-icon"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display:inline-block; vertical-align:middle;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></span>
+    <span class="toast-text">Artwork Protected &bull; &copy; Addotei Creative Studio</span>
+  </div>
+<!-- =========================================================================
+       INTERACTIVE CLIENT REVIEW MODAL
+       ========================================================================= -->
+  <div id="review-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="review-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card review-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">CLIENT ENDORSEMENT</span>
+          <h3 id="review-modal-title" class="legal-modal-title">Leave a Client Review</h3>
+          <p class="legal-modal-subtitle">Share your experience working with David Addotei</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Review Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <form id="client-review-form" class="client-review-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-client-name" class="form-label">Your Name <span class="req">*</span></label>
+              <input type="text" id="review-client-name" name="client_name" class="form-input" placeholder="e.g. Pastor Michael Mensah" required>
+            </div>
+            <div class="form-group">
+              <label for="review-client-role" class="form-label">Title / Church / Business <span class="req">*</span></label>
+              <input type="text" id="review-client-role" name="client_role" class="form-input" placeholder="e.g. Lead Pastor, Grace Church" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="review-client-email" class="form-label">Your Email <span class="req">*</span></label>
+              <input type="email" id="review-client-email" name="client_email" class="form-input" placeholder="e.g. client@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="review-service-type" class="form-label">Service Received <span class="req">*</span></label>
+              <select id="review-service-type" name="service_type" class="form-select" required>
+                <option value="Event Flyer">Event &amp; Club Flyer</option>
+                <option value="Church Flyer" selected>Church &amp; Ministry Flyer</option>
+                <option value="Business Flyer">Corporate Business Flyer</option>
+                <option value="Logo Design">Logo &amp; Brand Identity</option>
+                <option value="Social Media">Social Media Graphics</option>
+                <option value="Poster / Banner">Poster or Rollup Banner</option>
+                <option value="Other">Other Creative Work</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Interactive Star Rating Selector -->
+          <div class="form-group rating-selector-group">
+            <label class="form-label">Your Overall Rating <span class="req">*</span></label>
+            <div class="star-rating-widget" id="star-rating-widget">
+              <button type="button" class="star-btn active" data-value="1" aria-label="1 star">&#9733;</button>
+              <button type="button" class="star-btn active" data-value="2" aria-label="2 stars">&#9733;</button>
+              <button type="button" class="star-btn active" data-value="3" aria-label="3 stars">&#9733;</button>
+              <button type="button" class="star-btn active" data-value="4" aria-label="4 stars">&#9733;</button>
+              <button type="button" class="star-btn active" data-value="5" aria-label="5 stars">&#9733;</button>
+              <span class="rating-label-text" id="rating-label-text">5.0 - Exceptional Quality!</span>
+            </div>
+            <input type="hidden" id="review-rating-value" name="rating" value="5">
+          </div>
+
+          <div class="form-group">
+            <label for="review-message" class="form-label">Your Review / Testimonial <span class="req">*</span></label>
+            <textarea id="review-message" name="review_text" class="form-textarea" rows="3" placeholder="Tell us about the design quality, speed, communication, and impact of the artwork..." required></textarea>
+          </div>
+
+          <button type="submit" id="review-submit-btn" class="btn btn-gold btn-block btn-submit">
+            <span class="submit-text">Submit Verified Review</span>
+            <span class="submit-spinner" aria-hidden="true"></span>
+          </button>
+        </form>
+
+        <!-- Review Success Feedback Banner -->
+        <div id="review-success-banner" class="form-success-banner" aria-live="polite">
+          <div class="success-icon">&#10003;</div>
+          <h4 class="success-title">Review Submitted!</h4>
+          <p class="success-desc">Thank you for your endorsement. Your review has been recorded and delivered directly to David Addotei.</p>
+          <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close Window</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+<!-- =========================================================================
+       OFFICIAL PAYSTACK PAYMENT & DEPOSIT GATEWAY MODAL
+       ========================================================================= -->
+  <div id="paystack-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="paystack-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card payment-modal-card">
+      <div class="legal-modal-header payment-modal-header">
+        <div class="payment-header-branding">
+          <span class="dossier-emblem"><img src="images/david-addotei-monogram.png" alt="AD" class="dossier-monogram-img"></span>
+          <div>
+            <span class="legal-badge">SECURE PAYMENT GATEWAY</span>
+            <h3 id="paystack-modal-title" class="legal-modal-title">Make a Payment or Deposit</h3>
+            <p class="legal-modal-subtitle">Instant MoMo &amp; Card Settlement &bull; Powered by Paystack</p>
+          </div>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Payment Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body payment-modal-body">
+        
+        <!-- Preset Package Quick Selector -->
+        <div class="payment-package-selector">
+          <label class="form-label">Select Package / Deposit (or enter custom amount below):</label>
+          <div class="package-chips-grid">
+            <button type="button" class="package-chip active" data-amount="40" data-service="Flyer 50% Deposit">
+              <span class="chip-title">Flyer Deposit (50%)</span>
+              <strong class="chip-price">GH&#8373; 40</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="80" data-service="Single-Sided Flyer Design">
+              <span class="chip-title">Single Flyer</span>
+              <strong class="chip-price">GH&#8373; 80</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="150" data-service="Double-Sided Flyer Design">
+              <span class="chip-title">Double Flyer</span>
+              <strong class="chip-price">GH&#8373; 150</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="150" data-service="Logo Design Deposit">
+              <span class="chip-title">Logo Deposit</span>
+              <strong class="chip-price">GH&#8373; 150</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="500" data-service="Starter Business Package">
+              <span class="chip-title">Starter Package</span>
+              <strong class="chip-price">GH&#8373; 500</strong>
+            </button>
+            <button type="button" class="package-chip" data-amount="800" data-service="Business Growth Package">
+              <span class="chip-title">Growth Package</span>
+              <strong class="chip-price">GH&#8373; 800</strong>
+            </button>
+          </div>
+        </div>
+
+        <form id="paystack-checkout-form" class="paystack-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pay-client-name" class="form-label">Full Name <span class="req">*</span></label>
+              <input type="text" id="pay-client-name" class="form-input" placeholder="e.g. David Arthur" required>
+            </div>
+            <div class="form-group">
+              <label for="pay-client-email" class="form-label">Email Address (for instant receipt) <span class="req">*</span></label>
+              <input type="email" id="pay-client-email" class="form-input" placeholder="e.g. client@gmail.com" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="pay-client-phone" class="form-label">Mobile Money / WhatsApp Number <span class="req">*</span></label>
+              <input type="tel" id="pay-client-phone" class="form-input" placeholder="e.g. 0539554952" required>
+            </div>
+            <div class="form-group">
+              <label for="pay-amount-input" class="form-label">Amount in Ghana Cedis (GH&#8373;) <span class="req">*</span></label>
+              <div class="amount-input-wrap">
+                <span class="currency-prefix">GH&#8373;</span>
+                <input type="number" id="pay-amount-input" class="form-input amount-field" value="40" min="5" step="5" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="pay-project-note" class="form-label">Project Name / Description</label>
+            <input type="text" id="pay-project-note" class="form-input" placeholder="e.g. Church Revival Flyer Deposit" value="Flyer 50% Deposit">
+          </div>
+
+          <!-- Trust Badges & Supported Channels -->
+          <div class="payment-trust-card">
+            <div class="trust-pill-icons">
+              <span class="channel-badge momo">MTN MoMo</span>
+              <span class="channel-badge telecel">Telecel Cash</span>
+              <span class="channel-badge card">Visa &bull; Mastercard</span>
+              <span class="channel-badge apple">Apple Pay</span>
+            </div>
+            <div class="secure-badge-note">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align: middle; margin-right: 4px; display: inline-block;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <strong>256-Bit Bank Encryption</strong> &bull; Secured by Paystack &bull; Instant SMS &amp; Email Receipt
+            </div>
+          </div>
+
+          <button type="submit" id="paystack-submit-btn" class="btn btn-gold btn-block btn-pay" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span id="pay-btn-label">Pay GH&#8373; 40 via Mobile Money / Card</span>
+          </button>
+        </form>
+
+        <!-- Payment Success Confirmation Screen -->
+        <div id="payment-success-box" class="payment-success-box" style="display: none;" aria-live="polite">
+          <div class="success-gold-circle">&#10003;</div>
+          <h3 class="success-title">Payment Confirmed!</h3>
+          <p class="success-desc">
+            Your transaction was processed successfully by Paystack. A formal receipt has been emailed to you, and David Addotei has received an instant payment notification.
+          </p>
+          <div class="transaction-receipt-card">
+            <div class="receipt-row"><span>Amount Paid:</span><strong id="receipt-amount" class="gold-text">GH&#8373; 0.00</strong></div>
+            <div class="receipt-row"><span>Reference ID:</span><code id="receipt-ref">AD-XXXXXX</code></div>
+            <div class="receipt-row"><span>Project Purpose:</span><span id="receipt-project">Design Service</span></div>
+            <div class="receipt-row"><span>Status:</span><span class="status-verified">&#9679; Verified &amp; Settled</span></div>
+          </div>
+          <div class="success-actions" style="margin-top: 20px;">
+            <a id="payment-whatsapp-confirm-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-gold btn-block" style="display: flex; align-items: center; justify-content: center; gap: 8px;">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86.174.086.275.072.376-.043.101-.116.433-.506.549-.68.116-.173.231-.145.39-.086s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.099.824z"/></svg>
+              Send Payment Proof on WhatsApp
+            </a>
+            <button type="button" class="btn btn-outline btn-sm btn-block" data-modal-close style="margin-top: 10px;">
+              Close Window
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  
+<!-- Modal 1: Privacy Policy -->
+  <div id="privacy-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="privacy-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">DATA PROTECTION</span>
+          <h3 id="privacy-modal-title" class="legal-modal-title">Studio Privacy Policy</h3>
+          <p class="legal-modal-subtitle">Addotei Creative Studio &bull; Effective Date: January 2026</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Privacy Policy Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <h4>1. Information We Collect</h4>
+        <p>When you submit a project brief through our website, we collect your <strong>Full Name, Email Address, Phone / WhatsApp Number</strong>, and project descriptions. We do not collect cookies for tracking or sell behavioral data.</p>
+
+        <h4>2. Purpose of Collection</h4>
+        <p>Your contact details are strictly utilized to:</p>
+        <ul>
+          <li>Evaluate design scope, calculate turnaround, and issue project estimates.</li>
+          <li>Communicate revisions, proofs, and delivery files directly with you.</li>
+          <li>Invoice completed work accurately.</li>
+        </ul>
+
+        <h4>3. Absolute Zero-Spam Pledge</h4>
+        <p>We respect your inbox and messaging space. We <strong>never</strong> sell, rent, lease, or monetize your email or phone number with third-party advertisers, data brokers, or marketing lists.</p>
+
+        <h4>4. Project Brief Confidentiality (NDA Standard)</h4>
+        <p>We treat all unreleased event graphics, church conventions, unannounced business initiatives, and brand launch assets as strictly confidential prior to your public launch.</p>
+
+        <h4>5. Data Deletion &amp; Rights</h4>
+        <p>You have the right to request deletion of your contact records from our studio database at any time. Simply email <a href="mailto:d8222815@gmail.com" class="gold-text">d8222815@gmail.com</a> with the subject "Data Erasure".</p>
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Understood &amp; Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Terms of Service -->
+  <div id="terms-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="terms-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">CLIENT AGREEMENT</span>
+          <h3 id="terms-modal-title" class="legal-modal-title">Terms of Service</h3>
+          <p class="legal-modal-subtitle">Project Policies &amp; Creative Deliverables Standards</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Terms of Service Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <h4>1. Studio Engagement</h4>
+        <p>By commissioning Addotei Creative Studio (led by Creative Director David Addotei), you agree to these standard project terms. Work begins upon receipt of a confirmed project brief and commitment deposit.</p>
+
+        <h4>2. Deposit &amp; Payment Schedule</h4>
+        <ul>
+          <li>A <strong>50% commitment deposit</strong> is required upfront before design drafting and concept exploration begins.</li>
+          <li>The remaining <strong>50% balance</strong> is payable upon your approval of the final watermark proof, prior to releasing unwatermarked 300 DPI master print and web files.</li>
+          <li>Accepted channels include MTN Mobile Money, Telecel Cash, Direct Bank Transfer, and PayPal.</li>
+        </ul>
+
+        <h4>3. Revision Policy</h4>
+        <p>Every standard design package includes up to <strong>2 to 3 rounds of revisions</strong> (text changes, color tweaks, element sizing, speaker photo replacements). Drastic scope changes requested after initial brief approval (e.g. changing the entire event concept, date, or new theme) are billed as a new design.</p>
+
+        <h4>4. Production Turnaround</h4>
+        <p>Standard turnaround is <strong>24 to 48 hours</strong> from deposit clearance and asset receipt (high-res photos, approved text). Delays in client feedback or missing content may extend production timelines.</p>
+
+        <h4>5. Cancellations &amp; Refunds</h4>
+        <p>Because creative design reserves dedicated studio labor and hours, deposits are non-refundable once initial concept drafting has commenced.</p>
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Accept &amp; Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Copyright & IP Notice -->
+  <div id="copyright-modal" class="legal-modal" aria-hidden="true" role="dialog" aria-labelledby="copyright-modal-title">
+    <div class="legal-modal-backdrop" data-modal-close></div>
+    <div class="legal-modal-card">
+      <div class="legal-modal-header">
+        <div>
+          <span class="legal-badge">INTELLECTUAL PROPERTY</span>
+          <h3 id="copyright-modal-title" class="legal-modal-title">Copyright &amp; Ownership</h3>
+          <p class="legal-modal-subtitle">Creative Rights, Commercial Ownership &amp; Portfolio Usage</p>
+        </div>
+        <button type="button" class="legal-close-btn" data-modal-close aria-label="Close Copyright Modal">&times;</button>
+      </div>
+
+      <div class="legal-modal-body">
+        <h4>1. 100% Commercial Rights Transfer</h4>
+        <p>Upon full settlement of the final invoice, full and unrestricted <strong>commercial usage rights</strong> to the approved design deliverables transfer 100% to you (the client). You may print, distribute, publish, and advertise the final design without recurring license fees.</p>
+
+        <h4>2. Studio Portfolio Showcase Rights</h4>
+        <p>Addotei Creative Studio retains the customary professional right to exhibit completed artworks across studio portfolios, social media showcases, and marketing archives as demonstrations of creative caliber.</p>
+
+        <h4>3. Originality &amp; Licensed Assets</h4>
+        <p>We guarantee all compositions are crafted with original creative layouts. Any incorporated third-party typefaces, textures, or stock photography conform to commercial licensing standards.</p>
+
+        <h4>4. Anti-Theft &amp; Web Scraping Notice</h4>
+        <p>All portfolio items, mockups, vector artwork, and flyer samples displayed on this website are the intellectual property of Addotei Creative Studio. Unauthorized downloading, scraping, watermark removal, or commercial resale of our portfolio artwork is strictly prohibited and subject to DMCA takedowns.</p>
+      </div>
+
+      <div class="legal-modal-footer">
+        <button type="button" class="btn btn-sm btn-gold" data-modal-close>Close</button>
+      </div>
+    </div>
+  </div>
+
+  
+
+  <!-- Main JavaScript File -->
+  <script src="script.js?v=5.0"></script>
+</body>
+</html>
