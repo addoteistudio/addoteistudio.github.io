@@ -79,7 +79,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,400;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
-  <link rel="stylesheet" href="style.css?v=4.5">
+  <link rel="stylesheet" href="style.css?v=4.6">
 
   <!-- Schema.org Structured Data -->
   <script type="application/ld+json">
@@ -202,11 +202,6 @@
             </svg>
           </span>
         </button>
-
-                <button type="button" id="header-pay-btn" class="btn btn-outline btn-sm hide-mobile pay-online-trigger" data-modal-open="paystack-modal" style="border-color: rgba(212, 175, 55, 0.4); display: inline-flex; align-items: center; gap: 6px;" title="Pay Online via Mobile Money or Card">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--color-gold, #D4AF37); flex-shrink: 0;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-          <span>Pay Online</span>
-        </button>
         <a href="#contact" class="btn btn-gold btn-sm hide-mobile">Hire Me</a>
 
         <!-- Mobile Hamburger Toggle -->
@@ -228,12 +223,6 @@
         <li><a href="#faq" class="mobile-nav-link">FAQ</a></li>
         <li><a href="#testimonials" class="mobile-nav-link">Testimonials</a></li>
         <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
-        <li>
-          <button type="button" id="mobile-pay-btn" class="btn btn-gold btn-block btn-sm pay-online-trigger" data-modal-open="paystack-modal" style="margin-top: 14px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink: 0;"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
-            <span>Pay Online (MoMo &amp; Card)</span>
-          </button>
-        </li>
       </ul>
       <div class="mobile-menu-cta">
         <a href="#contact" class="btn btn-gold btn-block mobile-nav-link">Hire Me Now</a>
@@ -632,6 +621,12 @@
             </button>
             <div class="faq-answer">
               <p>We typically require a <strong>50% commitment deposit</strong> to commence design work, with the remaining 50% balance due upon your final design approval right before source and high-resolution print files are delivered. We accept Mobile Money, Bank Transfers, PayPal, and major credit cards.</p>
+              <div style="margin-top: 14px;">
+                <button type="button" class="btn btn-gold btn-sm pay-online-trigger" data-modal-open="paystack-modal" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                  <span>Pay Online / Make Deposit &rarr;</span>
+                </button>
+              </div>
             </div>
           </div>
 
@@ -820,20 +815,25 @@
                   </div>
                 </div>
 
-                <!-- Paystack Instant Online Payment -->
-                <div class="contact-item">
-                  <div class="contact-item-icon paystack-bg" style="background: rgba(212, 175, 55, 0.15); color: #D4AF37;">
+                <!-- Official Pay Online & Instant Settlement -->
+                <div class="contact-item contact-item-payment" style="background: rgba(212, 175, 55, 0.06); border: 1.5px solid var(--border-gold); border-radius: 14px; padding: 20px;">
+                  <div class="contact-item-icon paystack-bg" style="background: var(--color-gold); color: #000000; box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);">
                     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
                       <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
                       <line x1="1" y1="10" x2="23" y2="10"></line>
                     </svg>
                   </div>
-                  <div class="contact-item-content">
-                    <span class="contact-label">Instant Online Settlement</span>
-                    <strong class="contact-val">Paystack (MoMo &amp; Card)</strong>
-                    <a href="javascript:void(0)" class="contact-action-link pay-online-trigger" data-modal-open="paystack-modal">
-                      Make Deposit / Pay Online &rarr;
-                    </a>
+                  <div class="contact-item-content" style="width: 100%;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;">
+                      <span class="contact-label" style="color: var(--color-gold); font-weight: 700; letter-spacing: 1px;">INSTANT ONLINE PAYMENT</span>
+                      <span style="font-size: 11px; padding: 2px 8px; background: rgba(16, 185, 129, 0.15); color: #10B981; border-radius: 20px; font-weight: 600;">Automated &bull; Secure</span>
+                    </div>
+                    <strong class="contact-val" style="margin-top: 4px; display: block; font-size: 16px;">Pay Online (MTN MoMo, Telecel &amp; Cards)</strong>
+                    <p style="font-size: 13px; color: var(--text-muted); margin: 6px 0 14px; line-height: 1.5;">Make a 50% commitment deposit or complete payment securely via our integrated Paystack gateway.</p>
+                    <button type="button" class="btn btn-gold btn-sm pay-online-trigger" data-modal-open="paystack-modal" style="width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; letter-spacing: 0.5px;">
+                      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                      <span>Pay Online via Paystack Now</span>
+                    </button>
                   </div>
                 </div>
 
@@ -993,8 +993,14 @@
                   </div>
                 </div>
 
-                <div class="payment-methods-strip">
-                  <span class="payment-strip-title">Accepted Payment Channels:</span>
+                <div class="payment-methods-strip" style="display: flex; flex-direction: column; gap: 12px;">
+                  <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <span class="payment-strip-title">Accepted Payment Channels:</span>
+                    <button type="button" class="btn btn-gold btn-xs pay-online-trigger" data-modal-open="paystack-modal" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700;">
+                      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                      <span>Pay Online Now &rarr;</span>
+                    </button>
+                  </div>
                   <div class="payment-pill-group">
                     <span class="pay-pill momo" title="MTN Mobile Money">MTN MoMo</span>
                     <span class="pay-pill telecel" title="Telecel Cash">Telecel Cash</span>
@@ -2422,6 +2428,6 @@
   </button>
 
   <!-- Main JavaScript File -->
-  <script src="script.js?v=4.5"></script>
+  <script src="script.js?v=4.6"></script>
 </body>
 </html>
